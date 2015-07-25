@@ -10,5 +10,6 @@ For changes to this repository:
 6: In terminal git push
 7: You have now updated your website!
 
+Note: use just git to show common git commands
 Note: Domain is through Google Domains Beta
 Note: CNAME files are used for DNS forwarding
