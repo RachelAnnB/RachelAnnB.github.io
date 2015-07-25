@@ -13,3 +13,4 @@ For changes to this repository:
 Note: use just git to show common git commands
 Note: Domain is through Google Domains Beta
 Note: CNAME files are used for DNS forwarding
+Note: use esc:wq to back out of a commit
