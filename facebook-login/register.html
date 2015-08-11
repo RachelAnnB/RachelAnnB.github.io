@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Noter App Built with Parse</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style type="text/css">
+
+    body {
+      font-family: "Helvetica", sans-serif;
+      font-weight: normal;
+    }
+    h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    a {
+      text-decoration: none;
+    }
+    .hidden {
+      display: none;
+    }
+    #main {
+      text-align: center;
+    }
+    input {
+      padding: 10px;
+      border-radius: 3px;
+      border: 1px solid black;
+      box-shadow: inset 0 0 10px black;
+      font-size: 24px;
+    }
+    #input-wrapper{
+      padding-bottom: 15px;
+    }
+    #list-item-submit {
+      background: #61FF7E;
+      color: white;
+      box-shadow: none;
+      border-color: black;
+    }
+    li {
+      text-align: left;
+      font-family: sans-serif;
+      list-style: none;
+      padding: 10px 0;
+      border-bottom: 1px solid black;
+      margin-left: -10px;
+    }
+    li input {
+      margin-right: 15px;
+    }
+
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/yui/3.18.0/yui/yui-min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body style="background: url(images/bgnoise_lg.png) repeat left top;">
+
+  <div id="content" style="background: url(images/bgnoise_lg.png) repeat left top;">
+    <nav id="navigation">
+      <ul>
+        <li> <a href="index.html"> Home </a></li>
+        <li> <a href="register.html"> Login </a></li>
+        <li> <a href="register.html"> Registration </a></li>
+        <li> <a href="blog.html"> Blog </a></li>
+        <li> <a href="contact.html"> Contact </a></li>
+        <li> <a href="about.html"> About </a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <h1>Log In</h1>
+  <div class="error" style="display:none"></div>
+  <input type="text" id="login-username" placeholder="Username" size="20"/>
+  <input type="password" id="login-password" placeholder="Password" size="20"/>
+  <input type="button" id="login" value="Login">
+
+  <form class="signup-form">
+    <h1>Sign Up</h1>
+    <div class="error" style="display:none"></div>
+    &nbsp;&nbsp; <input type="text" id="signup-username" placeholder="Username" size="20"/>
+    <input type="password" id="signup-password" placeholder="Password" size="20"/>
+    <input type="button" id="signup" value="Sign Up">
+  </form>
+
+  <br><br>
+  
+  <center>
+    <h1>Noter</h1>
+    <br>
+  </center>
+
+  <div id="main">
+
+    <div id="input-wrapper">
+      <input type="text" id="list-input" placeholder="Enter a Note Here" />
+      <input type="button" id="list-item-submit" value="Add" />
+    </div>
+
+    <div>
+      <h1>Incomplete Task</h1>
+      <ul id="incomplete-items">
+        <li id="no-incomplete-message">There is no Incomplete Task, try adding one above.</li>
+      </ul>  
+    </div>
+
+  </div>
+
+  <script type="x/handlebars" id="noter-items-template">
+    <li class="list-item"><input type="checkbox" id="{id}" > {content}</li>
+  </script>
+
+  <script>
+
+    YUI().use('node', function(Y) {
+      var ListItem,
+          query,
+          noTasksMessage = Y.one('#no-incomplete-message'),
+          submitBtn = Y.one('#list-item-submit'),
+          loginBtn = Y.one('#login'),
+          signupBtn = Y.one('#signup'),
+          incompleteItemList = Y.one('#incomplete-items'),
+          completeItemList = Y.one('#complete-items'),
+          input = Y.one('#list-input');
+
+
+
+      Parse.initialize("P7bNBlVLxTBsXMqTHnQJ4BzqBZt72JChn58Jfzal", "pN6bkby0OUNFpAXGFVm1Ls57UA4gKFAMHTTOR7y8");
+
+      //CLICK FUNCTION FOR SIGN UP BUTTON
+      var user = new Parse.User();
+      signupBtn.on('click', function(e) {
+        var username1 = Y.one('#signup-username').get('value');
+        var password1 = Y.one('#signup-password').get('value');
+
+        user.set("username", username1);
+        user.set("password", password1);
+
+        user.signUp(null, {
+          success: function(user) {
+            alert("Congratulations! You are now signed up for Noter.");
+          },
+          error: function(user, error) {
+            // Show the error message somewhere and let the user try again.
+            alert("Error: " + error.code + " " + error.message);
+          }
+        });
+      });
+
+      //CLICK FUNCTION FOR LOGIN BUTTON
+      loginBtn.on('click', function(e) {
+        var username2 = Y.one('#login-username').get('value');
+        var password2 = Y.one('#login-password').get('value');
+
+        Parse.User.logIn(username2, password2, {
+          success: function(user) {
+            alert("You have successfuly loggin in.");
+
+          //CLICK FUNCTION FOR SUBMIT BUTTON
+          submitBtn.on('click', function(e) {
+          var text = Y.one('#list-input').get('value');
+
+          ListItem = Parse.Object.extend("ListItem");
+          var listItem = new ListItem();
+
+          listItem.set("content", text);
+          listItem.set("isComplete", false);
+
+          listItem.save(null, {
+          success : function(item){
+          noTasksMessage.addClass('hidden');
+          var content = Y.Lang.sub(Y.one('#noter-items-template').getHTML(), {
+          content: item.get('content'),
+          id : item.id,
+          isComplete: item.get('isComplete')
+        });
+
+        incompleteItemList.append(content);
+      },
+
+                  error : function(error) {
+        alert("Error when saving noters: " + error.code + error.code + " " + error.message);
+      },
+    });
+    });
+
+    ListItem = Parse.Object.extend("ListItem");  
+    query = new Parse.Object(ListItem);
+    query.equalTo('isComplete', false)
+    query.limit = 10;
+    query.descending('createdAt');
+    query.find({
+      success: function(results) {
+        if (results.length > 0) {
+          noTasksMessage.addClass('hidden');
+        }
+
+        Y.Array.each(results, function(val, i, arr) {
+          var content = Y.Lang.sub(Y.one('#noter-items-template').getHTML(), {
+            content: val.get('content'),
+            id: val.id,
+            isComplete: false
+          });
+          incompleteItemList.append(content);
+        });
+
+        incompleteItemList.delegate('click', function (e) {
+          var self = this;
+          query = new Parse.Query(ListItem);
+          query.get(self.one('input').get('id'), {
+            success: function(item) {
+              item.set('isComplete', true);
+              item.save();
+              self.remove();
+
+              if (incompleteItemList.all('li').size() >= 1) {
+                noTasksMessage.removeClass('hidden');
+              }
+            },
+            error: function(object, error) {
+              alert("Error when updating noter item; " + error.code + " " + error.message);
+            }
+          });
+        }, 'li');
+      },
+
+      error: function(error) {
+        alert("Error when retrieving noters: " + error.code + " " + error.message);
+      }    
+    });
+    },
+      error: function(user, error) {
+        // The login failed. Check error to see why.
+      }
+    });
+    });
+
+
+
+    });
+
+  </script>
+
+</body>
+</html>
