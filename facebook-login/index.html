@@ -42,7 +42,7 @@
   <script>
     
     //Initializing Parse
-    Parse.initialize("P7bNBlVLxTBsXMqTHnQJ4BzqBZt72JChn58Jfzal", "pN6bkby0OUNFpAXGFVm1Ls57UA4gKFAMHTTOR7y8");
+    Parse.initialize("f5Ll5wlGw2ZYYke4yQu2ErBoYtbUhZsB2hV9YzWN", "gVGtznbf2Xfo1yYnCTFy092YswTrofE9dBlrLgU4");
 
     //This is called with the results from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -76,7 +76,7 @@
 
     window.fbAsyncInit = function() {
       Parse.FacebookUtils.init({    //This line replaces FB.init({
-        appId      : '118928525119061',   //Facebook app id
+        appId      : '887960807907844',   //Facebook app id
         status     : true,      //check Facebook Login Status
         cookie     : true,      //enable cookies to allow Parse to access the session
         xfbml      : true,      //parse social plugins on this pace
@@ -126,7 +126,7 @@
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
        js = d.createElement(s); js.id = id;
-       //js.src = "//connect.facebook.net/en_US/sdk/debug.js";    //debug.js improves performance
+       js.src = "//connect.facebook.net/en_US/sdk/debug.js";    //debug.js improves performance
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
     
