@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
 
-  <title>Todo Application</title>
+  <title>Parse Todo Application</title>
   
   <!--Links to CSS Stylesheets-->
   <link rel="stylesheet" href="css/main.css" media="all" type="text/css">
@@ -16,14 +16,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-
-<!--Facebook Login Info inside Notes Application, also check Parse Tutorials (Any Yolk)-->
+  <script src="//connect.facebook.net/en_US/all.js"></script>
 
 </head>
 <body>
   
   <div class="title">
-    <h1>Parse Todo Application!</h1>
+    <h1>Parse Todo Application</h1>
   </div>
   
   <div class="container">
@@ -35,14 +34,18 @@
     
     <!--Facebook Login Info-->
     <div id="fb-root"></div>
-    <script>
+    <script type="text/javascript">
+      Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
+      
       window.fbAsyncInit = function() {
         //Initiate the Facebook Javascript SDK
         Parse.FacebookUtils.init({
           appId : '1664061573828425',
           status : false, //Checks Facebook login status
+          cookie : true, //Enable cookies to allow Parse to access the session
           xfbml : true, //Looks for social plugins on the page
-          logging : true
+          logging : true,
+          version : 'v2.4'
         });
         
         Parse.FacebookUtils.logIn(null, {
@@ -72,25 +75,21 @@
     </script>
     
     <!--Facebook Login-->
-    <div data-role="page" id="login">
-      <div data-role="header">
-        <h1>Login to Facebook</h1>
+    <div id="login">
+      <div>
+        <h2>Login to Facebook</h2>
       </div>
       
-      <div data-role="content">
-        <div class="fb-login-button" id="fblogin" data-show-faces="false" data-width="300" data-max-rows="1"></div>
-        <!-- <form id="login">
-          <label>Email:</label>
-          <input type="email" id="emailLogin" name="email" />
-          <label>Password:</label>
-          <input type="password" id="passLogin" name="pass" />
-          <input type="submit" value="Login" id="buttonLogin" data-role="button" data-theme="b">
-          <a href="#signup" data-role="button">Registrate</a>
-        </form> -->
+      <div>
+      <form class="fbLogin">
+        <div class="fb-login-button" id="fblogin">
+        </div>
+      </form>
       </div>
     </div>
     
     <!--This is the template for the login and signup-->
+    <!--
     <script type="text/template" id="login-template">
     <header id="header"></header>
       <div class="login">
@@ -114,6 +113,7 @@
         </form>
       </div>
     </script>
+    -->
     
     <!--This is the template for managing all the todos-->
     <script type="text/template" id="manage-todos-template">
