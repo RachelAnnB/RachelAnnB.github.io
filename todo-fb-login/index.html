@@ -63,7 +63,6 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
-                window.location.href="user_index.html";
               }
               else {
                 alert("User logged in through Facebook!");
@@ -76,11 +75,10 @@
           });
         }
         
-        Fb.Event.subscribe('auth.login', function (response) {
-          if (response.session) {
-            window.location = www.rachelbroering.com/todo-fb-login/todo.html;
-          }
+        FB.Event.subscribe('auth.login', function (response) {
+          window.location.reload();
         });
+        
       </script>
 
       <!--Facebook Login-->
