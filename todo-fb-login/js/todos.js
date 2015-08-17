@@ -298,7 +298,8 @@ $(function() {
       //the View binds to the submit event for both these forms and logs in or signs up the user
       Parse.User.logIn(username, password, {
         success: function(user) {
-          new ManageTodosView();
+          window.location.href="user_index.html";
+          //new ManageTodosView();
           self.undelegateEvents();
           delete self;
           
