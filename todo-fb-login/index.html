@@ -63,7 +63,7 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
-                window.location.href = 'index.html';
+                window.location.reload(true);
               }
               else {
                 alert("User logged in through Facebook!");
