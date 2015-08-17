@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: aliceblue;
+}
+
+h1 {
+    font-family: Bebas neue;
+    font-size: 48px;
+    text-align: center;
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 3%;
+    background-color: white;
+}
+
+.todoapp {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h2 {
+    font-family: Bebas neue;
+    font-size: 32px;
+    text-align: center;
+}
+
+#userBtns {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: lightblue;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin-left: 20%;
+    padding: 5px;
+}
+
+#login-username {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    margin-left: 20%;
+    padding: 5px;
+}
+
+#login-password {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: #f0f0f0;    
+    padding: 5px;
+}
+
+#signup-username {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    margin-left: 20%;
+    padding: 5px;
+}
+
+#signup-password {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+
+#user-info {
+    font-family: Helvetica;
+    font-size: 12px;
+    padding-left: 375px;
+}
+
+#new-todo {
+    font-family: Helvetica;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    width: 525px;
+    margin-bottom: 10px;
+}
+
+#toggle-all {
+    float: left;
+    margin-top: 1px;
+}
+
+p {
+    margin-top: px;
+    margin-left: 25px;
+    font-family: Helvetica;
+    font-size: 13px;
+    width: 200px;
+}
+
+#todo-list {
+    font-family: Helvetica;
+    font-size: 16px;
+    list-style-type: none;
+    width: 500px;
+}
+
+#todo-list li {
+    line-height: 35px;
+}
+
+#todo-list li.completed label {
+    color: #a9a9a9;
+    text-decoration: line-through;
+}
+
+.todo-destroy {
+    float: right;
+    margin-top: 7px;
+}
+
+#todo-list li .todo-destroy:after {
+    content: '✖';
+}
+
+#todo-list li .edit {
+    display: none;
+}
+
+#footer {
+    font-family: Helvetica;
+    font-size: 12px;
+}
+
+#todo-count {
+    float: left;
+    padding-right: 120px;
+}
+
+#all {
+    float: left;
+}
+
+#active {
+    float: left;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#completed {
+    float: left;
+}
+
+#filters {
+    list-style-type: none;
+}
+
+#filters li a {
+    color: black;
+    text-decoration: none;
+}
+
+#filters li a:hover {
+    color: cadetblue;
+}
+
+a:hover {
+    color: cadetblue;
+    font-weight: bold;
+}
+
+#clear-completed {
+    font-family: Helvetica;
+    font-size: 10px;
+    float: right;
+    background-color: lightblue;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+#fblogin {
+    margin-left: 310px;
+}
