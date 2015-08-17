@@ -4,6 +4,11 @@ $(function() {
   //Initialize Parse with my App & JS keys
   Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
   
+  //--------------
+  //Facebook Login
+  //--------------
+  
+  
   //------
   //Models
   //------

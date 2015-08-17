@@ -28,6 +28,10 @@ h2 {
     text-align: center;
 }
 
+#fbLoginBox {
+    padding-left: 38%;
+}
+
 #userBtns {
     font-family: Helvetica;
     font-size: 16px;
@@ -174,8 +178,4 @@ a:hover {
     background-color: lightblue;
     border-radius: 3px;
     border: 1px solid black;
-}
-
-#fblogin {
-    margin-left: 310px;
 }

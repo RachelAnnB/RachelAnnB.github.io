@@ -32,67 +32,6 @@
         </div>
       </div>
 
-      <!--Facebook Login Info-->
-      <div id="fb-root"></div>
-      <script type="text/javascript">
-        Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
-
-        window.fbAsyncInit = function() {
-          //Initiate the Facebook Javascript SDK
-          Parse.FacebookUtils.init({
-            appId : '1664061573828425',
-            status : false, //Checks Facebook login status
-            cookie : true, //Enable cookies to allow Parse to access the session
-            xfbml : true, //Looks for social plugins on the page
-            logging : true,
-            version : 'v2.4'
-          });
-        };
-
-        //Load the SDK asynchronously
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/es_US/all.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        } (document, 'script', 'facebook-jssdk'));
-        
-        function fLogin() {
-            Parse.FacebookUtils.logIn(null, {
-            success: function(user) {
-              if (!user.existed()) {
-                alert("User signed up and logged in through Facebook!");
-              }
-              else {
-                alert("User logged in through Facebook!");
-              }
-            },
-
-            error: function(user, error) {
-              alert("User cancelled the Facebook login or did not fully authorize.");
-            }
-          });
-        }
-        
-        Fb.Event.subscribe('auth.login', function (response) {
-          if (response.session) {
-            window.location = www.rachelbroering.com/todo-fb-login/todo.html;
-          }
-        });
-      </script>
-
-      <!--Facebook Login-->
-      <div id="login">
-        <div>
-          <h2>Login to Facebook</h2>
-        </div>
-
-        <div id="fbLoginBox">
-        <button class="fbLogin" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
-        </div>
-      </div>
-
       <!--This is the template for the login and signup-->
       <!--
       <script type="text/template" id="login-template">
