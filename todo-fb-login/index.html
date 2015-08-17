@@ -73,11 +73,12 @@
               alert("User cancelled the Facebook login or did not fully authorize.");
             }
           });
-        }
-        
+          
         FB.Event.subscribe('auth.login', function (response) {
           window.location.reload();
         });
+          
+        }
         
       </script>
 
