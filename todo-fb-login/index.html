@@ -63,7 +63,6 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
-                window.location.reload(true);
               }
               else {
                 alert("User logged in through Facebook!");
@@ -73,8 +72,10 @@
             error: function(user, error) {
               alert("User cancelled the Facebook login or did not fully authorize.");
             }
+              
           });
-          
+            
+          window.location.reload(true);          
         }
         
       </script>
