@@ -32,65 +32,65 @@
       </div>
     </div>
     
-    <!--Facebook Login Info-->
-    <div id="fb-root"></div>
+    
     <script type="text/javascript">
       Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
-      function facebookLogin() {
-
+      
+      //This is called with the results from FB.getLoginStatus()
+      function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        
+        if(response.status === 'connnected') {
+          //Logged into your app & Facebook
+        }
+        else if (response.status === 'not_authorized') {
+          //Logged into Facebook, but not the app
+          document.getElementById('status').innerHTML = 'Please log into this app';
+        }
+        else {
+          //Not logged into Facebook, not sure if logged into app
+          document.getElementById('status').innerHTML = 'Please log into Facebook';
+        }
+      }
+    
+      //This is called when someone finishes with the Login button
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+      }
       
       window.fbAsyncInit = function() {
-        //Initiate the Facebook Javascript SDK
-        Parse.FacebookUtils.init({
+        FB.init({
           appId : '1664061573828425',
-          status : false, //Checks Facebook login status
-          cookie : true, //Enable cookies to allow Parse to access the session
-          xfbml : true, //Looks for social plugins on the page
-          logging : true,
+          cookie : true,
+          xfbml : true, //looks for social plugins on the page
           version : 'v2.4'
         });
         
-        Parse.FacebookUtils.logIn(null, {
-          success: function(user) {
-            if (!user.existed()) {
-              alert("User signed up and logged in through Facebook!");
-            }
-            else {
-              alert("User logged in through Facebook!");
-            }
-          },
-          
-          error: function(user, error) {
-            alert("user cancelled the Facebook login or did not fully authorize.");
-          }
+        //We've no initialized the Javascript SDK, now we call FB.getLoginStatus()
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
         });
       };
       
       //Load the SDK asynchronously
       (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
+        if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/es_US/all.js";
+        js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       } (document, 'script', 'facebook-jssdk'));
-    }
     </script>
     
-    <!--Facebook Login-->
-    <div id="login">
-      <div>
-        <h2>Login to Facebook</h2>
-      </div>
-      
-      <div>
-      <form class="fbLogin">
-        <div class="fb-login-button" id="fblogin">
-        <button onclick="facebookLogin();" class="fb-login-button" id="fblogin">Login to Facebook</button>
-        </div>
-      </form>
-      </div>
-    </div>
+    <h2>Login to Facebook</h2>
+    
+    <fb:login-button scope="public_profile, email" onlogin="checkLoginStatus();">
+    </fb:login-button>
+    
+    <div id="status"></div>
     
     <!--This is the template for the login and signup-->
     <!--
