@@ -47,26 +47,23 @@
             logging : true,
             version : 'v2.4'
           });
-          
-          FB.Event.subscribe('auth.login', function() {
-            window.location.href = 'index.html';
-          });
         };
 
         //Load the SDK asynchronously
-        (function(d) {
-          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) {return;}
-          js = d.createElement('script'); js.id = id; js.async = true;
-          js.src = "js/todos.js";
-          ref.parentNode.insertBefore(js, ref);
-        } (document));
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_US/all.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
         
         function fLogin() {
             Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
+                window.location.href = 'index.html';
               }
               else {
                 alert("User logged in through Facebook!");
@@ -76,7 +73,8 @@
             error: function(user, error) {
               alert("User cancelled the Facebook login or did not fully authorize.");
             }
-          });          
+          });
+          
         }
         
       </script>
@@ -88,7 +86,7 @@
         </div>
 
         <div id="fbLoginBox">
-        <button class="fbLogin" onclick="fLogin();" onlogin="window.location='/index.html'"><img src="/images/fbBtn.png"></button>
+        <button class="fbLogin" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
