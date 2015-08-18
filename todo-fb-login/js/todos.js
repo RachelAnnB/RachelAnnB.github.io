@@ -178,7 +178,7 @@ $(function() {
     //Logs out the user and shows the login view
     logOut: function(e) {
       Parse.User.logOut();
-                    window.location.reload(true);
+      window.location.reload(true);
       this.undelegateEvents();
       delete this;
     },

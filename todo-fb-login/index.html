@@ -35,9 +35,7 @@
       <!--Facebook Login Info-->
       <div id="fb-root"></div>
       <script type="text/javascript">
-        
-        var isLoggedIn = false;
-        
+          
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
         
         window.fbAsyncInit = function() {
@@ -65,16 +63,13 @@
             Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
-                isLoggedIn = true;
                 alert("User signed up and logged in through Facebook!");
               }
               else {
-                isLoggedIn = true;
                 alert("User logged in through Facebook!");
               }
               
               window.location.reload(true);
-              hideFacebookLogin();
             },
 
             error: function(user, error) {
@@ -84,22 +79,7 @@
           });
           
         }
-        
-        function hideFacebookLogin() {
-          if (isLoggedIn == true){
-            var facebookLoginDiv = document.getElementById("loginView");
-              console.log('facebook login was hidden');
-            if(facebookLoginDiv.style.display = 'block') {
-              facebookLoginDiv.style.display = 'none';
 
-            }
-            else {
-              facebookLoginDiv.style.display = 'block';
-            }
-
-          }
-        }
-        window.onload = hideFacebookLogin;
       </script>
 
       <!--Facebook Login-->
