@@ -29,7 +29,11 @@ h2 {
 }
 
 #fbLoginBox {
-    padding-left: 38%;
+    padding-left: 40%;
+}
+
+#fbLogoutBox {
+    padding-left: 40%;
 }
 
 #userBtns {
