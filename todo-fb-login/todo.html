@@ -33,6 +33,15 @@
       </div>
       
       <script type="text/javascript">
+        
+      //Simple syntax to create a new subclass of Parse.Object.
+      var ImgFile = Parse.Object.extend("ImgFile");
+
+      //Create a new instance of that class.
+      var imgFile = new ImgFile();
+        
+        var newTodoInputField = document.getElementById("new-todo");
+        
         var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
         var file = document.getElementById("imageFile");
         var name = document.getElementById("new-todo");
@@ -42,6 +51,63 @@
             file = files[0];
             name = file.name;
         });
+        
+      //--------------------------------------------------------------------------------
+      //This function submits the values from our two inputs: Todo Item & Image
+      //--------------------------------------------------------------------------------
+      function submitValues() {
+        imgFile.set("imgFileName", newTodoInputField.value);
+
+        imgFile.save(null, {
+          success: function(imgFile) {
+            //Execute any logic that should take place after the object is saved
+            alert('New object created with objectId: ' + gameScore.id);
+          },
+
+          error: function(imgFile, error) {
+            //Execute any logic that should take place if the save fails
+            //Error is a Parse.Error with an error code and message
+            alert('Failed to create a new object, with error code: ' + error.message);
+          }
+        });
+        
+        //-------------------------------------------------------
+        //Below is all the code for uploading the images to Parse
+        //-------------------------------------------------------
+        if (file != null) {
+          var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+
+          $.ajax({
+              type: "POST",
+              beforeSend: function (request) {
+                  request.setRequestHeader("X-Parse-Application-Id", 'XfQ2RSF5dxzBHfAkVFJeWbht27DsZP2oWPuLZFsj');
+                  request.setRequestHeader("X-Parse-REST-API-Key", 'rxPxZQ3Nz5HzIM9SGmA1iI5khSAKuINsHa7JsX8m');
+                  request.setRequestHeader("Content-Type", file.png);
+              },
+              url: serverUrl,
+              data: file,
+              processData: false,
+              contentType: false,
+              success: function (data) {
+                var myimage = new Parse.Object("imageTable"); //create new object
+                myimage.set({base64: base64}); //set the url that will be used to retrieve the image
+                myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
+                myimage.save(); //save and push the changes
+                imageFile.value = "";        
+                scoreInputField.value="";
+                usernameInputField.value="";
+                
+                console.log("Your image was saved!");
+                alert("Your image has been saved!!");
+              },
+            
+              error: function (data) {
+                  var obj = jQuery.parseJSON(data);
+                  alert(obj.error);
+              }
+          });
+        }
+      }
       </script>
 
       <!--This is the template for managing all the todos-->
@@ -56,6 +122,8 @@
         <header id="header">
           <input id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
+        
+        <input type="button" onclick="submitValues()" class="submitBtn" value="Submit" id="submit"/>
 
         <form id="fileUpload" class="fileUpload" enctype="multipart/form-data" method="post">
           <input type="file" class="imageFile" id="imageFile" accept="image/*">
