@@ -36,7 +36,7 @@
       <div id="fb-root"></div>
       <script type="text/javascript">
         
-        
+        var isLoggedIn = false;
         
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
         
@@ -62,18 +62,15 @@
         } (document, 'script', 'facebook-jssdk'));
         
         function fLogin() {
-          var isLoggedIn = false;
             Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
                 isLoggedIn = true;
                 alert("User signed up and logged in through Facebook!");
-                hideFacebookLogin();
               }
               else {
                 isLoggedIn = true;
                 alert("User logged in through Facebook!");
-                hideFacebookLogin();
               }
               
               window.location.reload(true);
@@ -82,7 +79,6 @@
 
             error: function(user, error) {
               alert("User cancelled the Facebook login or did not fully authorize.");
-              isLoggedIn = false;
             }
               
           });
