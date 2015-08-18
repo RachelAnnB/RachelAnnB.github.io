@@ -179,6 +179,7 @@ $(function() {
     logOut: function(e) {
       Parse.User.logOut();
       window.open("http://www.rachelbroering.com/todo-fb-login/index.html", "_self");
+      console.log('the page is being changed through the todo.js ');
       this.undelegateEvents();
       delete this;
     },
