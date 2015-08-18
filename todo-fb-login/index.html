@@ -63,10 +63,6 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
-                
-                function hideLogin() {
-                  document.getElementById("loginView").style.display = "none";
-                };
               }
               else {
                 alert("User logged in through Facebook!");
@@ -82,7 +78,9 @@
           });
         }
         
-
+        function hideLogin() {
+          document.getElementById("loginView").style.display = "none";
+        };
         
       </script>
 
