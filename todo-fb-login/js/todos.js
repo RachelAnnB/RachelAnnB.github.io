@@ -181,6 +181,7 @@ $(function() {
       window.location.reload(true);
       this.undelegateEvents();
       delete this;
+      window.onload = fLogin;
     },
     
     //Re-rendering the App just regreshes the statistics
