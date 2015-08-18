@@ -69,8 +69,8 @@
               }
               
               window.location.reload(true);
+              $('#login').hide();
             },
-              document.getElementById("login").style.display = "none";
 
             error: function(user, error) {
               alert("User cancelled the Facebook login or did not fully authorize.");
