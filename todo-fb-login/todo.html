@@ -65,8 +65,6 @@
         Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out">Log Out</a>)
         </div>
         
-                       <div class="fb-login-button" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-        
       <br>
 
       <div class="section">
@@ -112,7 +110,10 @@
         <button id="clear-completed">Clear Completed (<%= done %>)</button>
         </footer>
       </script>
-
+      
+      <div class="fb-login-button" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+      <div class="fb-login-button" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+      
     </div>
 
     <!--Links to the Javascript files stored locally-->
