@@ -36,10 +36,10 @@
       <script type="text/javascript">
         
       //Simple syntax to create a new subclass of Parse.Object.
-      var ImgFile = Parse.Object.extend("ImgFile");
+      var ImageFile = Parse.Object.extend("ImageFile");
 
       //Create a new instance of that class.
-      var imgFile = new ImgFile();
+      var imageFile = new ImageFile();
         
         var newTodoInputField = document.getElementById("new-todo");
         
@@ -57,13 +57,13 @@
       //This function submits the values from our two inputs: Todo Item & Image
       //--------------------------------------------------------------------------------
       function submitValues() {
-        imgFile.save(null, {
-          success: function(imgFile) {
+        imageFile.save(null, {
+          success: function(imageFile) {
             //Execute any logic that should take place after the object is saved
             alert('Image was uploaded');
           },
 
-          error: function(imgFile, error) {
+          error: function(imageFile, error) {
             //Execute any logic that should take place if the save fails
             //Error is a Parse.Error with an error code and message
             alert('Failed to upload image, with error code: ' + error.message);
@@ -90,9 +90,9 @@
               success: function (data) {
                 var myimage = new Parse.Object("imageTable"); //create new object
                 myimage.set({base64: base64}); //set the url that will be used to retrieve the image
-                myimage.set({imgfile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
+                myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
                 myimage.save(); //save and push the changes
-                imgFile.value = "";        
+                imageFile.value = "";        
                 
                 console.log("Your image was saved!");
                 alert("Your image has been saved!!");
