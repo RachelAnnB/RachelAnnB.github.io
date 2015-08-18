@@ -69,7 +69,9 @@
               }
               
               window.location.reload(true);
-              document.getElementById('login').style.display = 'none';
+              $(function() {
+                $().hide(".loginView");
+              });
             },
 
             error: function(user, error) {
@@ -82,7 +84,7 @@
       </script>
 
       <!--Facebook Login-->
-      <div id="login">
+      <div id="login" class="loginView">
         <div>
           <h2>Login to Facebook</h2>
         </div>
