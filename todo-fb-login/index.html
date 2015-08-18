@@ -35,9 +35,9 @@
       <!--Facebook Login Info-->
       <div id="fb-root"></div>
       <script type="text/javascript">
-          
+
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
-        
+
         window.fbAsyncInit = function() {
           //Initiate the Facebook Javascript SDK
           Parse.FacebookUtils.init({
@@ -48,9 +48,9 @@
             logging : true,
             version : 'v2.4'
           });
-          
+
         };
-        
+
         //Load the SDK asynchronously
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -59,9 +59,9 @@
           js.src = "//connect.facebook.net/es_US/all.js";
           fjs.parentNode.insertBefore(js, fjs);
         } (document, 'script', 'facebook-jssdk'));
-        
+
         function fLogin() {
-            Parse.FacebookUtils.logIn(null, {
+          Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
@@ -69,7 +69,7 @@
               else {
                 alert("User logged in through Facebook!");
               }
-              
+
               window.open("http://www.rachelbroering.com/todo-fb-login/todo.html", "_self");
               console.log('We are now on the todo.html page');
             },
@@ -77,10 +77,10 @@
             error: function(user, error) {
               alert("User cancelled the Facebook login or did not fully authorize.");
             }
-              
+
           });
         }
-        
+
       </script>
 
       <!--Facebook Login-->
@@ -90,39 +90,13 @@
         </div>
 
         <div id="fbLoginBox">
-      <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/loginBtn.png"></button>
-       
+          <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/loginBtn.png"></button>
+          <br>       
         </div>
-        
-        
+
+        <h3>**Must manually log out of Facebook before a new user can log into the Application.**</h3>
+
       </div>
-
-      <!--This is the template for the login and signup-->
-      <!--
-      <script type="text/template" id="login-template">
-      <header id="header"></header>
-      <div class="login">
-      <form class="login-form">
-      <h2>Log In</h2>
-      <input type="text" id="login-username" placeholder="Username" />
-      <input type="password" id="login-password" placeholder="Password" />
-      <br><br>
-      <button id="userBtns">Log In</button>
-      </form>
-
-      <br>
-
-      <form class="signup-form">
-      <h2>Sign Up</h2>
-      <input type="text" id="signup-username" placeholder="New Username" />
-      <input type="password" id="signup-password" placeholder="New Password" />
-      <br><br>
-      <button id="userBtns">Sign Up</button>
-      <br><br>
-      </form>
-      </div>
-      </script>
-      -->
 
       <!--This is the template for managing all the todos-->
       <script type="text/template" id="manage-todos-template">

@@ -29,51 +29,13 @@ h2 {
 }
 
 #fbLoginBox {
-    padding-left: 40%;
+    padding-left: 41.5%;
 }
 
-#fbLogoutBox {
-    padding-left: 40%;
-}
-
-#userBtns {
-    font-family: Helvetica;
-    font-size: 16px;
-    background-color: lightblue;
-    border-radius: 3px;
-    border: 1px solid black;
-    margin-left: 20%;
-    padding: 5px;
-}
-
-#login-username {
-    font-family: Helvetica;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    margin-left: 20%;
-    padding: 5px;
-}
-
-#login-password {
-    font-family: Helvetica;
-    font-size: 16px;
-    background-color: #f0f0f0;    
-    padding: 5px;
-}
-
-#signup-username {
-    font-family: Helvetica;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    margin-left: 20%;
-    padding: 5px;
-}
-
-#signup-password {
-    font-family: Helvetica;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    padding: 5px;
+h3 {
+    font-family: Bebas Neue;
+    font-size: 18px;
+    text-align: center;
 }
 
 #user-info {
@@ -87,7 +49,7 @@ h2 {
     font-size: 16px;
     background-color: #f0f0f0;
     padding: 5px;
-    width: 525px;
+    width: 670px;
     margin-bottom: 10px;
 }
 
@@ -108,7 +70,7 @@ p {
     font-family: Helvetica;
     font-size: 16px;
     list-style-type: none;
-    width: 500px;
+    width: 600px;
 }
 
 #todo-list li {
@@ -182,4 +144,5 @@ a:hover {
     background-color: lightblue;
     border-radius: 3px;
     border: 1px solid black;
+    margin-right: 40px;
 }
