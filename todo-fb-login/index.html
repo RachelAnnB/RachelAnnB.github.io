@@ -69,9 +69,7 @@
               }
               
               window.location.reload(true);
-              $(function() {
-                $().hide(".loginView");
-              });
+              document.getElementById("login").style.display = "none";
             },
 
             error: function(user, error) {
