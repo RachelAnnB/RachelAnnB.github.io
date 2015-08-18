@@ -69,7 +69,7 @@
               }
               
               window.location.reload(true);
-              this.parentNode.style.display = 'none';
+              document.getElementById('login').style.display = 'none';
             },
 
             error: function(user, error) {
@@ -88,7 +88,7 @@
         </div>
 
         <div id="fbLoginBox">
-        <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
+      <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
