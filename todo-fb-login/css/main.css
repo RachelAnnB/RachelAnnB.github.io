@@ -53,8 +53,8 @@ h3 {
     margin-bottom: 10px;
 }
 
-.fileUpload {
-    text-align: center;
+#fileUpload {
+    margin-left: 20%;
 }
 
 #toggle-all {
