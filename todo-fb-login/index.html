@@ -65,11 +65,11 @@
             Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
-                isLoggedIn == true;
+                isLoggedIn = true;
                 alert("User signed up and logged in through Facebook!");
               }
               else {
-                isLoggedIn == true;
+                isLoggedIn = true;
                 alert("User logged in through Facebook!");
               }
               
@@ -112,7 +112,6 @@
       <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
         </div>
         
-        <button onclick="hideFacebookLogin();">Hide Facebook Login</button>
         
       </div>
 
