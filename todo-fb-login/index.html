@@ -69,8 +69,7 @@
               }
               
               window.location.reload(true);
-              var HiddenDiv = document.getElementById('login');
-              HiddenDiv.style.display = 'none';
+              this.parentNode.style.display = 'none';
             },
 
             error: function(user, error) {
