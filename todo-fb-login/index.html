@@ -63,13 +63,13 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
+                document.getElementById("loginView").style.display = "none";
               }
               else {
                 alert("User logged in through Facebook!");
               }
               
               window.location.reload(true);
-              $('#loginView').hide();
             },
 
             error: function(user, error) {
