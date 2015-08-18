@@ -88,14 +88,14 @@
               processData: false,
               contentType: false,
               success: function (data) {
-                var myimage = new Parse.Object("imageTable"); //create new object
+                var myimage = new Parse.Object("ImageFile"); //create new object
                 myimage.set({base64: base64}); //set the url that will be used to retrieve the image
                 myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
                 myimage.save(); //save and push the changes
                 imageFile.value = "";        
                 
                 console.log("Your image was saved!");
-                alert("Your image has been saved!!");
+                alert("Your image has been saved!");
               },
             
               error: function (data) {
@@ -117,7 +117,7 @@
 
       <div class="section">
         <header id="header">
-          <input id="new-todo" placeholder="What needs to be done?" type="text" />
+          <input type="text" id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
         
         <br>
@@ -126,7 +126,7 @@
         </form>
 
         <br>
-        <input type="button" onclick="submitValues()" class="submitBtn" value="Submit" id="submit"/>
+        <input type="button" onclick="submitValues();" class="submitBtn" value="Submit" id="submit"/>
         <br>
 
         <div id="main">
