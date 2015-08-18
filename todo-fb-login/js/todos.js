@@ -179,6 +179,7 @@ $(function() {
     logOut: function(e) {
       Parse.User.logOut();
       new LogInView();
+                    window.location.reload(true);
       this.undelegateEvents();
       delete this;
     },
