@@ -42,14 +42,24 @@
           //Initiate the Facebook Javascript SDK
           Parse.FacebookUtils.init({
             appId : '1664061573828425',
-            status : false, //Checks Facebook login status
+            status : true, //Checks Facebook login status
             cookie : true, //Enable cookies to allow Parse to access the session
             xfbml : true, //Looks for social plugins on the page
             logging : true,
             version : 'v2.4'
           });
+          
+          FB.getLoginStatus(function(response) {
+          if (response.status === 'connected') {
+            console.log('Logged in successfully');
+          }
+          else {
+            FB.login();
+          }
+        });
+          
         };
-
+        
         //Load the SDK asynchronously
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
