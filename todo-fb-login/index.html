@@ -39,7 +39,6 @@
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
         
         window.fbAsyncInit = function() {
-          
           //Initiate the Facebook Javascript SDK
           Parse.FacebookUtils.init({
             appId : '1664061573828425',
@@ -50,26 +49,7 @@
             version : 'v2.4'
           });
           
-          FB.getLoginStatus(function(response){
-                  if (response.status === 'connected') {
-                     //proceed
-                  } else if (response.status === 'not_authorized') {
-                     login();
-                  } else {
-                    login();
-                  }
-              });
-          };
-
-          function login(){
-             FB.login(function(response) {
-                if (response.authResponse) {
-                   // proceed
-                } else {
-                   // not auth / cancelled the login!
-                }
-             });
-          }
+        };
         
         //Load the SDK asynchronously
         (function(d, s, id) {
@@ -111,7 +91,9 @@
 
         <div id="fbLoginBox">
       <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/loginBtn.png"></button>
+       
         </div>
+        
         
       </div>
 
