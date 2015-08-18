@@ -56,12 +56,10 @@
       //This function submits the values from our two inputs: Todo Item & Image
       //--------------------------------------------------------------------------------
       function submitValues() {
-        imgFile.set("imgFileName", newTodoInputField.value);
-
         imgFile.save(null, {
           success: function(imgFile) {
             //Execute any logic that should take place after the object is saved
-            alert('New object created with objectId: ' + gameScore.id);
+            alert('Image was uploaded');
           },
 
           error: function(imgFile, error) {
@@ -80,8 +78,8 @@
           $.ajax({
               type: "POST",
               beforeSend: function (request) {
-                  request.setRequestHeader("X-Parse-Application-Id", 'XfQ2RSF5dxzBHfAkVFJeWbht27DsZP2oWPuLZFsj');
-                  request.setRequestHeader("X-Parse-REST-API-Key", 'rxPxZQ3Nz5HzIM9SGmA1iI5khSAKuINsHa7JsX8m');
+                  request.setRequestHeader("X-Parse-Application-Id", 'jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l');
+                  request.setRequestHeader("X-Parse-REST-API-Key", '3FrL7m8osb7VyAr8CQFaUQ7DRjoOrtBx9XlPtmYm');
                   request.setRequestHeader("Content-Type", file.png);
               },
               url: serverUrl,
@@ -94,8 +92,6 @@
                 myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
                 myimage.save(); //save and push the changes
                 imageFile.value = "";        
-                scoreInputField.value="";
-                usernameInputField.value="";
                 
                 console.log("Your image was saved!");
                 alert("Your image has been saved!!");

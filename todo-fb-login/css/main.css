@@ -54,7 +54,11 @@ h3 {
 }
 
 #fileUpload {
-    margin-left: 20%;
+    margin-left: 350%;
+}
+
+#sumbmitBtn {
+    margin-left: 35%;
 }
 
 #toggle-all {
