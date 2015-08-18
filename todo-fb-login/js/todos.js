@@ -179,7 +179,7 @@ $(function() {
     logOut: function(e) {
       Parse.User.logOut();
       window.open("http://www.rachelbroering.com/todo-fb-login/index.html", "_self");
-      window.location.reload(true);
+      window.opener.location.reload();
       this.undelegateEvents();
       delete this;
     },
