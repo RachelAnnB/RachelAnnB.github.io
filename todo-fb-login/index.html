@@ -96,6 +96,7 @@
 
         <div id="fbLoginBox">
       <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
+       
         </div>
         
         
@@ -132,6 +133,9 @@
       <script type="text/template" id="manage-todos-template">
       <div id="user-info">
         Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out">Log Out</a>)
+        
+               <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+        
         </div>
       <br>
 
