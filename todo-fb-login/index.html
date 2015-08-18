@@ -79,6 +79,11 @@
           });
         }
         
+        function hide(obj) {
+          var el = document.getElementById(obj);
+          el.style.display = 'none';
+        }
+        
       </script>
 
       <!--Facebook Login-->
@@ -88,7 +93,7 @@
         </div>
 
         <div id="fbLoginBox">
-      <button class="fbLogin" id="loginBtn" onclick="fLogin(); hide('loginView')"><img src="/images/fbBtn.png"></button>
+      <button class="fbLogin" id="loginBtn" onclick="fLogin(); hide('loginView');"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
