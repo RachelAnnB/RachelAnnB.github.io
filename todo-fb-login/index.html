@@ -69,9 +69,7 @@
               }
               
               window.location.reload(true);
-                      function hideLogin() {
-          document.getElementById("loginView").style.display = "none";
-      };
+              this.parentNode.style.display = 'none';
             },
 
             error: function(user, error) {
@@ -80,8 +78,6 @@
               
           });
         }
-        
-
         
       </script>
 
@@ -92,7 +88,7 @@
         </div>
 
         <div id="fbLoginBox">
-      <button class="fbLogin" id="loginBtn" onclick="fLogin(); hideLogin();"><img src="/images/fbBtn.png"></button>
+      <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
