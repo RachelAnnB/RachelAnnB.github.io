@@ -35,8 +35,12 @@
       <!--Facebook Login Info-->
       <div id="fb-root"></div>
       <script type="text/javascript">
-        Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
+        
+        var isLoggedIn = false;
 
+        
+        Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
+        
         window.fbAsyncInit = function() {
           //Initiate the Facebook Javascript SDK
           Parse.FacebookUtils.init({
@@ -62,14 +66,16 @@
             Parse.FacebookUtils.logIn(null, {
             success: function(user) {
               if (!user.existed()) {
+                isLoggedIn = true;
                 alert("User signed up and logged in through Facebook!");
               }
               else {
+                isLoggedIn = true;
                 alert("User logged in through Facebook!");
               }
               
               window.location.reload(true);
-              this.parentNode.style.display = 'none';
+              hideFacebookLogin();
             },
 
             error: function(user, error) {
@@ -77,11 +83,14 @@
             }
               
           });
+          
         }
         
-        function hide(obj) {
-          var el = document.getElementById(obj);
-          el.style.display = 'none';
+        function hideFacebookLogin() {
+          if (isLoggedIn = true){
+            var el = document.getElementById(obj);
+            el.style.display = 'none';
+          }
         }
         
       </script>
@@ -93,7 +102,7 @@
         </div>
 
         <div id="fbLoginBox">
-      <button class="fbLogin" id="loginBtn" onclick="fLogin(); hide('loginView');"><img src="/images/fbBtn.png"></button>
+      <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
