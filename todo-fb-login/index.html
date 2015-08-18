@@ -63,7 +63,10 @@
             success: function(user) {
               if (!user.existed()) {
                 alert("User signed up and logged in through Facebook!");
-                document.getElementById("loginView").style.display = "none";
+                
+                function hideLogin() {
+                  document.getElementById("loginView").style.display = "none";
+                };
               }
               else {
                 alert("User logged in through Facebook!");
@@ -79,6 +82,8 @@
           });
         }
         
+
+        
       </script>
 
       <!--Facebook Login-->
@@ -88,7 +93,7 @@
         </div>
 
         <div id="fbLoginBox">
-      <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/fbBtn.png"></button>
+      <button class="fbLogin" id="loginBtn" onclick="fLogin(); hideLogin();"><img src="/images/fbBtn.png"></button>
         </div>
       </div>
 
