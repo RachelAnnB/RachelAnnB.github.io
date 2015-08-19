@@ -152,7 +152,7 @@
       <script type="text/template" id="item-template">
       <li class="<%= done ? 'completed' : ' ' %>">
         <div class="view">
-          <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : <a href="www.google.com">' '</a> %>>
+          <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : (<a href="www.google.com">' '</a>) %>>
           <label class="todo-content"><%= _.escape(content) %></label>
           <button class="todo-destroy"></button>
         </div>
