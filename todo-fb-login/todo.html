@@ -58,16 +58,27 @@
         } (document, 'script', 'facebook-jssdk'));
         
         function fLogout() {
+          Parse.User.logOut();
           FB.getLoginStatus(function(response) {
             if (response && response.status === 'connected') {
               FB.logout(function(response) {
                 document.location.reload();
-                console.log('You have been logged out of the Application & Facebook.');
+                alert('The facebook logout IF statement fired');
+              });
+            }
+            
+            else if (response.status === 'not_authorized') {
+              FB.logout(function(response) {
+                document.location.reload();
+                alert('The facebook logout ELSE IF statement fired');
               });
             }
             
             else {
-              alert('There was an error');
+              FB.logout(function(response) {
+                document.location.reload();
+                alert('The facebook logout ELSE statement fired');
+              });
             }
           });
         }
