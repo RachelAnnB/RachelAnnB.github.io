@@ -64,19 +64,19 @@
         
         function fLogout() {
           Parse.User.logOut();
-          console.log('You are now logged out');
-//          FB.getLoginStatus(function(response) {
-//            if (response && response.status === 'connected') {
-//              FB.logout(function(response) {
-//                document.locaton.reload();
-//                console.log('You have been logged out.');
-//              });
-//            }
-//            
-//            else {
-//              
-//            }
-//          });
+          console.log('You have been logged out of the Application.');
+          FB.getLoginStatus(function(response) {
+            if (response && response.status === 'connected') {
+              FB.logout(function(response) {
+                document.locaton.reload();
+                console.log('You have been logged out of Facebook.');
+              });
+            }
+            
+            else {
+              alert('There was an error');
+            }
+          });
         }
         
         //Simple syntax to create a new subclass of Parse.Object.
