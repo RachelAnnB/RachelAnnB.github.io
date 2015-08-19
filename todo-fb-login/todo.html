@@ -47,7 +47,7 @@
         var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
         var file = document.getElementById("imageFile");
         var name = document.getElementById("new-todo");
-        $('#imageFile').bind("change", function (e) {
+        $('#imageUpload').bind("change", function (e) {
           var files = e.target.files || e.dataTransfer.files;
           // Our file var now holds the selected file
           file = files[0];
@@ -99,7 +99,7 @@
                 newTodoInputField.value="";
 
                 console.log("Your image was saved!");
-                alert("Your image has been saved!!");
+                alert("Your image has been saved!");
               },
 
               error: function (data) {
