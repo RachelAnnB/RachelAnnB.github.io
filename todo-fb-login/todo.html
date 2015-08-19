@@ -67,7 +67,7 @@
           FB.getLoginStatus(function(response) {
             if (response && response.status === 'connected') {
               FB.logout(function(response) {
-                document.location.reload();
+                window.open("http://www.rachelbroering.com/todo-fb-login/index.html", "_self");
                 alert('The facebook logout IF statement fired');
               });
             }
