@@ -31,7 +31,8 @@
 
         </div>
       </div>
-      
+
+        <br><br>
         <div id="fbLogoutBox">
           <button class="fbLogout" id="logoutBtn" onclick="fLogout();"><img src="/images/logoutBtn.png"></button>
         </div>
@@ -41,14 +42,14 @@
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
         
         function fLogout() {
-          Parse.User.logOut();
-//          FB.getLoginStatus(function(response) {
-//            if (response && response.status === 'connected') {
-//              FB.logout(function(response) {
-//                document.locaton.reload();
-//              });
-//            }
-//          });
+          //Parse.User.logOut();
+          FB.getLoginStatus(function(response) {
+            if (response && response.status === 'connected') {
+              FB.logout(function(response) {
+                document.locaton.reload();
+              });
+            }
+          });
         }
         
         //Simple syntax to create a new subclass of Parse.Object.
