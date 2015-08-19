@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-    <script src="//connect.facebook.net/en_US/all.js"></script>
 
   </head>
   <body>
@@ -48,7 +47,7 @@
             logging : true,
             version : 'v2.4'
           });
-
+          
         };
 
         //Load the SDK asynchronously
@@ -81,6 +80,9 @@
           });
         }
         
+        function fLogout() {
+          Parse.User.logOut();
+        }
       </script>
 
       <!--Facebook Login-->
