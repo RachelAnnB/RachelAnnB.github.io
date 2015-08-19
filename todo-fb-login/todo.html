@@ -68,7 +68,7 @@
           FB.getLoginStatus(function(response) {
             if (response && response.status === 'connected') {
               FB.logout(function(response) {
-                document.locaton.reload();
+                document.location.reload();
                 console.log('You have been logged out of Facebook.');
               });
             }
