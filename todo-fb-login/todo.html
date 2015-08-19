@@ -16,7 +16,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-    <script src="//connect.facebook.net/en_US/all.js"></script>
 
   </head>
   <body>
@@ -36,20 +35,48 @@
         <div id="fbLogoutBox">
           <button class="fbLogout" id="logoutBtn" onclick="fLogout();"><img src="/images/logoutBtn.png"></button>
         </div>
-      
+
       <div id="fb-root"></div>
       <script type="text/javascript">
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
         
-        function fLogout() {
-          //Parse.User.logOut();
-          FB.getLoginStatus(function(response) {
-            if (response && response.status === 'connected') {
-              FB.logout(function(response) {
-                document.locaton.reload();
-              });
-            }
+        window.fbAsyncInit = function() {
+          //Initiate the Facebook Javascript SDK
+          Parse.FacebookUtils.init({
+            appId : '1664061573828425',
+            status : false, //Checks Facebook login status
+            cookie : true, //Enable cookies to allow Parse to access the session
+            xfbml : true, //Looks for social plugins on the page
+            logging : true,
+            version : 'v2.4'
           });
+          
+        };
+        
+        //Load the SDK asynchronously
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_US/all.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+        
+        function fLogout() {
+          Parse.User.logOut();
+          console.log('You are now logged out');
+//          FB.getLoginStatus(function(response) {
+//            if (response && response.status === 'connected') {
+//              FB.logout(function(response) {
+//                document.locaton.reload();
+//                console.log('You have been logged out.');
+//              });
+//            }
+//            
+//            else {
+//              
+//            }
+//          });
         }
         
         //Simple syntax to create a new subclass of Parse.Object.
@@ -132,7 +159,7 @@
       <!--This is the template for managing all the todos-->
       <script type="text/template" id="manage-todos-template">
       <div id="user-info">
-        Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out">Log Out</a>)
+        Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out" onclick="fLogout();">Log Out</a>)
         </div>
 
       <br>
