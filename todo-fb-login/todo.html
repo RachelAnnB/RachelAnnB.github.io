@@ -28,83 +28,89 @@
       <div class="todoapp">
 
         <div class="content">
-        
+
         </div>
       </div>
-      
+
       <div id="fb-root"></div>
       <script type="text/javascript">
-        
-      //Simple syntax to create a new subclass of Parse.Object.
-      var ImageFile = Parse.Object.extend("ImageFile");
+        Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
 
-      //Create a new instance of that class.
-      var imageFile = new ImageFile();
-        
+        //Simple syntax to create a new subclass of Parse.Object.
+        var ImageUpload = Parse.Object.extend("ImageUpload");
+
+        //Create a new instance of that class.
+        var imageUpload = new ImageUpload();
+
         var newTodoInputField = document.getElementById("new-todo");
-        
+
         var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
         var file = document.getElementById("imageFile");
         var name = document.getElementById("new-todo");
         $('#imageFile').bind("change", function (e) {
-            var files = e.target.files || e.dataTransfer.files;
-            // Our file var now holds the selected file
-            file = files[0];
-            name = file.name;
+          var files = e.target.files || e.dataTransfer.files;
+          // Our file var now holds the selected file
+          file = files[0];
+          name = file.name;
         });
-        
-      //--------------------------------------------------------------------------------
-      //This function submits the values from our two inputs: Todo Item & Image
-      //--------------------------------------------------------------------------------
-      function submitValues() {
-        imageFile.save(null, {
-          success: function(imageFile) {
-            //Execute any logic that should take place after the object is saved
-            alert('Image was uploaded');
-          },
 
-          error: function(imageFile, error) {
-            //Execute any logic that should take place if the save fails
-            //Error is a Parse.Error with an error code and message
-            alert('Failed to upload image, with error code: ' + error.message);
-          }
-        });
-        
-        //-------------------------------------------------------
-        //Below is all the code for uploading the images to Parse
-        //-------------------------------------------------------
-        if (file != null) {
-          var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+        //--------------------------------------------------------------------------------
+        //This function submits the values from our three inputs: Username & Score & Image
+        //--------------------------------------------------------------------------------
+        function submitValues() {
+          imageUpload.set("userName", newTodoInputField.value);
 
-          $.ajax({
+          imageUpload.save(null, {
+            success: function(imageUpload) {
+              //Execute any logic that should take place after the object is saved
+              alert('New object created');
+            },
+
+            error: function(imageUpload, error) {
+              //Execute any logic that should take place if the save fails
+              //Error is a Parse.Error with an error code and message
+              alert('Failed to create a new object, with error code: ' + error.message);
+            }
+          });
+
+          //-------------------------------------------------------
+          //Below is all the code for uploading the images to Parse
+          //-------------------------------------------------------
+          if (file != null) {
+            var serverUrl = 'https://api.parse.com/1/files/' + file.name;
+
+            $.ajax({
               type: "POST",
               beforeSend: function (request) {
-                  request.setRequestHeader("X-Parse-Application-Id", 'jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l');
-                  request.setRequestHeader("X-Parse-REST-API-Key", '3FrL7m8osb7VyAr8CQFaUQ7DRjoOrtBx9XlPtmYm');
-                  request.setRequestHeader("Content-Type", file.png);
+                request.setRequestHeader("X-Parse-Application-Id", 'jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l');
+                request.setRequestHeader("X-Parse-REST-API-Key", '3FrL7m8osb7VyAr8CQFaUQ7DRjoOrtBx9XlPtmYm');
+                request.setRequestHeader("Content-Type", file.png);
               },
               url: serverUrl,
               data: file,
               processData: false,
               contentType: false,
               success: function (data) {
-                var myimage = new Parse.Object("ImageFile"); //create new object
+                var myimage = new Parse.Object("imageTable"); //create new object
                 myimage.set({base64: base64}); //set the url that will be used to retrieve the image
                 myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
                 myimage.save(); //save and push the changes
                 imageFile.value = "";        
-                
+                newTodoInputField.value="";
+
                 console.log("Your image was saved!");
-                alert("Your image has been saved!");
+                alert("Your image has been saved!!");
               },
-            
+
               error: function (data) {
-                  var obj = jQuery.parseJSON(data);
-                  alert(obj.error);
+                var obj = jQuery.parseJSON(data);
+                alert(obj.error);
               }
-          });
+            });
+          }
+
         }
-      }
+
       </script>
 
       <!--This is the template for managing all the todos-->
@@ -112,14 +118,14 @@
       <div id="user-info">
         Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out">Log Out</a>)
         </div>
-        
+
       <br>
 
       <div class="section">
         <header id="header">
           <input type="text" id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
-        
+
         <br>
         <form id="fileUpload" class="fileUpload" enctype="multipart/form-data" method="post">
           <input type="file" class="imageFile" id="imageFile" accept="image/*">
@@ -167,7 +173,7 @@
         <button id="clear-completed">Clear Completed (<%= done %>)</button>
         </footer>
       </script>
-      
+
     </div>
 
     <!--Links to the Javascript files stored locally-->
