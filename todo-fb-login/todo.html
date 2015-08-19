@@ -31,11 +31,6 @@
         </div>
       </div>
 
-        <br><br>
-        <div id="fbLogoutBox">
-          <button class="fbLogout" id="logoutBtn" onclick="fLogout();"><img src="/images/logoutBtn.png"></button>
-        </div>
-
       <div id="fb-root"></div>
       <script type="text/javascript">
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
@@ -63,13 +58,11 @@
         } (document, 'script', 'facebook-jssdk'));
         
         function fLogout() {
-          Parse.User.logOut();
-          console.log('You have been logged out of the Application.');
           FB.getLoginStatus(function(response) {
             if (response && response.status === 'connected') {
               FB.logout(function(response) {
                 document.location.reload();
-                console.log('You have been logged out of Facebook.');
+                console.log('You have been logged out of the Application & Facebook.');
               });
             }
             
