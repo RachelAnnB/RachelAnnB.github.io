@@ -172,6 +172,7 @@ $(function() {
     
     //Logs out the user and shows the login view
     logOut: function(e) {
+      Parse.User.logOut();
       window.open("http://www.rachelbroering.com/todo-fb-login/index.html", "_self");
       alert('Back to the index.html');
       this.undelegateEvents();
