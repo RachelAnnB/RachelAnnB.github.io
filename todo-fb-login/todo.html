@@ -153,7 +153,7 @@
       <li class="<%= done ? 'completed' : ' ' %>">
         <div class="view">
           <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : ' ' %>>
-          <label class="todo-content"><%= _.escape(<a href="www.google.com">content</a>) %></label>
+          <label class="todo-content"><a href="www.google.com"><%= _.escape(content) %></a></label>
           <button class="todo-destroy"></button>
         </div>
         <input class="edit" value="<%= _.escape(content) %>">
