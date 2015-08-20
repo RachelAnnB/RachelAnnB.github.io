@@ -25,11 +25,6 @@
 
     <div class="container">
      
-      <form id="imageUpload" class="imageUpload">
-        <input type="file" id="imageFile" class="imageFile">
-        <img id="imageFile"/>
-      </form>
-     
       <div class="todoapp">
 
         <div class="content">
@@ -94,6 +89,7 @@
           });
         }
         
+        //The input field for the image is inside the (manage-todos-template)
         /*Here is the code for uploading images to Parse.*/
         $(document).ready(function() {
           function saveTodoImage(objParseFile) {
@@ -149,7 +145,12 @@
           <input id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
 
-
+      <br><br>
+      <form id="imageUpload" class="imageUpload">
+        <input type="file" id="imageFile" class="imageFile">
+        <img id="imageFile"/>
+      </form>
+      <br><br>
 
         <div id="main">
           <input id="toggle-all" type="checkbox">
