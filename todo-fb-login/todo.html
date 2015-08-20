@@ -107,7 +107,6 @@
                 alert('A new object was created');
                 var photo = imageList.get("todoImg");
                 $("#todoImg")[0].src = photo.url();
-                imageFile.value="";
               },
               
               error: function(imageList, error) {
@@ -127,6 +126,9 @@
             parseFile.save().then
             (function() {
               saveTodoImage(parseFile);
+              
+              var form = document.getElementById("imageFile");
+              form.reset();
             },
              
              function(error) {
@@ -150,7 +152,12 @@
           <input id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
 
-
+      <br>
+      <form id="imageUpload" class="imageUpload">
+        <input type="file" id="imageFile" class="imageFile">
+        <img id="imageFile"/>
+      </form>
+      <br>
 
         <div id="main">
           <input id="toggle-all" type="checkbox">
