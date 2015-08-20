@@ -35,7 +35,8 @@
       <div id="fbLogoutBox">
         <button class="fbLogout" id="logoutBtn" onclick="fLogout();"><img src="/images/logoutBtn.png"></button>
       </div>
-     
+      
+      <!--Facebook Logout Info-->
       <div id="fb-root"></div>
       <script type="text/javascript">
         Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
@@ -74,97 +75,65 @@
             
             else if (response.status === 'not_authorized') {
               FB.logout(function(response) {
-                document.location.reload();
                 alert('The facebook logout ELSE IF statement fired');
               });
             }
             
             else {
               FB.logout(function(response) {
-                document.location.reload();
                 alert('The facebook logout ELSE statement fired');
               });
             }
           });
         }
         
-        //Simple syntax to create a new subclass of Parse.Object.
-        var ImageUpload = Parse.Object.extend("ImageUpload");
-
-        //Create a new instance of that class.
-        var imageUpload = new ImageUpload();
-
-        var newTodoInputField = document.getElementById("new-todo");
-
-        var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
-        var file = document.getElementById("imageFile");
-        var name = document.getElementById("new-todo");
-        $('#imageUpload').bind("change", function (e) {
-          var files = e.target.files || e.dataTransfer.files;
-          // Our file var now holds the selected file
-          file = files[0];
-          name = file.name;
-        });
-
-        //--------------------------------------------------------------------------------
-        //This function submits the values from our three inputs: Username & Score & Image
-        //--------------------------------------------------------------------------------
-        function submitValues() {
-          //imageUpload.set("userName", newTodoInputField.value);
-
-          imageUpload.save(null, {
-            success: function(imageUpload) {
-              //Execute any logic that should take place after the object is saved
-              alert('New object created');
-            },
-
-            error: function(imageUpload, error) {
-              //Execute any logic that should take place if the save fails
-              //Error is a Parse.Error with an error code and message
-              alert('Failed to create a new object, with error code: ' + error.message);
-            }
-          });
-
-          //-------------------------------------------------------
-          //Below is all the code for uploading the images to Parse
-          //-------------------------------------------------------
-          if (file != null) {
-            var serverUrl = 'https://api.parse.com/1/files/' + file.name;
-
-            $.ajax({
-              type: "POST",
-              beforeSend: function (request) {
-                request.setRequestHeader("X-Parse-Application-Id", 'jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l');
-                request.setRequestHeader("X-Parse-REST-API-Key", '3FrL7m8osb7VyAr8CQFaUQ7DRjoOrtBx9XlPtmYm');
-                request.setRequestHeader("Content-Type", file.png);
+        /*Here is the code for uploading images to Parse.*/
+        $(document).ready(function() {
+          function saveTodoImage(objParseFile) {
+            var todoImage = new Parse.Object("TodoImage");
+            todoImage.set("todoName", "Image File Name");
+            todoImage.set("todoImg", objParseFile);
+            todoImage.save(null, {
+              success: function(imageList) {
+                //Execute any logic that should take place after the object is saved
+                alert('A new object was created');
+                var photo = imageList.get("todoImg");
+                $("#todoImg")[0].src = photo.url();
+                imageFile.value="";
               },
-              url: serverUrl,
-              data: file,
-              processData: false,
-              contentType: false,
-              success: function (data) {
-                var myimage = new Parse.Object("imageTable"); //create new object
-                myimage.set({base64: base64}); //set the url that will be used to retrieve the image
-                myimage.set({imagefile: {"name": data.name,"url": base64,"__type": "File"}}); //save it's name and url in a json object for good measure
-                myimage.save(); //save and push the changes
-                imageFile.value = "";        
-                newTodoInputField.value="";
-
-                console.log("Your image was saved!");
-                alert("Your image has been saved!");
-              },
-
-              error: function (data) {
-                var obj = jQuery.parseJSON(data);
-                alert(obj.error);
+              
+              error: function(imageList, error) {
+                //Execute any login that should take place if the save fails
+                //error is a Parse.Error with an error code and description
+                alert('Failed to create a new object, with error code: ' + error.description);
               }
             });
           }
-
-        }
-
+          
+          $('#imageFile').bind("change", function(e) {
+            var fileUploadControl = $('#imageFile')[0];
+            var file = fileUploadControl.files[0];
+            var name = file.name; //This does NOT need to be a unique name
+            var parseFile = new Parse.File(name, file);
+            
+            parseFile.save().then
+            (function() {
+              saveTodoImage(parseFile);
+            },
+             
+             function(error) {
+              alert('error');
+            }
+             );
+          });
+        });
       </script>
-
+      
+      <form id="imageUpload" class="imageUpload">
+        <input type="file" id="imageFile" class="imageFile">
+        <img id="imageFile"/>
+      </form>
+      
       <!--This is the template for managing all the todos-->
       <script type="text/template" id="manage-todos-template">
       <div id="user-info">
@@ -178,14 +147,7 @@
           <input id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
 
-        <br>
-        <form id="fileUpload" class="fileUpload" enctype="multipart/form-data" method="post">
-          <input type="file" class="imageFile" id="imageFile" accept="image/*">
-        </form>
 
-        <br>
-        <input type="button" onclick="submitValues()" class="submitBtn" value="Submit" id="submit"/>
-        <br>
 
         <div id="main">
           <input id="toggle-all" type="checkbox">
