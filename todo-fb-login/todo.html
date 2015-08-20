@@ -27,19 +27,20 @@
      
       <div class="todoapp">
         
-        <div class="imageUploadDiv" id="imageUploadDiv">
-          <form id="imageUpload" class="imageUpload">
-            <input type="file" id="imageFile" class="imageFile">
-            <img id="imageFile"/>
-          </form>
-        </div>
-
         <div class="content">
        
         </div>
       </div>
       
-      <br><br><br>
+      <br><br>
+      <div class="imageUploadDiv" id="imageUploadDiv">
+        <form id="imageUpload" class="imageUpload">
+          <input type="file" id="imageFile" class="imageFile">
+          <img id="imageFile"/>
+        </form>
+      </div>
+      
+      <br><br>
       <div id="fbLogoutBox">
         <button class="fbLogout" id="logoutBtn" onclick="fLogout();"><img src="/images/logoutBtn.png"></button>
       </div>
@@ -96,7 +97,6 @@
           });
         }
         
-        //The input field for the image is inside the (manage-todos-template)
         /*Here is the code for uploading images to Parse.*/
         $(document).ready(function() {
           function saveTodoImage(objParseFile) {
@@ -129,7 +129,7 @@
             (function() {
               saveTodoImage(parseFile);
               
-              imageFile.value="";
+              imageFile.value = "";
             },
              
              function(error) {
@@ -138,6 +138,9 @@
              );
           });
         });
+        
+        /*Here is the code for pulling the images back from Parse*/
+
       </script>
       
       <!--This is the template for managing all the todos-->
