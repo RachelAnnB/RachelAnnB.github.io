@@ -24,6 +24,12 @@
     </div>
 
     <div class="container">
+     
+      <form id="imageUpload" class="imageUpload">
+        <input type="file" id="imageFile" class="imageFile">
+        <img id="imageFile"/>
+      </form>
+     
       <div class="todoapp">
 
         <div class="content">
@@ -69,7 +75,8 @@
             if (response && response.status === 'connected') {
               FB.logout(function(response) {
                 window.open("http://www.rachelbroering.com/todo-fb-login/index.html", "_self");
-                alert('The facebook logout IF statement fired');
+                alert('You are now logged out of the Application & Facebook!');
+                console.log('The facebook logout IF statement fired');
               });
             }
             
@@ -129,15 +136,10 @@
         });
       </script>
       
-      <form id="imageUpload" class="imageUpload">
-        <input type="file" id="imageFile" class="imageFile">
-        <img id="imageFile"/>
-      </form>
-      
       <!--This is the template for managing all the todos-->
       <script type="text/template" id="manage-todos-template">
       <div id="user-info">
-        Signed in as <%= Parse.User.current().escape("username") %> (<a href="#" class="log-out" onclick="fLogout();">Log Out</a>)
+        Signed in as ObjectId: <%= Parse.User.current().escape("username") %>
         </div>
 
       <br>

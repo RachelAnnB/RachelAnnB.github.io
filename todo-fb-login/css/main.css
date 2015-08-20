@@ -28,6 +28,10 @@ h2 {
     text-align: center;
 }
 
+#imageUpload {
+    padding-left: 41.5%;
+}
+
 #fbLoginBox {
     padding-left: 41.5%;
 }
