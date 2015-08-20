@@ -25,12 +25,14 @@
 
     <div class="container">
      
-    <form id="imageUpload" class="imageUpload">
-      <input type="file" id="imageFile" class="imageFile">
-      <img id="imageFile"/>
-    </form>
-     
       <div class="todoapp">
+        
+        <div class="imageUploadDiv" id="imageUploadDiv">
+          <form id="imageUpload" class="imageUpload">
+            <input type="file" id="imageFile" class="imageFile">
+            <img id="imageFile"/>
+          </form>
+        </div>
 
         <div class="content">
        
@@ -127,8 +129,7 @@
             (function() {
               saveTodoImage(parseFile);
               
-              var form = document.getElementById("imageFile");
-              form.reset();
+              imageFile.value="";
             },
              
              function(error) {
@@ -151,13 +152,6 @@
         <header id="header">
           <input id="new-todo" placeholder="What needs to be done?" type="text" />
         </header>
-
-      <br>
-      <form id="imageUpload" class="imageUpload">
-        <input type="file" id="imageFile" class="imageFile">
-        <img id="imageFile"/>
-      </form>
-      <br>
 
         <div id="main">
           <input id="toggle-all" type="checkbox">
