@@ -56,28 +56,30 @@
         xfbml      : true,
         version    : 'v2.4'
       });
-      
+        
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
       
-      Parse.FacebookUtils.logIn(null, {
-      success: function(user) {
-        if (!user.existed()) {
-          alert("User signed up and logged in through Facebook!");
-        }
-        else {
-          alert("User logged in through Facebook!");
-        }
+      function fbLogin() {
+        Parse.FacebookUtils.logIn(null, {
+        success: function(user) {
+          if (!user.existed()) {
+            alert("User signed up and logged in through Facebook!");
+          }
+          else {
+            alert("User logged in through Facebook!");
+          }
 
-        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
-        console.log('We are moving to the profile.html page');
-      },
+          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+          console.log('We are moving to the profile.html page');
+        },
 
-      error: function(user, error) {
-        alert("User cancelled the Facebook login or did not fully authorize.");
-      }
-    });
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+        }
+      });
+    }
   };
     
     (function(d, s, id){
@@ -94,7 +96,7 @@
     <h1>Please log into Facebook.</h1>
     
     <div id="fb-root">
-      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <div id="status"></div>
     </div>
