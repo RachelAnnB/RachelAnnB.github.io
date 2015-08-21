@@ -28,7 +28,7 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -45,7 +45,6 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
-        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
         }
       });
     }
