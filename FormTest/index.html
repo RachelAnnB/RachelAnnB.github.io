@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
 
-  <title>Form Test</title>
+  <title>Profile Form Test</title>
   
   <!--Links to CSS Stylesheets-->
   <link rel="stylesheet" href="css/main.css" media="all" type="text/css">
@@ -20,24 +20,84 @@
 </head>
 <body>
   
+  <!--Facebook SDK Information-->
+  <script type="text/javascript">
+    function statusChangeCallback(response) {
+      console.log('statusChangeCallback');
+      console.log(response);
+      
+      if (response.status === 'connected') {
+        //Logged into the app & Facebook
+      }
+      else if (response.status === 'not_authorized') {
+        //Logged into Facebook, not the app
+        document.getElementById('status').innerHTML = 'Please log into this app.';
+      }
+      else {
+        //Not logged into Facebook, unsure if logged into the app
+        document.getElementById('status').innerHTML = 'Please log into Facebook.';
+      }
+    }
+    
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        
+        if(response.status === 'connected') {
+          console.log(response.authResponse.accessToken);
+        }
+      });
+    }
+    
+    window.fbAsyncInit = function() {
+      Parse.FacebookUtils.init({
+        appId      : '548503138630710',
+        status     : true,
+        xfbml      : true,
+        version    : 'v2.4'
+      });
+      
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  
+  <div id="fb-root">
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+    
+    <div id="status"></div>
+  </div>
+
   <div class="container">
     <h1>Form Test</h1>
     
     <div id="FormBox">
-      <h3>Name:</h3>
+      <h3>Name</h3>
       <input type="text" id="nameInput" class="nameInput">
       
-      <h3>Address:</h3>
+      <h3>Address</h3>
       <input type="text" id="addressInput" class="addressInput">
     
-      <h3>Phone Number:</h3>
+      <h3>Phone Number</h3>
       <input type="number" id="phoneInput" class="phoneInput">
       
-      <h3>Email:</h3>
-      <input type="text" id="emailInput" class="emailInput">
+      <h3>Email</h3>
+      <input type="email" id="emailInput" class="emailInput">
       
       <h3>Profile Picture</h3>
       <input type="file" id="imageInput" class="imageInput">
+      
+      <br><br><br>
+      <button id="submitBtn" class="submitBtn" onclick="submitValues">Submit</button>
     </div>
     <br><br>
     <div id="FormInputBox">
@@ -45,7 +105,7 @@
     </div>
   </div>
   
-  <!--Links to Javascript files from folder-->
+  <!--Links to Javascript files from my folders-->
   <script src="js/lib/jquery-2.1.4.min.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone.js"></script>
