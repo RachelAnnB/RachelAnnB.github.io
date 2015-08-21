@@ -28,7 +28,7 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -60,8 +60,10 @@
         statusChangeCallback(response);
       });
       
-      function fbLogin() {
-        Parse.FacebookUtils.logIn(null, {
+  };
+    
+    function fbLogin() {
+      Parse.FacebookUtils.logIn(null, {
         success: function(user) {
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
@@ -70,7 +72,7 @@
             alert("User logged in through Facebook!");
           }
 
-          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+          //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 
@@ -78,9 +80,7 @@
           alert("User cancelled the Facebook login or did not fully authorize.");
         }
       });
-      
     }
-  };
     
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
