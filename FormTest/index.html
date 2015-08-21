@@ -71,9 +71,8 @@
             alert("User logged in through Facebook!");
           }
 
-          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+          //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
-          document.getElementById('FormBox').style.display = "block";
         },
 
         error: function(user, error) {
@@ -102,34 +101,7 @@
       
       <div id="status"></div>
     </div>
-    
-    <!--This is the form with all the input info-->
-    <div id="FormBox" style="display:none;">
-      <h1>Form Test</h1>
-    
-      <h3>Name</h3>
-      <input type="text" id="nameInput" class="nameInput">
-      
-      <h3>Address</h3>
-      <input type="text" id="addressInput" class="addressInput">
-    
-      <h3>Phone Number</h3>
-      <input type="number" id="phoneInput" class="phoneInput">
-      
-      <h3>Email</h3>
-      <input type="email" id="emailInput" class="emailInput">
-      
-      <h3>Profile Picture</h3>
-      <input type="file" id="imageInput" class="imageInput">
-      
-      <br><br><br>
-      <button id="submitBtn" class="submitBtn" onclick="submitValues">Submit</button>
-    </div>
-    <br><br>
-    <div id="FormInputBox">
-      
-    </div>
-    
+
   </div>
   
   <!--Links to Javascript files from my folders-->
