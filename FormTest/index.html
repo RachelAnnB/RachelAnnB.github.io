@@ -28,6 +28,7 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
+        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -51,7 +52,6 @@
     window.fbAsyncInit = function() {
       Parse.FacebookUtils.init({
         appId      : '548503138630710',
-        status     : true,
         xfbml      : true,
         version    : 'v2.4'
       });
@@ -94,7 +94,7 @@
   <div class="container">
     <h1>Please log into Facebook.</h1>
     
-    <div id="fb-root">
+    <div onclick="fbLogin();" id="fb-root">
       <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <div id="status"></div>
