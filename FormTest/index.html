@@ -58,7 +58,7 @@
         version    : 'v2.4'
       });
         
-      function fbLogin() {
+      
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -78,7 +78,7 @@
             alert("User cancelled the Facebook login or did not fully authorize.");
           }
         });
-      }
+      
       
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
