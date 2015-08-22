@@ -66,12 +66,13 @@
         success: function(user) {
           if (!user.existed()) {
             alert("User signed up and logged in through Facebook!");
+                      window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+
           }
           else {
             alert("User logged in through Facebook!");
           }
           
-          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 
