@@ -58,35 +58,10 @@
         version    : 'v2.4'
       });
         
-      
-        Parse.FacebookUtils.logIn(null, {
-          success: function(user) {
-            if (!user.existed()) {
-              alert("User logged into Facebook and created a new Parse session!");
-            }
-            else {
-              alert("User logged in through Facebook!");
-            }
-
-            div = document.getElementById("test");
-            div.style.display = "block";
-            //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
-            console.log('We are moving to the profile.html page');
-          },
-
-          error: function(user, error) {
-            alert("User cancelled the Facebook login or did not fully authorize.");
-          }
-        });
-      
-      
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
-      
-  };
-    
-
+    };
     
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
@@ -95,6 +70,28 @@
        js.src = "//connect.facebook.net/en_US/all.js";
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    
+    function fbLogin() {
+      Parse.FacebookUtils.logIn(null, {
+        success: function(user) {
+          if (!user.existed()) {
+            alert("User logged into Facebook and created a new Parse session!");
+          }
+          else {
+            alert("User logged in through Facebook!");
+          }
+          
+          div = document.getElementById("test");
+          div.style.display = "block";
+          //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+          console.log('We are moving to the profile.html page');
+        },
+
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+        }
+      });
+    }
     
     function showTest() {
       div = document.getElementById("test");
@@ -108,9 +105,6 @@
     
     <div id="fb-root">
       <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
-      
-      <br>
-      <button onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></button>
       
       <div id="status"></div>
     </div>
