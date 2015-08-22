@@ -74,7 +74,9 @@
             alert("User logged in through Facebook!");
           }
           
-          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+          div = document.getElementById("test");
+          div.style.display = "block";
+          //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 

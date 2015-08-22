@@ -39,6 +39,7 @@
       else {
         //Not logged into Facebook, unsure if logged into the app
         document.getElementById('status').innerHTML = 'Please log into Facebook.';
+        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
       }
     }
     
@@ -55,7 +56,6 @@
     window.fbAsyncInit = function() {
       Parse.FacebookUtils.init({
         appId      : '548503138630710',
-        status     : true,
         xfbml      : true,
         cookie     : true,
         version    : 'v2.4'
