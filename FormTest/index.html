@@ -45,6 +45,7 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
+        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
         }
       });
     }
@@ -72,7 +73,6 @@
             alert("User logged in through Facebook!");
           }
 
-          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 
