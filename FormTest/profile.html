@@ -23,55 +23,55 @@
   <!--Facebook SDK Information-->
 
   <script type="text/javascript">
-    function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-      
-      if (response.status === 'connected') {
-        //Logged into the app & Facebook
-      }
-      else if (response.status === 'not_authorized') {
-        //Logged into Facebook, not the app
-        document.getElementById('status').innerHTML = 'Please log into this app.';
-      }
-      else {
-        //Not logged into Facebook, unsure if logged into the app
-        document.getElementById('status').innerHTML = 'Please log into Facebook.';
-      }
-    }
-    
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-        
-        if(response.status === 'connected') {
-          console.log(response.authResponse.accessToken);
-        }
-      });
-    }
-    
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId      : '548503138630710',
-        status     : true,
-        xfbml      : true,
-        version    : 'v2.4'
-      });
-      
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-      
-    };
-    
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/all.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-    
+//    function statusChangeCallback(response) {
+//      console.log('statusChangeCallback');
+//      console.log(response);
+//      
+//      if (response.status === 'connected') {
+//        //Logged into the app & Facebook
+//      }
+//      else if (response.status === 'not_authorized') {
+//        //Logged into Facebook, not the app
+//        document.getElementById('status').innerHTML = 'Please log into this app.';
+//      }
+//      else {
+//        //Not logged into Facebook, unsure if logged into the app
+//        document.getElementById('status').innerHTML = 'Please log into Facebook.';
+//      }
+//    }
+//    
+//    function checkLoginState() {
+//      FB.getLoginStatus(function(response) {
+//        statusChangeCallback(response);
+//        
+//        if(response.status === 'connected') {
+//          console.log(response.authResponse.accessToken);
+//        }
+//      });
+//    }
+//    
+//    window.fbAsyncInit = function() {
+//      Parse.FacebookUtils.init({
+//        appId      : '548503138630710',
+//        status     : true,
+//        xfbml      : true,
+//        version    : 'v2.4'
+//      });
+//      
+//      FB.getLoginStatus(function(response) {
+//        statusChangeCallback(response);
+//      });
+//      
+//    };
+//    
+//    (function(d, s, id){
+//       var js, fjs = d.getElementsByTagName(s)[0];
+//       if (d.getElementById(id)) {return;}
+//       js = d.createElement(s); js.id = id;
+//       js.src = "//connect.facebook.net/en_US/all.js";
+//       fjs.parentNode.insertBefore(js, fjs);
+//     }(document, 'script', 'facebook-jssdk'));
+//    
   </script>
 
   
