@@ -52,6 +52,7 @@
       Parse.FacebookUtils.init({
         appId      : '548503138630710',
         xfbml      : true,
+        cookie     : true,
         version    : 'v2.4'
       });
         
@@ -99,11 +100,11 @@
   <div class="container">
     <h1>Please log into Facebook.</h1>
     
-    <div id="fb-root" onclick="fbLogin();">
-      <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+    <div id="fb-root">
+      <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <br>
-      <button onclick="fLogin();">Login to Parse</button>
+      <button onclick="fbLogin();">Login to Parse</button>
       
       <div id="status"></div>
     </div>
