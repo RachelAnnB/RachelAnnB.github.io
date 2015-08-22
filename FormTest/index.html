@@ -28,7 +28,6 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -45,7 +44,6 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
-        window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
         }
       });
     }
@@ -72,7 +70,8 @@
           else {
             alert("User logged in through Facebook!");
           }
-
+          
+          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 
@@ -90,15 +89,24 @@
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
+    function showTest() {
+      div = document.getElementById("test");
+      div.style.display = "block";
+    }
+    
   </script>
 
   <div class="container">
     <h1>Please log into Facebook.</h1>
     
     <div onclick="fbLogin();" id="fb-root">
-      <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      <div onclick="fbLogin();" onclick="showTest();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <div id="status"></div>
+    </div>
+    
+    <div id="test" style="display:none;">
+      Hello World
     </div>
 
   </div>
