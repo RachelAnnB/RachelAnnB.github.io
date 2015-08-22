@@ -58,33 +58,35 @@
         version    : 'v2.4'
       });
         
+      function fbLogin() {
+        Parse.FacebookUtils.logIn(null, {
+          success: function(user) {
+            if (!user.existed()) {
+              alert("User logged into Facebook and created a new Parse session!");
+            }
+            else {
+              alert("User logged in through Facebook!");
+            }
+
+            div = document.getElementById("test");
+            div.style.display = "block";
+            //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
+            console.log('We are moving to the profile.html page');
+          },
+
+          error: function(user, error) {
+            alert("User cancelled the Facebook login or did not fully authorize.");
+          }
+        });
+      }
+      
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
       });
       
   };
     
-    function fbLogin() {
-      Parse.FacebookUtils.logIn(null, {
-        success: function(user) {
-          if (!user.existed()) {
-            alert("User logged into Facebook and created a new Parse session!");
-          }
-          else {
-            alert("User logged in through Facebook!");
-          }
-          
-          div = document.getElementById("test");
-          div.style.display = "block";
-          //window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
-          console.log('We are moving to the profile.html page');
-        },
 
-        error: function(user, error) {
-          alert("User cancelled the Facebook login or did not fully authorize.");
-        }
-      });
-    }
     
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
