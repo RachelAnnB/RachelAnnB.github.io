@@ -65,14 +65,13 @@
       Parse.FacebookUtils.logIn(null, {
         success: function(user) {
           if (!user.existed()) {
-            alert("User signed up and logged in through Facebook!");
-                      window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
-
+            alert("User logged into Facebook and created a new Parse session!");
           }
           else {
             alert("User logged in through Facebook!");
           }
           
+          window.open("http://www.rachelbroering.com/FormTest/profile.html", "_self");
           console.log('We are moving to the profile.html page');
         },
 
@@ -100,7 +99,7 @@
   <div class="container">
     <h1>Please log into Facebook.</h1>
     
-    <div onclick="fbLogin();" id="fb-root">
+    <div id="fb-root">
       <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <div id="status"></div>
