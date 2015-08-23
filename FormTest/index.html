@@ -110,35 +110,48 @@
       <div id="status"></div>
     </div>
       
-    <button onclick="showTest();">Show Div</button>
+    <br>
+    <button id="testBtn" onclick="showTest();">Show Div</button><br><br>
       
-    <div id="test" style="display:block;">
-      Hello World
+    <div id="test" style="display:none;">
+      <p>Hello World</p><br>
       
       <h1>Form Test</h1>
 
       <div id="FormBox">
         <h3>Name</h3>
-        <input type="text" id="nameInput" class="nameInput" title="form[name]">
+        <input type="text" id="nameInput" class="formInput" title="form[name]">
 
         <h3>Address</h3>
-        <input type="text" id="addressInput" class="addressInput" title="form[address]">
+        <input type="text" id="addressInput" class="formInput" title="form[address]">
 
         <h3>Phone Number</h3>
-        <input type="number" id="phoneInput" class="phoneInput" title="form[phone]">
+        <input type="number" id="phoneInput" class="formInput" title="form[phone]">
 
         <h3>Email</h3>
-        <input type="email" id="emailInput" class="emailInput" title="form[email]">
+        <input type="email" id="emailInput" class="formInput" title="form[email]">
 
         <h3>Profile Picture</h3>
-        <input type="file" id="imageInput" class="imageInput" title="form[image]">
+        <input type="file" id="imageInput" class="formInput" title="form[image]">
 
         <br><br><br>
         <button id="submitBtn" class="submitBtn" onclick="submitValues(); imageUpload();">Submit</button>
       </div>
       <br><br>
-      <div id="FormInputBox">
-
+      <div id="FormBoxView">
+        <div id="singleFormView">
+          <div id="profilePicView"><img id="test" src="images/image1.png"></div>
+          
+          <div id="inputInfoView">
+            <li id="nameView">Name</li>
+            <hr>
+            <li id="addressView">Address</li>
+            <li id="phoneView">Phone Number</li>
+            <li id="emailView">Email</li>
+            <hr>
+          </div>
+        </div>
+        <br><br><br>
       </div>
     </div>
 

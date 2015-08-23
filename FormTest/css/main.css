@@ -1,0 +1,95 @@
+body {
+  background-color: darkturquoise;
+}
+
+.container {
+  margin: 0 15%;
+  margin-top: 50px;
+  padding-top: 20px;
+  background-color: aliceblue
+}
+
+h1 {
+  font-family: Bebas Neue;
+  font-size: 38px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+#fb-root {
+  margin-left: 47%;
+  width: 6%;
+}
+
+#test {
+  
+}
+
+#testBtn {
+  margin-left: 47%;
+}
+
+p {
+  font-family: Helvetica;
+  font-size: 18px;
+  text-align: center;
+}
+
+#FormBox {
+  padding: 10px;
+}
+
+h3 {
+  font-family: Helvetica;
+  font-size: 18px;
+  width: 20%;
+  line-height: 24px;
+  margin-left: 30%;
+}
+
+.formInput {
+  width: 40%;
+  padding: 4px;
+  margin-left: 30%;
+}
+
+.submitBtn {
+  margin-left: 49%;
+  padding: 6px;
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: lightgray;
+}
+
+#singleFormView {
+  width: 90%;
+  margin: 0 auto;
+  margin-left: 5%;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+#profilePicView {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  float: left;
+}
+
+#test {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#inputInfoView {
+  margin-left: 15%;
+  margin-top: 3%;
+  float: left;
+  width: 60%;
+  list-style-type: none;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  line-height: 28px;
+}
