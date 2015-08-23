@@ -47,10 +47,19 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
-          
-          
-          
-                function fbLogin() {
+        }
+      });
+    }
+    
+    window.fbAsyncInit = function() {
+      Parse.FacebookUtils.init({
+        appId      : '548503138630710',
+        xfbml      : true,
+        cookie     : true,
+        version    : 'v2.4'
+      });
+      
+      function fbLogin() {
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -71,20 +80,6 @@
           }
         });
       }
-          
-        }
-      });
-    }
-    
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId      : '548503138630710',
-        xfbml      : true,
-        cookie     : true,
-        version    : 'v2.4'
-      });
-      
-
         
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
@@ -110,7 +105,7 @@
     <h1>Please log into Facebook.</h1>
     
     <div id="fb-root">
-      <div onclick="fbLogin();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      <div onclick="fbLogin(); showTest();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
       <div id="status"></div>
     </div>
