@@ -16,6 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 
 </head>
 <body>
@@ -108,12 +109,37 @@
       
       <div id="status"></div>
     </div>
-    
-      <br><br>
-      <button onclick="showTest();">Button</button>
-    
-    <div id="test" style="display:none;">
+      
+    <button onclick="showTest();">Show Div</button>
+      
+    <div id="test" style="display:block;">
       Hello World
+      
+      <h1>Form Test</h1>
+
+      <div id="FormBox">
+        <h3>Name</h3>
+        <input type="text" id="nameInput" class="nameInput" title="form[name]">
+
+        <h3>Address</h3>
+        <input type="text" id="addressInput" class="addressInput" title="form[address]">
+
+        <h3>Phone Number</h3>
+        <input type="number" id="phoneInput" class="phoneInput" title="form[phone]">
+
+        <h3>Email</h3>
+        <input type="email" id="emailInput" class="emailInput" title="form[email]">
+
+        <h3>Profile Picture</h3>
+        <input type="file" id="imageInput" class="imageInput" title="form[image]">
+
+        <br><br><br>
+        <button id="submitBtn" class="submitBtn" onclick="submitValues(); imageUpload();">Submit</button>
+      </div>
+      <br><br>
+      <div id="FormInputBox">
+
+      </div>
     </div>
 
   </div>
@@ -122,7 +148,6 @@
   <script src="js/lib/jquery-2.1.4.min.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone.js"></script>
-  <script src="js/main.js"></script>
 
 </body>
 </html>
