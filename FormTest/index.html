@@ -47,19 +47,10 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
-        }
-      });
-    }
-    
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId      : '548503138630710',
-        xfbml      : true,
-        cookie     : true,
-        version    : 'v2.4'
-      });
-      
-      function fbLogin() {
+          
+          
+          
+                function fbLogin() {
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -80,6 +71,20 @@
           }
         });
       }
+          
+        }
+      });
+    }
+    
+    window.fbAsyncInit = function() {
+      Parse.FacebookUtils.init({
+        appId      : '548503138630710',
+        xfbml      : true,
+        cookie     : true,
+        version    : 'v2.4'
+      });
+      
+
         
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
