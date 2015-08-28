@@ -31,6 +31,7 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
+        alert('logged into facebook');
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -47,6 +48,7 @@
         statusChangeCallback(response);
         
         if(response.status === 'connected') {
+          alert('this was fired from the getloginstatus if statement');
         }
       });
     }
@@ -104,17 +106,14 @@
     
     
     <div id="fb-root">
-     <button onclick="fbLogin();">
-      <div class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+     <button onclick="fbLogin(); showTest();"><div class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div></button>
       
       <div id="status"></div>
-      </button>
     </div>
     
       
     <br>
     <button id="testBtn" onclick="showTest();">Show Div</button><br><br>
-     <button onclick="fbLogin();" id="fbTest">Parse Login</button>
       
     <div id="test" style="display:none;">
       <p>Hello World</p><br>
