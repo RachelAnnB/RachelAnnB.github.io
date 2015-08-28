@@ -59,25 +59,7 @@
         version    : 'v2.4'
       });
       
-
-        
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-    };
-    
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {return;}
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk/debug.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    
-    
-    
-    
-          function fbLogin() {
+      //function fbLogin() {
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -95,11 +77,20 @@
             alert("User cancelled the Facebook login or did not fully authorize.");
           }
         });
-      }
+      //}
+        
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    };
     
-    
-    
-    
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
     
     function showTest() {
       div = document.getElementById("test");
