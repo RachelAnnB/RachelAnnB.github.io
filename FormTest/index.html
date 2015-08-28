@@ -61,14 +61,7 @@
         version    : 'v2.4'
       });
       
-
-        
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-      
-      
-            function fbLogin() {
+      function fbLogin() {
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -87,8 +80,10 @@
           }
         });
       }
-      
-      
+        
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
       
     };
     
