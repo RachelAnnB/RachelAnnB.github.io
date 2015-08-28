@@ -3,6 +3,11 @@ $(document).ready(function() {
   
   Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
   
+//  var facebookLogin = document.getElementById('fb-login-button');
+//  facebookLogin.onclick = function() {
+//    
+//  }
+  
   //------
   //Models
   //------
@@ -100,7 +105,20 @@ $(document).ready(function() {
   //-----
   
   var FormView = Parse.View.extend({
+    tagName: "li",
+    template: _.template($('#formViewTemplate').html()),
     
+    initialize: function(options){
+      if (!(options && options.model))
+      throw new Error("model is not specified");
+      
+      this.model.on("change", this.render, this);
+    },
+    
+    render: function() {
+      //this sets the li's id attribute to the model's id
+      this.$el.attr("id", this.model.id);
+    }
   });
   
   //-------

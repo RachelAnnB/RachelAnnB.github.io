@@ -88,7 +88,7 @@
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
        js = d.createElement(s); js.id = id;
-       js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+     js.src = "//connect.facebook.net/en_US/all/debug.js";
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
@@ -103,7 +103,7 @@
     <h1>Please log into Facebook.</h1>
     
     <div id="fb-root">
-      <div onclick="fbLogin(); showTest();" class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      <button><div onclick="fbLogin(); showTest();" class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div></button>
       
       <div id="status"></div>
     </div>
@@ -137,6 +137,8 @@
       </div>
       <br><br>
       <div id="FormBoxView">
+      <!--Template for the Form View-->
+      <script type="text/template" id="formViewTemplate">
         <div id="singleFormView">
           <div id="profilePicView"><img id="test" src="images/image1.png"></div>
           
@@ -150,6 +152,7 @@
           </div>
         </div>
         <br><br><br>
+      </script>
       </div>
     </div>
 
