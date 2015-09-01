@@ -42,7 +42,7 @@
       if (response.status === 'connected') {
         //Logged into the app & Facebook
         alert('logged into facebook');
-        div = document.getElementById("test");
+        div = document.getElementById("form");
         div.style.display = "block";
       }
       else if (response.status === 'not_authorized') {
@@ -98,8 +98,8 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
-    function showTest() {
-      div = document.getElementById("test");
+    function showForm() {
+      div = document.getElementById("form");
       div.style.display = "block";
     }
     
@@ -110,17 +110,13 @@
     
     
     <div id="fb-root">
-      <button onclick="fbLogin(); showTest();"><div class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+      <button onclick="fbLogin(); showForm();"><div class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
       
         <div id="status"></div>
-      </button>
+      </button><br><br><br>
     </div>
-    
       
-    <br>
-    <button id="testBtn" onclick="showTest();">Show Div</button><br><br>
-      
-    <div id="test" style="display:none;">
+    <div id="form" style="display:none;">
       
       <h1>Form Test</h1>
 
