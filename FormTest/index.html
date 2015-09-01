@@ -31,18 +31,6 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        
-        (function() {
-          if( window.localStorage) {
-            if(!localStorage.getItem('firstLoad')) {
-              localStorage['firstLoad'] = true;
-              window.location.reload();
-            }
-            else
-              localStorage.remvoeItem('firstLoad');
-          }
-        })();
-        
         alert('logged into facebook');
         div = document.getElementById("test");
         div.style.display = "block";
@@ -72,7 +60,7 @@
         appId      : '548503138630710',
         xfbml      : true,
         cookie     : true,
-        version    : 'v2.4'
+        version    : 'v1.0'
       });
       
       function fbLogin() {
@@ -105,7 +93,7 @@
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+      js.src = "//connect.facebook.net/en_US/all/debug.js";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
