@@ -41,7 +41,8 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        alert('logged into facebook');
+        alert('User has logged into facebook!');
+        //Here, the form div is being shown after logging into Facebook
         div = document.getElementById("form");
         div.style.display = "block";
       }
@@ -63,6 +64,7 @@
         version    : 'v1.0'
       });
       
+      //This reloads the page after a successful Facebook login
       FB.Event.subscribe('auth.login', function() {
         window.location.reload();
       });
@@ -72,6 +74,7 @@
           success: function(user) {
             if (!user.existed()) {
               alert("User logged into Facebook and created a new Parse session!");
+              console.log('New Parse Session created.');
             }
             else {
               alert("User logged in through Facebook!");
@@ -98,6 +101,7 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     
+    //This is the function for showing the form
     function showForm() {
       div = document.getElementById("form");
       div.style.display = "block";
