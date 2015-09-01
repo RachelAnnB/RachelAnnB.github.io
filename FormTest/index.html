@@ -32,6 +32,8 @@
       if (response.status === 'connected') {
         //Logged into the app & Facebook
         alert('logged into facebook');
+        div = document.getElementById("test");
+        div.style.display = "block";
       }
       else if (response.status === 'not_authorized') {
         //Logged into Facebook, not the app
@@ -53,7 +55,15 @@
       });
     }
     
-          function fbLogin() {
+    window.fbAsyncInit = function() {
+      Parse.FacebookUtils.init({
+        appId      : '548503138630710',
+        xfbml      : true,
+        cookie     : true,
+        version    : 'v2.4'
+      });
+      
+      function fbLogin() {
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -72,16 +82,6 @@
           }
         });
       }
-    
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId      : '548503138630710',
-        xfbml      : true,
-        cookie     : true,
-        version    : 'v2.4'
-      });
-      
-
         
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
