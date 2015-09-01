@@ -31,7 +31,18 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        window.location.reload();
+        
+        (function() {
+          if( window.localStorage) {
+            if(!localStorage.getItem('firstLoad')) {
+              localStorage['firstLoad'] = true;
+              window.location.reload();
+            }
+            else
+              localStorage.remvoeItem('firstLoad');
+          }
+        })();
+        
         alert('logged into facebook');
         div = document.getElementById("test");
         div.style.display = "block";
