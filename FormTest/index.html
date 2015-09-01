@@ -68,7 +68,7 @@
       FB.Event.subscribe('auth.login', function() {
         window.location.reload();
         
-        Parse.FacebookUtils.logIn(null, {
+                Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
               alert("User logged into Facebook and created a new Parse session!");
@@ -85,9 +85,7 @@
         });
       });
       
-      function fbLogin() {
-        
-      }
+
         
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
