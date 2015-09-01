@@ -67,9 +67,7 @@
       //This reloads the page after a successful Facebook login
       FB.Event.subscribe('auth.login', function() {
         window.location.reload();
-      });
-      
-      function fbLogin() {
+        
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -85,6 +83,10 @@
             alert("User cancelled the Facebook login or did not fully authorize.");
           }
         });
+      });
+      
+      function fbLogin() {
+        
       }
         
       FB.getLoginStatus(function(response) {
