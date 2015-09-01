@@ -41,16 +41,6 @@
       
       if (response.status === 'connected') {
         //Logged into the app & Facebook
-        
-        $(document).ready(function() {
-          if(document.URL.indexOf("#")==-1) {
-            url = document.URL + "#";
-            location = "#";
-            
-            location.reload(true);
-          }
-        });
-        
         alert('logged into facebook');
         div = document.getElementById("test");
         div.style.display = "block";
@@ -65,14 +55,16 @@
       }
     }
     
-
-    
     window.fbAsyncInit = function() {
       Parse.FacebookUtils.init({
         appId      : '548503138630710',
         xfbml      : true,
         cookie     : true,
         version    : 'v1.0'
+      });
+      
+      FB.Event.subscribe('auth.login', function() {
+        window.location.reload();
       });
       
       function fbLogin() {
