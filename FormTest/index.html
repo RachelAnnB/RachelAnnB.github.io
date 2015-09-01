@@ -25,6 +25,16 @@
   <script type="text/javascript">
     Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
     
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        
+        if(response.status === 'connected') {
+          alert('this was fired from the getloginstatus if statement');
+        }
+      });
+    }
+    
     function statusChangeCallback(response) {
       console.log('statusChangeCallback');
       console.log(response);
@@ -55,15 +65,7 @@
       }
     }
     
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-        
-        if(response.status === 'connected') {
-          alert('this was fired from the getloginstatus if statement');
-        }
-      });
-    }
+
     
     window.fbAsyncInit = function() {
       Parse.FacebookUtils.init({
@@ -127,7 +129,6 @@
     <button id="testBtn" onclick="showTest();">Show Div</button><br><br>
       
     <div id="test" style="display:none;">
-      <p>Hello World</p><br>
       
       <h1>Form Test</h1>
 
