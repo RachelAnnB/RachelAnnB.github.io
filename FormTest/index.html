@@ -44,7 +44,6 @@
         alert('User has logged into facebook!');
         //Here, the form div is being shown after logging into Facebook
         
-        
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -52,7 +51,7 @@
               console.log('New Parse Session created.');
             }
             else {
-              alert("User logged in through Facebook!");
+              alert("User is already logged in through Facebook!");
             }
           },
 
@@ -86,10 +85,6 @@
       FB.Event.subscribe('auth.login', function() {
         window.location.reload();
       });
-      
-      function fbLogin() {
-
-      }
         
       FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
@@ -127,7 +122,12 @@
     <div id="form" style="display:none;">
       
       <h1>Form Test</h1>
-
+      
+      Signed in as
+      <script>
+       <%= Parse.User.current().get("name") %>
+      </script>
+      
       <div id="FormBox">
         <h3>Name</h3>
         <input type="text" id="nameInput" class="formInput" title="form[name]">

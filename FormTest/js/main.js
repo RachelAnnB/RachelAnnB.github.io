@@ -1,3 +1,4 @@
+/*jslint browser: true, devel: true*/
 $(document).ready(function () {
   Parse.$ = jQuery;
   
@@ -80,12 +81,12 @@ $(document).ready(function () {
         var parseFile = new Parse.File(name, file);
         
         parseFile.save().then
-        (function() {
+        (function () {
           saveImage(parseFile);
     
           nameInputField.value = "";
         },
-        function(error) {
+        function (error) {
           alert('error');
         }
         );
@@ -97,7 +98,7 @@ $(document).ready(function () {
   //-----------
   
   var FormList = Parse.Collection.extend({
-    model: Form,
+    model: Form
   });
   
   //-----
@@ -108,14 +109,14 @@ $(document).ready(function () {
     tagName: "li",
     template: _.template($('#formViewTemplate').html()),
     
-    initialize: function(options){
+    initialize: function (options){
       if (!(options && options.model))
       throw new Error("model is not specified");
       
       this.model.on("change", this.render, this);
     },
     
-    render: function() {
+    render: function () {
       //this sets the li's id attribute to the model's id
       this.$el.attr("id", this.model.id);
     }
