@@ -123,9 +123,10 @@
       
       <h1>Form Test</h1>
       
-      Signed in as
-      <script>
-       <%= Parse.User.current().get("name") %>
+      <script type="text/template" id="signedInAs">
+        <div id="userSignIn">
+          Signed in as <%= Parse.User.current().get("name") %>.
+        </div>
       </script>
       
       <div id="FormBox">
