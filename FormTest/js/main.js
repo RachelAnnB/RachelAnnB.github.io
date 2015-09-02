@@ -4,11 +4,6 @@ $(document).ready(function () {
   
   Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
   
-//  var facebookLogin = document.getElementById('fb-login-button');
-//  facebookLogin.onclick = function() {
-//    
-//  }
-  
   //------
   //Models
   //------
@@ -49,9 +44,6 @@ $(document).ready(function () {
     });
   };
   
-//  var imageUpload = document.getElementById('imageUpload');
-//  imageUpload.onclick = function() {
-//    alert('test function worked');
     function saveImage(objParseFile) {
       var profileImage = new Parse.Object("ProfileImage");
       profileImage.set("name", nameInputField.value);

@@ -42,8 +42,8 @@
       if (response.status === 'connected') {
         //Logged into the app & Facebook
         alert('User has logged into facebook!');
-        //Here, the form div is being shown after logging into Facebook
         
+        //Here the new Parse Session is being created
         Parse.FacebookUtils.logIn(null, {
           success: function(user) {
             if (!user.existed()) {
@@ -59,7 +59,8 @@
             alert("User cancelled the Facebook login or did not fully authorize.");
           }
         });
-        
+
+        //Here, the form div is being shown after logging into Facebook        
         div = document.getElementById("form");
         div.style.display = "block";
       }
