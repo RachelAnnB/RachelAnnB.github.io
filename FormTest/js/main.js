@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   Parse.$ = jQuery;
   
   Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
@@ -23,14 +23,14 @@ $(document).ready(function() {
   var imageInputField = document.getElementById("imageInput");
 
   var submitValues = document.getElementById('submitBtn');
-  submitValues.onclick = function() {
+  submitValues.onclick = function () {
     form.set("name", nameInputField.value);
     form.set("address", addressInputField.value);
     form.set("phone", number.value);
     form.set("email", emailInputField.value);
     
     form.save(null, {
-      success: function(form) {
+      success: function (form) {
         //Execute any logic
         alert('New Form object was created!');
         
@@ -40,13 +40,13 @@ $(document).ready(function() {
         imageInputField.value = "";
       },
       
-      error: function(form, error) {
+      error: function (form, error) {
         //Execute any logic
         //Error is a Parse.Error with an error code & message
         alert('Failed to create a new Form object, with error code ' + error.message);
       }
-    }); 
-  }
+    });
+  };
   
 //  var imageUpload = document.getElementById('imageUpload');
 //  imageUpload.onclick = function() {
@@ -56,15 +56,15 @@ $(document).ready(function() {
       profileImage.set("name", nameInputField.value);
       profileImage.set("profileImg", objParseFile);
       profileImage.save(null, {
-        success: function(profilePic) {
+        success: function (profilePic) {
           //Execute any logic
           console.log('New image object saved');
           var photo = profilePic.get("profileImg");
-          $("#profileImg") [0].src = photo.url();
+          $("#profileImg")[0].src = photo.url();
           
         },
         
-        error: function(profilePic, error) {
+        error: function (profilePic, error) {
           //Execute any logic
           //error is a Parse.Error with an error code and description
           alert('Failed to save image, with error code: ' + error.description);
@@ -73,8 +73,8 @@ $(document).ready(function() {
       });
     }
       
-      $('#imageInput').bind("change", function(e) {
-        var fileUploadControl = $('#imageInput') [0];
+      $('#imageInput').bind("change", function (e) {
+        var fileUploadControl = $('#imageInput')[0];
         var file = fileUploadControl.files[0];
         var name = file.name;
         var parseFile = new Parse.File(name, file);
