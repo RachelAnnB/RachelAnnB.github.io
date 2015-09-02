@@ -43,6 +43,24 @@
         //Logged into the app & Facebook
         alert('User has logged into facebook!');
         //Here, the form div is being shown after logging into Facebook
+        
+        
+        Parse.FacebookUtils.logIn(null, {
+          success: function(user) {
+            if (!user.existed()) {
+              alert("User logged into Facebook and created a new Parse session!");
+              console.log('New Parse Session created.');
+            }
+            else {
+              alert("User logged in through Facebook!");
+            }
+          },
+
+          error: function(user, error) {
+            alert("User cancelled the Facebook login or did not fully authorize.");
+          }
+        });
+        
         div = document.getElementById("form");
         div.style.display = "block";
       }
@@ -70,21 +88,7 @@
       });
       
       function fbLogin() {
-        Parse.FacebookUtils.logIn(null, {
-          success: function(user) {
-            if (!user.existed()) {
-              alert("User logged into Facebook and created a new Parse session!");
-              console.log('New Parse Session created.');
-            }
-            else {
-              alert("User logged in through Facebook!");
-            }
-          },
 
-          error: function(user, error) {
-            alert("User cancelled the Facebook login or did not fully authorize.");
-          }
-        });
       }
         
       FB.getLoginStatus(function(response) {
