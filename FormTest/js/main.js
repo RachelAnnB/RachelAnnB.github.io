@@ -121,6 +121,15 @@ $(document).ready(function () {
     }
   });
   
+  //-----
+  //Users
+  //-----
+  
+  var currentUser = Parse.User.current();
+    if (currentUser) {
+      Parse.User.logOut();
+    }
+  
   //-------
   //Routers
   //-------
