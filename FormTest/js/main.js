@@ -105,6 +105,22 @@ $(document).ready(function () {
   //Views
   //-----
   
+  var SignInView = Parse.View.extend({
+    tagName: "li",
+    template: _.template($('#signedInTemplate').html()),
+    
+    initialize: function (options){
+      if (!(options && options.model))
+        throw new Error("no user signed in");
+      
+      this.model.on("change", this.render, this);
+    },
+    
+    render: function () {
+      this.$el.attr("id", this.model.id);
+    }
+  });
+  
   var FormView = Parse.View.extend({
     tagName: "li",
     template: _.template($('#formViewTemplate').html()),
