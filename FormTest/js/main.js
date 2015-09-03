@@ -76,6 +76,8 @@ $(document).ready(function () {
         parseFile.save().then
         (function () {
           saveImage(parseFile);
+          
+          nameInputField.value = "";
     
         },
         function (error) {
