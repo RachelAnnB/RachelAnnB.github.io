@@ -149,14 +149,16 @@
     <div id="FormBoxView">
       <script type="text/template" id="formViewTemplate">
         <div id="singleFormView">
-          <div id="profilePicView"><img id="test" src="images/image1.png"></div>
+          <div id="profilePicView">
+            <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
+          </div>
           
           <div id="inputInfoView">
-            <li id="nameView">Name</li>
+            <li id="nameView"><%= display_name %></li>
             <hr>
-            <li id="addressView">Address</li>
-            <li id="phoneView">Phone Number</li>
-            <li id="emailView">Email</li>
+            <li id="addressView"><%= display_address %></li>
+            <li id="phoneView"><%= display_phone %></li>
+            <li id="emailView"><%= display_email %></li>
             <hr>
           </div>
         </div>
