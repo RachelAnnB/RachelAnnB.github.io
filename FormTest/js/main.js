@@ -34,7 +34,6 @@ $(document).ready(function () {
         number.value = "";
         emailInputField.value = "";
         imageInputField.value = "";
-        nameInputField.value = "";
       },
       
       error: function (form, error) {
@@ -56,6 +55,7 @@ $(document).ready(function () {
           var photo = profilePic.get("profileImg");
           $("#profileImg")[0].src = photo.url();
           
+          nameInputField.value = "";
         },
         
         error: function (profilePic, error) {
@@ -77,7 +77,6 @@ $(document).ready(function () {
         (function () {
           saveImage(parseFile);
     
-          
         },
         function (error) {
           alert('error');
