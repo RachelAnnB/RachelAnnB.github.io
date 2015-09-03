@@ -34,6 +34,7 @@ $(document).ready(function () {
         number.value = "";
         emailInputField.value = "";
         imageInputField.value = "";
+        nameInputField.value = "";
       },
       
       error: function (form, error) {
@@ -76,7 +77,7 @@ $(document).ready(function () {
         (function () {
           saveImage(parseFile);
     
-          nameInputField.value = "";
+          
         },
         function (error) {
           alert('error');
