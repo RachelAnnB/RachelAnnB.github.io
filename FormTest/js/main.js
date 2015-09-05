@@ -48,7 +48,7 @@ $(document).ready(function () {
     
     console.log('The info is being retrieved.');
     var query = new Parse.Query(Form);
-    query.equalTo("name", nameInputField);
+    query.equalTo("form.id");
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
@@ -60,7 +60,7 @@ $(document).ready(function () {
         var email = form.get("email");
         
         //This variable links the html div
-        var infoViewTestDiv = document.getElementById("form-list");
+        var infoViewTestDiv = document.getElementById("infoViewTest");
         
         //This displays the html of the infoViewTest div with the info from the Form Object
         infoViewTestDiv.innerHTML = "<b>Info: </b>" + name + " " + address + " " + phone + " " + email;
