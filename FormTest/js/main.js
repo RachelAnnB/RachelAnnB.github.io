@@ -44,6 +44,8 @@ $(document).ready(function () {
     });
     
     
+    div = document.getElementById("infoViewTest");
+    div.style.display = "block";
     
     
     console.log('The info is being retrieved.');
