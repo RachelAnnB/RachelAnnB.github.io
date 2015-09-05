@@ -60,10 +60,17 @@ $(document).ready(function () {
         var email = form.get("email");
         
         //This variable links the html div
-        var infoViewTestDiv = document.getElementById("infoViewList");
+        var nameViewItem = document.getElementById("nameView");
+        var addressViewItem = document.getElementById("addressView");
+        var phoneViewItem = document.getElementById("phoneView");
+        var emailViewItem = document.getElementById("emailView");
+
         
         //This displays the html of the infoViewTest div with the info from the Form Object
-        infoViewTestDiv.innerHTML = "<b>Info: </b>" + name + " " + address + " " + phone + " " + email;
+        nameViewItem.innerHTML = name;
+        addressViewItem.innerHTML = address;
+        phoneViewItem.innerHTML = phone;
+        emailViewItem.innerHTML = email;
       },
       
       error: function (error) {

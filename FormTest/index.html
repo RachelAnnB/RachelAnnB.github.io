@@ -120,7 +120,7 @@
         <br><br><br>
       </div>
 
-      <div id="form" style="display: none;">
+      <div id="form" style="display: block;">
 
         <h1>Form Test</h1>
 
@@ -150,11 +150,20 @@
         
         <!--This is where the retrieved objects from Parse should appear-->
         <div id="infoViewTest">
-          <ul id="infoViewList">
-            
-          </ul>
+          <!--<div id="profilePicView">
+            <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
+          </div>-->
+
+          <div id="inputInfoView">
+            <li id="nameView"></li>
+            <hr>
+            <li id="addressView"></li>
+            <li id="phoneView"></li>
+            <li id="emailView"></li>
+            <hr>
+            </div>
         </div>
-        <br><br>
+        <br><br><br>
         
         
         
@@ -173,7 +182,7 @@
         <div id="singleFormView">
           <div id="profilePicView">
             <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
-            </div>
+          </div>
 
           <div id="inputInfoView">
             <li id="nameView"><%= display_name %></li>
