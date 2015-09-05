@@ -42,6 +42,31 @@ $(document).ready(function () {
         alert('Failed to create a new Form object, with error code ' + error.message);
       }
     });
+    
+    
+    
+    
+    console.log('The info is being retrieved.');
+    var query = new Parse.Query(Form);
+    query.equalTo("name", nameInputField);
+    query.find({
+      success: function (results) {
+        alert('Your info has been retrieved!!');
+        //The Parse query was successful in returning a Parse object and now we want to pull the data
+        //These variables are calling the Parse columns inside the Parse.Object from inside the query
+        var name = form.get("name");
+        var address = form.get("address");
+        var phone = form.get("phone");
+        var email = form.get("email");
+        
+        var template= $("#infoViewTestTemplate").html();
+        $("#target").html(_.template(template, { forms: results }));
+      },
+      
+      error: function (error) {
+        alert('There was a problem with retrieving your info.');
+      }
+    });
   };
   
     function saveImage(objParseFile) {
@@ -85,7 +110,31 @@ $(document).ready(function () {
         }
         );
       });
-//  }
+  
+/*  var retrieveImages = document.getElementById('imageRetrieve');
+  retrieveImages.onclick = function () {
+    var Retrieve = Parse.Object.extend("retrieve");
+    var query = new Parse.Query(register);
+    var self = this;
+    var name = this.$("#nameInput").val();
+    query.equalTo("name", name);
+    query.find({
+      success: function (results) {
+        alert("Successfully retrieved " + results.length + ".");
+        imageURLs = [];
+        for (var i = 0; i < results.length; i++) {
+          var object = results[i];
+          var imageFile = object.get('image');
+          var imageURL = imageFile.url();
+          $('photoViewTest')[0].src = imageURL;
+        },
+        
+        error: function (error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      },
+    });
+  }, */
   
   //-----------
   //Collections
@@ -99,6 +148,7 @@ $(document).ready(function () {
   //Views
   //-----
   
+  //Forms
   var FormView = Parse.View.extend({
     tagName: "li",
     template: _.template($('#formViewTemplate').html()),
@@ -113,6 +163,61 @@ $(document).ready(function () {
     render: function () {
       //this sets the li's id attribute to the model's id
       this.$el.attr("id", this.model.id);
+      $(this.el).html(this.template({
+        "photo_url" : this.model.photoUrl(),
+        "display_name" : this.model.displayName()
+      }));
+      
+      return this;
+    }
+  });
+  
+  //Recently Added Forms
+  var RecentFormsView = Parse.View.extend({
+    //Cache the template function for a single item
+    formsTemplate: _.template($('#recentFormTemplate').html()),
+    
+    initialize: function () {
+      var self = this;
+      _.bindAll(this, 'addOne', 'addAll', 'render');
+      
+      this.$el.html(this.formsTemplate);
+      
+      //Create our collection of forms
+      this.forms = new FormList();
+      
+      //Only show photos uploaded by me
+      var userQuery = new Parse.Query(Parse.User);
+      userQuery.containedIn("objectId", ["fTy19F7TMi", "RdjzMgKaQV", "zRwFjLhqlV", "5cD60MuVEE", "ZNcwbQwEhG", "42akJqaASJ", "lEPQ0nsHIO", "FXNvDAk5JL"]);
+      this.forms.query = new Parse.Query(Form);
+      this.forms.query.include("user");
+      this.forms.query.matchesQuery("user", userQuery);
+      
+      this.forms.query.limit(5);
+      this.forms.query.descending("createdAt");
+      
+      this.forms.bind('add', this.addOne);
+      this.forms.bind('reset', this.addAll);
+      this.forms.bind('all', this.render);
+      
+      //Fetch all the items for this user
+      this.forms.fetch();
+    },
+    
+    render: function () {
+      this.$("#form-list").fadeIn();
+      this.delegateEvents();
+      return this;
+    },
+    
+    addOne: function (form) {
+      var view = new FormView({model: form});
+      this.$("#form-list").append(view.render().el);
+    },
+    
+    //Add all items in the collection at once
+    addAll: function (collection, filter) {
+      this.forms.each(this.addOne);
     }
   });
   
@@ -128,4 +233,7 @@ $(document).ready(function () {
   //-------
   //Routers
   //-------
+  
+  //Start Backbone History
+  Backbone.history.start();
 });

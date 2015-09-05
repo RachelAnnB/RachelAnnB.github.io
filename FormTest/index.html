@@ -1,158 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
 
-  <title>Login Test</title>
-  
-  <!--Links to CSS Stylesheets-->
-  <link rel="stylesheet" href="css/main.css" media="all" type="text/css">
-  
-  <!--Links to Javascript files-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+    <title>Login Test</title>
 
-</head>
-<body>
-  
-  <!--Facebook SDK Information-->
-  <script type="text/javascript">
-    Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
-    
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-        
-        if(response.status === 'connected') {
-          alert('this was fired from the getloginstatus if statement');
-        }
-      });
-    }
-    
-    function statusChangeCallback(response) {
-      console.log('statusChangeCallback');
-      console.log(response);
-      
-      if (response.status === 'connected') {
-        //Logged into the app & Facebook
-        alert('User has logged into facebook!');
-        
-        //Here the new Parse Session is being created
-        Parse.FacebookUtils.logIn(null, {
-          success: function(user) {
-            if (!user.existed()) {
-              alert("User logged into Facebook and created a new Parse session!");
-              console.log('New Parse Session created.');
-            }
-            else {
-              alert("User is already logged in through Facebook!");
-            }
-          },
+    <!--Links to CSS Stylesheets-->
+    <link rel="stylesheet" href="css/main.css" media="all" type="text/css">
 
-          error: function(user, error) {
-            alert("User cancelled the Facebook login or did not fully authorize.");
+    <!--Links to Javascript files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+  </head>
+  <body>
+
+    <!--Facebook SDK Information-->
+    <script type="text/javascript">
+      Parse.initialize("vNGHN5aZTRjQxsuFV4cX4ZTIVCFHRlCJKQm0O6Qy", "JzDD3z7R0H7JsLezVM70t9rMnETN3YxAtQczlMEi");
+
+      function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+
+          if(response.status === 'connected') {
+            alert('this was fired from the getloginstatus if statement');
           }
         });
+      }
 
-        //Here, the form div is being shown after logging into Facebook        
+      function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+
+        if (response.status === 'connected') {
+          //Logged into the app & Facebook
+          alert('User has logged into facebook!');
+
+          //Here the new Parse Session is being created
+          Parse.FacebookUtils.logIn(null, {
+            success: function(user) {
+              if (!user.existed()) {
+                alert("User logged into Facebook and created a new Parse session!");
+                console.log('New Parse Session created.');
+              }
+              else {
+                alert("User has logged into this Application!");
+              }
+            },
+
+            error: function(user, error) {
+              alert("User cancelled the Facebook login or did not fully authorize.");
+            }
+          });
+
+          //Here, the form div is being shown after logging into Facebook        
+          div = document.getElementById("form");
+          div.style.display = "block";
+        }
+        else if (response.status === 'not_authorized') {
+          //Logged into Facebook, not the app
+          document.getElementById('status').innerHTML = 'Please log into this app.';
+        }
+        else {
+          //Not logged into Facebook, unsure if logged into the app
+          document.getElementById('status').innerHTML = 'Please log into Facebook.';
+        }
+      }
+
+      window.fbAsyncInit = function() {
+        Parse.FacebookUtils.init({
+          appId      : '548503138630710',
+          xfbml      : true,
+          cookie     : true,
+          version    : 'v1.0'
+        });
+
+        //This reloads the page after a successful Facebook login
+        FB.Event.subscribe('auth.login', function() {
+          window.location.reload();
+        });
+
+        FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+        });
+
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all/debug.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+
+      //This is the function for showing the form
+      function showForm() {
         div = document.getElementById("form");
         div.style.display = "block";
       }
-      else if (response.status === 'not_authorized') {
-        //Logged into Facebook, not the app
-        document.getElementById('status').innerHTML = 'Please log into this app.';
-      }
-      else {
-        //Not logged into Facebook, unsure if logged into the app
-        document.getElementById('status').innerHTML = 'Please log into Facebook.';
-      }
-    }
-    
-    window.fbAsyncInit = function() {
-      Parse.FacebookUtils.init({
-        appId      : '548503138630710',
-        xfbml      : true,
-        cookie     : true,
-        version    : 'v1.0'
-      });
-      
-      //This reloads the page after a successful Facebook login
-      FB.Event.subscribe('auth.login', function() {
-        window.location.reload();
-      });
-        
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-      
-    };
-    
-    (function(d, s, id){
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all/debug.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    
-    //This is the function for showing the form
-    function showForm() {
-      div = document.getElementById("form");
-      div.style.display = "block";
-    }
-    
-  </script>
 
-  <div class="container">
-    <h1>Please log into Facebook.</h1>
-    
-    
-    <div id="fb-root">
-      <div onclick="fbLogin();" class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
-      
+    </script>
+
+    <div class="container">
+      <h1>Please log into Facebook.</h1>
+
+
+      <div id="fb-root">
+        <div onclick="fbLogin();" class="fb-login-button" id="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+
         <div id="status"></div>
-      <br><br><br>
-    </div>
-      
-    <div id="form" style="display:none;">
-      
-      <h1>Form Test</h1>
-      
-      <div id="FormBox">
-        <h3>Name</h3>
-        <input type="text" id="nameInput" class="formInput" title="form[name]">
-
-        <h3>Address</h3>
-        <input type="text" id="addressInput" class="formInput" title="form[address]">
-
-        <h3>Phone Number</h3>
-        <input type="number" id="phoneInput" class="formInput" title="form[phone]">
-
-        <h3>Email</h3>
-        <input type="email" id="emailInput" class="formInput" title="form[email]">
-
-        <h3>Profile Picture</h3>
-        <input type="file" id="imageInput" class="formInput" title="form[image]">
-
         <br><br><br>
-        <button id="submitBtn" class="submitBtn" onclick="submitValues(); imageUpload();">Submit</button>
       </div>
-      <br><br>
-      
-    <!--Template for the Form View-->
-    <div id="FormBoxView">
-      <script type="text/template" id="formViewTemplate">
+
+      <div id="form" style="display:block;">
+
+        <h1>Form Test</h1>
+
+        <div id="FormBox">
+          <h3>Name</h3>
+          <input type="text" id="nameInput" class="formInput" title="form[name]">
+
+          <h3>Address</h3>
+          <input type="text" id="addressInput" class="formInput" title="form[address]">
+
+          <h3>Phone Number</h3>
+          <input type="number" id="phoneInput" class="formInput" title="form[phone]">
+
+          <h3>Email</h3>
+          <input type="email" id="emailInput" class="formInput" title="form[email]">
+
+          <h3>Profile Picture</h3>
+          <input type="file" id="imageInput" class="formInput" title="form[image]">
+
+          <br><br><br>
+          <button id="submitBtn" class="submitBtn" onclick="submitValues(); imageUpload();">Submit</button>
+        </div>
+        <br><br>
+        
+        
+        
+        
+        <!--This is where the retrieved images from Parse should appear-->
+        <div id="infoViewTest">
+          <script type="text/template" id="infoViewTestTemplate">
+          
+          </script>
+        </div>
+        <br><br>
+        
+        
+        
+        
+        <!--Template for recently added Forms-->
+        <div id="recentForms">
+          <script type="text/template" id="recentFormTemplate">
+            <ul id="form-list">
+            </ul>
+          </script>
+        </div>
+
+        <!--Template for the Form View-->
+        <div id="FormBoxView">
+          <script type="text/template" id="formViewTemplate">
         <div id="singleFormView">
           <div id="profilePicView">
             <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
-          </div>
-          
+            </div>
+
           <div id="inputInfoView">
             <li id="nameView"><%= display_name %></li>
             <hr>
@@ -160,19 +182,19 @@
             <li id="phoneView"><%= display_phone %></li>
             <li id="emailView"><%= display_email %></li>
             <hr>
-          </div>
-        </div>
+            </div>
+            </div>
         <br><br><br>
-      </script>
+          </script>
+        </div>
       </div>
+
     </div>
 
-  </div>
-  
-  <!--Links to Javascript files from my folders-->
-  <script src="js/lib/jquery-2.1.4.min.js"></script>
-  <script src="js/lib/underscore.js"></script>
-  <script src="js/lib/backbone.js"></script>
+    <!--Links to Javascript files from my folders-->
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
 
-</body>
+  </body>
 </html>
