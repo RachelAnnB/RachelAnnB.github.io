@@ -76,6 +76,9 @@ $(document).ready(function () {
         addressViewItem.innerHTML = address;
         phoneViewItem.innerHTML = phone;
         emailViewItem.innerHTML = email;
+        
+        //Object was retrieved successfully
+        nameInputField.value = "";
       },
       
       error: function (error) {
