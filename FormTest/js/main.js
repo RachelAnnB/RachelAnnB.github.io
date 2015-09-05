@@ -67,6 +67,8 @@ $(document).ready(function () {
         alert('There was a problem with retrieving your info.');
       }
     });
+    
+    
   };
   
     function saveImage(objParseFile) {
