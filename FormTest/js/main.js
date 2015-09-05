@@ -105,8 +105,38 @@ $(document).ready(function () {
           //error is a Parse.Error with an error code and description
           alert('Failed to save image, with error code: ' + error.description);
         }
-        
       });
+      
+      
+      
+      
+      
+      console.log('Your image is being retrieved.');
+      var query = new Parse.Query(profileImage);
+      query.equalTo("name", nameInputField);
+      query.find({
+        success: function (results) {
+          alert('Your image has been retrieved!!');
+
+          /*div = document.getElementById("infoViewTest");
+          div.style.display = "block";*/
+          
+          //The Parse query was successful in returning a Parse object and now we want to pull the data
+          //These variables are calling the Parse columns inside the Parse.Object from inside the query
+          var profileImg = profileImage.get("profileImg");
+
+          //This variable links the html div
+          var imageViewItem = document.getElementById("profilePicView");
+
+          //This displays the html of the infoViewTest div with the info from the Form Object
+          imageViewItem.innerHTML = profileImg;
+        },
+
+        error: function (error) {
+          alert('There was a problem with retrieving your image.');
+        }
+      });
+      
     }
       
       $('#imageInput').bind("change", function (e) {
