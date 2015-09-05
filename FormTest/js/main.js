@@ -60,7 +60,7 @@ $(document).ready(function () {
         var email = form.get("email");
         
         var template= $("#infoViewTestTemplate").html();
-        $("#target").html(_.template(template, { forms: results }));
+        $("#target").html(_.template(template, { formlist: results }));
       },
       
       error: function (error) {
