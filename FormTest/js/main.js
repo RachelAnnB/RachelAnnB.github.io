@@ -60,10 +60,10 @@ $(document).ready(function () {
         var email = form.get("email");
         
         //This variable links the html div
-        var infoViewTestDiv = document.getElementById("infoViewTest");
+        var infoViewTestDiv = document.getElementById("recentFormTemplate");
         
         //This displays the html of the infoViewTest div with the info from the Form Object
-        infoViewTestDiv.innerHTML = "<b>Info: </b>" + name + address + phone + email;
+        infoViewTestDiv.innerHTML = "<b>Info: </b>" + name + " " + address + " " + phone + " " + email;
       },
       
       error: function (error) {
