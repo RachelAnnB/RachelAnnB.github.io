@@ -101,9 +101,15 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
 
-      //This is the function for showing the form
+/*      //This is the function for showing the form
       function showForm() {
         div = document.getElementById("form");
+        div.style.display = "block";
+      }*/
+      
+      //Show the div after the submit button is clicked
+      function submitValues() {
+        div = document.getElementById("infoViewTest");
         div.style.display = "block";
       }
 
@@ -149,7 +155,7 @@
         
         
         <!--This is where the retrieved objects from Parse should appear-->
-        <div id="infoViewTest">
+        <div id="infoViewTest" style="display: none">
           <!--<div id="profilePicView">
             <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
           </div>-->
