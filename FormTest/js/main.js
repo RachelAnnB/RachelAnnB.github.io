@@ -97,7 +97,7 @@ $(document).ready(function () {
           var photo = profilePic.get("profileImg");
           $("#profileImg")[0].src = photo.url();
           
-          //nameInputField.value = "";
+          nameInputField.value = "";
         },
         
         error: function (profilePic, error) {
@@ -119,7 +119,7 @@ $(document).ready(function () {
         (function () {
           saveImage(parseFile);
           
-          nameInputField.value = "";
+          //nameInputField.value = "";
     
         },
         function (error) {
