@@ -44,8 +44,7 @@ $(document).ready(function () {
     });
     
     
-    div = document.getElementById("infoViewTest");
-    div.style.display = "block";
+
     
     
     console.log('The info is being retrieved.');
@@ -54,6 +53,10 @@ $(document).ready(function () {
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
+        
+        div = document.getElementById("infoViewTest");
+        div.style.display = "block";
+        
         //The Parse query was successful in returning a Parse object and now we want to pull the data
         //These variables are calling the Parse columns inside the Parse.Object from inside the query
         var name = form.get("name");
