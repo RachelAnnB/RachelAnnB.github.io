@@ -29,11 +29,6 @@ $(document).ready(function () {
       success: function (form) {
         //Execute any logic
         alert('New Form object was created!');
-        
-        addressInputField.value = "";
-        number.value = "";
-        emailInputField.value = "";
-        imageInputField.value = "";
       },
       
       error: function (form, error) {
@@ -74,11 +69,15 @@ $(document).ready(function () {
         //This displays the html of the infoViewTest div with the info from the Form Object
         nameViewItem.innerHTML = name;
         addressViewItem.innerHTML = address;
-        phoneViewItem.innerHTML = phone;
+        phoneViewItem.innerHTML = "#" + phone;
         emailViewItem.innerHTML = email;
         
-        //Object was retrieved successfully
+        //Object was retrieved successfully, so the input fields are cleared
         nameInputField.value = "";
+        addressInputField.value = "";
+        number.value = "";
+        emailInputField.value = "";
+        imageInputField.value = "";
       },
       
       error: function (error) {
@@ -100,7 +99,7 @@ $(document).ready(function () {
           var photo = profilePic.get("profileImg");
           $("#profileImg")[0].src = photo.url();
           
-          nameInputField.value = "";
+          //nameInputField.value = "";
         },
         
         error: function (profilePic, error) {
@@ -120,10 +119,7 @@ $(document).ready(function () {
         
         parseFile.save().then
         (function () {
-          saveImage(parseFile);
-          
-          //nameInputField.value = "";
-    
+          saveImage(parseFile);  
         },
         function (error) {
           alert('error');

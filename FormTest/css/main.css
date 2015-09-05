@@ -91,7 +91,9 @@ h3 {
 }
 
 #infoViewTest {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   background-color: aliceblue;
   height: 150px;
+  border: 1px solid black;
 }
