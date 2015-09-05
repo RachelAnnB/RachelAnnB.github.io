@@ -59,8 +59,11 @@ $(document).ready(function () {
         var phone = form.get("phone");
         var email = form.get("email");
         
-        var template= $("#infoViewTestTemplate").html();
-        $("#target").html(_.template(template, { formlist: results }));
+        //This variable links the html div
+        var infoViewTestDiv = document.getElementById("infoViewTest");
+        
+        //This displays the html of the infoViewTest div with the info from the Form Object
+        infoViewTestDiv.innerHTML = "<b>Info: </b>" + name + address + phone + email;
       },
       
       error: function (error) {
