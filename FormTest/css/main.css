@@ -81,12 +81,17 @@ h3 {
 #inputInfoView {
   margin-left: 15%;
   margin-top: 3%;
-  float: left;
+  float: right;
   width: 60%;
   list-style-type: none;
   text-align: left;
   font-family: Helvetica;
   font-size: 18px;
   line-height: 28px;
-  margin-bottom: 50px;
+}
+
+#infoViewTest {
+  width: 100%;
+  background-color: aliceblue;
+  height: 200px;
 }
