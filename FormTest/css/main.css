@@ -89,3 +89,15 @@ h3 {
   font-size: 18px;
   line-height: 28px;
 }
+
+#infoViewList {
+  margin-left: 15%;
+  margin-top: 3%;
+  float: left;
+  width: 60%;
+  list-style-type: none;
+  text-align: left;
+  font-family: Helvetica;
+  font-size: 18px;
+  line-height: 28px;
+}
