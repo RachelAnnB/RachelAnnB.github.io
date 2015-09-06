@@ -42,7 +42,7 @@ $(document).ready(function () {
     var query = new Parse.Query(Form)
     .exists("name")
     .limit(10)
-    .ascending("createdAt");
+    .descending("createdAt");
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
@@ -53,12 +53,12 @@ $(document).ready(function () {
         for (var i = 0; i < results.length; i++) {
           //The Parse query was successful in returning a Parse object and now we want to pull the data
           //These variables are calling the Parse columns inside the Parse.Object from inside the query
-          var name = results[i].get("name");
+          var name5 = results[5].get("name");
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
           
-          var nameString = name + " \n";
+          var nameString = name5 + " \n";
         }
         
         
@@ -72,7 +72,7 @@ $(document).ready(function () {
 
         
         //This displays the html of the infoViewTest div with the info from the Form Object
-        nameViewItem.innerHTML = name;
+        nameViewItem.innerHTML = nameString;
         addressViewItem.innerHTML = address;
         phoneViewItem.innerHTML = "#" + phone;
         emailViewItem.innerHTML = email;
