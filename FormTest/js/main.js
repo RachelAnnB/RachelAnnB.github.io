@@ -53,6 +53,7 @@ $(document).ready(function () {
         for (var i = 0; i < results.length; i++) {
           //The Parse query was successful in returning a Parse object and now we want to pull the data
           //These variables are calling the Parse columns inside the Parse.Object from inside the query
+          var name0 = results[0].get("name");
           var name1 = results[1].get("name");
           var name2 = results[2].get("name");
           var name3 = results[3].get("name");
@@ -62,12 +63,11 @@ $(document).ready(function () {
           var name7 = results[7].get("name");
           var name8 = results[8].get("name");
           var name9 = results[9].get("name");
-          var name10 = results[10].get("name");
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
           
-          var nameString = name1 + name2 + name3 + name4 + name5 + name6 + name7 + name8 + name9 + name10 + " ";
+          var nameString = name0 + name1 + name2 + name3 + name4 + name5 + name6 + name7 + name8 + name9 + " ";
           
           
         }
