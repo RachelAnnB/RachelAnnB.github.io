@@ -57,6 +57,8 @@ $(document).ready(function () {
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
+          
+          var nameString += name + " \n";
         }
         
         
