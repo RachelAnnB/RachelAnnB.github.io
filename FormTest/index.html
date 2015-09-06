@@ -119,7 +119,7 @@
 
         <div id="FormBox">
           <h3>Name</h3>
-          <input type="text" id="nameInput" class="formInput" title="form[name]">
+          <input type="text" id="nameInput" class="formInput" title="form[name]" autofocus>
 
           <h3>Address</h3>
           <input type="text" id="addressInput" class="formInput" title="form[address]">
@@ -142,11 +142,13 @@
         
         <!--This is where the retrieved objects from Parse should appear-->
         <div id="infoViewTest" style="display: block">
-<!--          <div id="profilePicView">
-            <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
-          </div>-->
+        
+          <ul id="list-forms">
+            
+          </ul>
 
-          <div id="inputInfoView">
+
+<!--          <div id="inputInfoView">
             <ul>
               <li class= "nameView picView" id="nameView0"></li>
               <li class= "nameView picView" id="nameView1"></li>
@@ -159,7 +161,7 @@
               <li class= "nameView picView" id="nameView8"></li>
               <li class= "nameView picView" id="nameView9"></li>
             </ul>
-            </div>
+            </div>-->
         </div>
         <br><br><br>
         

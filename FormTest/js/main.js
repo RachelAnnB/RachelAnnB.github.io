@@ -9,8 +9,14 @@ $(document).ready(function () {
   //------
 
   var Form = Parse.Object.extend("Form");
-  var form = new Form();
-
+  //var form = new Form();
+  
+  function checkLogin () {
+    if (Parse.User.current()) {
+      console.log('Logged in!' + Parse.User.current().get('name'));
+    }
+  }
+  
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
   var phoneInputField = document.getElementById("phoneInput");
@@ -19,90 +25,66 @@ $(document).ready(function () {
   var imageInputField = document.getElementById("imageInput");
 
   var submitValues = document.getElementById('submitBtn');
-  submitValues.onclick = function () {
-    form.set("name", nameInputField.value);
-    form.set("address", addressInputField.value);
-    form.set("phone", number.value);
-    form.set("email", emailInputField.value);
-
-    form.save(null, {
-      success: function (form) {
-        //Execute any logic
-        alert('New Form object was created!');
+  submitValues.onclick = function (event) {
+    
+    event.preventDefault();
+    var nameInputField = $("#nameInput").val();
+    var addressInputField = $("#addressInput").val();
+    var phoneInputField = $("#phoneInput").val();
+    var number = $("#phoneInput").val();
+    var emailInputField = $("#emailInput").val();
+    var imageInputField = $("#imageInput").val();
+    
+    var newForm = new Form();
+    newForm.set("name", nameInputField);
+    newForm.set("address", addressInputField);
+    newForm.set("phone", number);
+    newForm.set("email", emailInputField);
+    
+    newForm.save({
+      success: function () {
+        console.log('The info was successfully retrieved!');
       },
-
-      error: function (form, error) {
-        //Execute any logic
-        //Error is a Parse.Error with an error code & message
-        alert('Failed to create a new Form object, with error code ' + error.message);
+      
+      error: function (error) {
+        console.log('Error: ' + error.message);
       }
     });
-
-    console.log('The info is being retrieved.');
-    var query = new Parse.Query(Form)
-    .exists("name")
-    .limit(10)
-    .descending("createdAt");
+    
+    //This is where the info is being pulled & then shown in the html
+    console.log('Your info is being retrieved.');
+    var query = new Parse.Query(Form);
     query.find({
       success: function (results) {
-        alert('Your info has been retrieved!');
-
-        div = document.getElementById("infoViewTest");
-        div.style.display = "block";
-
-        for (var i = 0; i < results.length; i++) {
-          //The Parse query was successful in returning a Parse object and now we want to pull the data
-          //These variables are calling the Parse columns inside the Parse.Object from inside the query
-          var name0 = results[0].get("name");
-          var name1 = results[1].get("name");
-          var name2 = results[2].get("name");
-          var name3 = results[3].get("name");
-          var name4 = results[4].get("name");
-          var name5 = results[5].get("name");
-          var name6 = results[6].get("name");
-          var name7 = results[7].get("name");
-          var name8 = results[8].get("name");
-          var name9 = results[9].get("name");
+        console.log('Your info was retrieved successfully!');
+        
+        var output = "";
+        
+        for (var i in results) {
+          var name = results[i].get("name");
+          var address = results[i].get("address");
+          var phone = results[i].get("phone");
+          var email = results[i].get("email");
+          
+          output += "<li>";
+          output += "<h2>" +name+ "</h2>";
+          output += "<p>" +address+ "</p>";
+          output += "<p>" +phone+ "</p>";
+          output += "<p>" +email+ "</p>";
+          output += "</li>";
         }
-
-        //This variable links the html div
-        var nameViewItem0 = document.getElementById("nameView0");
-        var nameViewItem1 = document.getElementById("nameView1");
-        var nameViewItem2 = document.getElementById("nameView2");
-        var nameViewItem3 = document.getElementById("nameView3");
-        var nameViewItem4 = document.getElementById("nameView4");
-        var nameViewItem5 = document.getElementById("nameView5");
-        var nameViewItem6 = document.getElementById("nameView6");
-        var nameViewItem7 = document.getElementById("nameView7");
-        var nameViewItem8 = document.getElementById("nameView8");
-        var nameViewItem9 = document.getElementById("nameView9");
-
-
-        //This displays the html of the infoViewTest div with the info from the Form Object
-        nameViewItem0.innerHTML =  name0;
-        nameViewItem1.innerHTML =  name1;
-        nameViewItem2.innerHTML =  name2;
-        nameViewItem3.innerHTML =  name3;
-        nameViewItem4.innerHTML =  name4;
-        nameViewItem5.innerHTML =  name5;
-        nameViewItem6.innerHTML =  name6;
-        nameViewItem7.innerHTML =  name7;
-        nameViewItem8.innerHTML =  name8;
-        nameViewItem9.innerHTML =  name9;
-
-        //Object was retrieved successfully, so the input fields are cleared
-        nameInputField.value = "";
-        addressInputField.value = "";
-        number.value = "";
-        emailInputField.value = "";
-        imageInputField.value = "";
+        
+        $("#list-forms").html(output);
+        
       },
 
       error: function (error) {
-        alert('There was a problem with retrieving your info.');
+        console.log('There was a problem with retrieving your info. Error: ' + error.message);
       }
-    });
-
+      });
+    
+    
+    
   };
 
   function saveImage(objParseFile) {
@@ -140,32 +122,9 @@ $(document).ready(function () {
     }
     );
   });
-
-  /*  var retrieveImages = document.getElementById('imageRetrieve');
-  retrieveImages.onclick = function () {
-    var Retrieve = Parse.Object.extend("retrieve");
-    var query = new Parse.Query(register);
-    var self = this;
-    var name = this.$("#nameInput").val();
-    query.equalTo("name", name);
-    query.find({
-      success: function (results) {
-        alert("Successfully retrieved " + results.length + ".");
-        imageURLs = [];
-        for (var i = 0; i < results.length; i++) {
-          var object = results[i];
-          var imageFile = object.get('image');
-          var imageURL = imageFile.url();
-          $('photoViewTest')[0].src = imageURL;
-        },
-
-        error: function (error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      },
-    });
-  }, */
-
+  
+  
+  
   //-----------
   //Collections
   //-----------
@@ -202,7 +161,7 @@ $(document).ready(function () {
     }
   });
 
-  //Recently Added Forms
+  /*Recently Added Forms
   var RecentFormsView = Parse.View.extend({
     //Cache the template function for a single item
     formsTemplate: _.template($('#recentFormTemplate').html()),
@@ -249,7 +208,7 @@ $(document).ready(function () {
     addAll: function (collection, filter) {
       this.forms.each(this.addOne);
     }
-  });
+  });*/
 
   //-----
   //Users
