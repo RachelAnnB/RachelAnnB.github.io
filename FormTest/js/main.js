@@ -40,7 +40,9 @@ $(document).ready(function () {
     
     console.log('The info is being retrieved.');
     var query = new Parse.Query(Form);
-    query.equalTo("name", nameInputField);
+    query.include("name");
+    query.limit(10)
+    query.descending("createdAt");
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
@@ -48,12 +50,17 @@ $(document).ready(function () {
         div = document.getElementById("infoViewTest");
         div.style.display = "block";
         
-        //The Parse query was successful in returning a Parse object and now we want to pull the data
-        //These variables are calling the Parse columns inside the Parse.Object from inside the query
-        var name = form.get("name");
-        var address = form.get("address");
-        var phone = form.get("phone");
-        var email = form.get("email");
+        for (var i = 0; i < results.length; i++) {
+          //The Parse query was successful in returning a Parse object and now we want to pull the data
+          //These variables are calling the Parse columns inside the Parse.Object from inside the query
+          var name = results[i].get("name");
+          var address = results[i].get("address");
+          var phone = results[i].get("phone");
+          var email = results[i].get("email");
+        }
+        
+        
+        
         
         //This variable links the html div
         var nameViewItem = document.getElementById("nameView");
