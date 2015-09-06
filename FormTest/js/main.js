@@ -11,11 +11,11 @@ $(document).ready(function () {
   var Form = Parse.Object.extend("Form");
   //var form = new Form();
   
-  function checkLogin () {
+//  function checkLogin () {
     if (Parse.User.current()) {
       console.log('Logged in!' + Parse.User.current().get('name'));
     }
-  }
+//  }
   
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
