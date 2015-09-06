@@ -38,13 +38,14 @@ $(document).ready(function () {
       }
     });
     
-    
-
-    
-    
     console.log('The info is being retrieved.');
     var query = new Parse.Query(Form);
-    query.equalTo("name", nameInputField);
+    
+    query.exists("name")
+      .limit(10)
+      .descending("createdAt");
+    
+    //query.equalTo("name", nameInputField);
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
@@ -84,7 +85,6 @@ $(document).ready(function () {
         alert('There was a problem with retrieving your info.');
       }
     });
-    
     
   };
   
