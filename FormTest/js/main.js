@@ -42,7 +42,7 @@ $(document).ready(function () {
     var query = new Parse.Query(Form)
     .exists("name")
     .limit(10)
-    .descending("createdAt");
+    .ascending("createdAt");
     query.find({
       success: function (results) {
         alert('Your info has been retrieved!!');
