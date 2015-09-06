@@ -66,11 +66,19 @@ h3 {
   border: 1px solid black;
 }
 
-#profilePicView {
+/*#profilePicView {
   width: 150px;
   height: 150px;
   padding: 10px;
   float: left;
+}*/
+
+.picView {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  float: left;
+  border-bottom: 1px solid gray;
 }
 
 #profilePic {
@@ -78,7 +86,7 @@ h3 {
   max-width: 100%;
 }
 
-#inputInfoView {
+/*#inputInfoView {
   margin-left: 15%;
   margin-top: 5px;
   float: right;
@@ -88,12 +96,32 @@ h3 {
   font-family: Helvetica;
   font-size: 18px;
   line-height: 26px;
+}*/
+
+ul {
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+li {
+  border: 1px solid black;
+  margin-left: 40px;
 }
 
 #infoViewTest {
   width: 80%;
   margin: 0 auto;
   background-color: aliceblue;
-  height: 150px;
-  border: 1px solid black;
+  height: 900px;
+}
+
+.nameView {
+  font-family: Helvetica;
+  font-size: 18px;
+  text-align: center;
+  line-height: 26px;
+  float: left;
+  width: 40%;
+  padding: 5px;
+  margin-top: 15px;
 }

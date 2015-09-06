@@ -45,7 +45,7 @@ $(document).ready(function () {
     .descending("createdAt");
     query.find({
       success: function (results) {
-        alert('Your info has been retrieved!!');
+        alert('Your info has been retrieved!');
 
         div = document.getElementById("infoViewTest");
         div.style.display = "block";
@@ -115,8 +115,6 @@ $(document).ready(function () {
         console.log('New image object saved');
         var photo = profilePic.get("profileImg");
         $("#profileImg")[0].src = photo.url();
-
-        //nameInputField.value = "";
       },
 
       error: function (profilePic, error) {
@@ -125,7 +123,6 @@ $(document).ready(function () {
         alert('Failed to save image, with error code: ' + error.description);
       }
     });
-
   }
 
   $('#imageInput').bind("change", function (e) {
