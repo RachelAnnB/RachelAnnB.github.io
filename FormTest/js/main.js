@@ -20,10 +20,6 @@ $(document).ready(function () {
 
   var submitValues = document.getElementById('submitBtn');
   submitValues.onclick = function () {
-    form.set("name", nameInputField.value);
-    form.set("address", addressInputField.value);
-    form.set("phone", number.value);
-    form.set("email", emailInputField.value);
     
     form.save(null, {
       success: function (form) {
