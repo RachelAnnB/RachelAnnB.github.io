@@ -67,10 +67,7 @@ $(document).ready(function () {
           var phone = results[i].get("phone");
           var email = results[i].get("email");
           
-          
-          
         }
-        
         
         //This variable links the html div
         var nameViewItem = document.getElementById("nameView");
@@ -80,7 +77,7 @@ $(document).ready(function () {
 
         
         //This displays the html of the infoViewTest div with the info from the Form Object
-        nameViewItem.innerHTML =  name0 <br> + name1 <br>+ name2 <br>+ name3 <br>+ name4 <br>+ name5 <br>+ name6 <br> + name7 <br>+ name8 <br>+ name9 ;
+        nameViewItem.innerHTML =  name0 "<br>" + name1 "<br>" + name2 "<br>" + name3 "<br>" + name4 "<br>" + name5 "<br>" + name6 "<br>" + name7 "<br>" + name8 "<br>" + name9 ;
         addressViewItem.innerHTML = address;
         phoneViewItem.innerHTML = "#" + phone;
         emailViewItem.innerHTML = email;
