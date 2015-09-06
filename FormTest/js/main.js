@@ -11,17 +11,7 @@ $(document).ready(function () {
   var Form = Parse.Object.extend("Form");
   //var form = new Form();
   
-  function checkLogin () {
-    if (Parse.User.current()) {
-      console.log('Logged in!' + Parse.User.current().get('name'));
-    }
-    
-    else {
-      console.log('Not logged in!');
-    }
-  }
-  
-  checkLogin();
+
   
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
@@ -224,7 +214,22 @@ $(document).ready(function () {
   if (currentUser) {
     Parse.User.logOut();
   }
-
+  
+  
+    function checkLogin () {
+    if (currentUser) {
+      console.log('Logged in!' + Parse.User.current().get('name'));
+    }
+    
+    else {
+      console.log('Not logged in!');
+    }
+  }
+  
+  checkLogin();
+  
+  
+  
   //-------
   //Routers
   //-------
