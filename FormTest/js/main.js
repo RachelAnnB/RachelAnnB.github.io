@@ -218,7 +218,7 @@ $(document).ready(function () {
   
     function checkLogin () {
     if (currentUser) {
-      console.log('Logged in!' + Parse.User.current().get('name'));
+      console.log('Logged in!' + currentUser().get('name'));
     }
     
     else {
