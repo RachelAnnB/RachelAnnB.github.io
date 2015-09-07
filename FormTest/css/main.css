@@ -42,10 +42,6 @@ h4 {
   width: 6%;
 }
 
-#testBtn {
-  margin-left: 47%;
-}
-
 p {
   font-family: Helvetica;
   font-size: 18px;
@@ -113,11 +109,4 @@ li {
   width: 80%;
   margin: 0 auto;
   background-color: aliceblue;
-  height: 900px;
-}
-
-#test {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
 }

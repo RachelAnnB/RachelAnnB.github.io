@@ -100,6 +100,40 @@ $(document).ready(function () {
       
     }
     
+    //Here we are calling the objectIds from parse, and setting them as the custom link for the a href tag
+    $("#list-forms").on("click", "a", function (event) {
+      event.preventDefault();
+      var id = $(this).attr("href");
+      var query = new Parse.Query(Form);
+      query.equalTo("objectId", id);
+      
+      //query.include("user");
+      
+      query.find({success: function (results) {
+        var name = results[0].get("name");
+        var address = results[0].get("address");
+        var phone = results[0].get("phone");
+        var email = results[0].get("email");
+        //var user = results[0].get("user");
+        //var username = results[0].get("username");
+        var id = results[0].id;
+        
+        //Here we are telling the info which div to be shown in
+        //$("#formLinkUser").html(user);
+        $("#formLinkName").html(name);
+        $("#formLinkAddress").html(address);
+        $("#formLinkPhone").html(phone);
+        $("#formLinkEmail").html(email);
+        
+        //This assigns the objectId to the data-id in the html
+        $("#formLinkInfo").attr("data-id", id);
+      },
+  
+      error: function (error) {
+        console.log('Error with linking the ojectId, with ' + error.message);
+      }});
+    });
+    
     //This is where the info is being pulled & then shown in the html
     console.log('Your info is being retrieved.');
     var query = new Parse.Query(Form);
@@ -111,7 +145,6 @@ $(document).ready(function () {
         console.log('Your info was retrieved successfully!');
         
         var output = "";
-        var imageOutput = "";
         
         for (var i in results) {
           var name = results[i].get("name");
@@ -120,6 +153,8 @@ $(document).ready(function () {
           var email = results[i].get("email");
           //var user = results[i].get("user");
           //var username = user.get("username");
+          
+          var id = results[i].id;
           
           var img = "";
           if (results[i].get("file")) {
@@ -134,16 +169,12 @@ $(document).ready(function () {
           
           output += "<li>";
           //output += "<h4>" +username+ "</h4>";
-          imageOutput += img;
-          output += "<h2>" +name+ "</h2>";
-          output += "<p>" +address+ "</p>";
-          output += "<p>" +phone+ "</p>";
-          output += "<p>" +email+ "</p>";
+          output += img;
+          output += "<h2><a href='" +id+ "'>" +name+ "</a></h2>";
           output += "</li>";
         }
         
         $("#list-forms").html(output);
-        $("#test").html(imageOutput);
       },
 
       error: function (error) {
@@ -166,7 +197,7 @@ $(document).ready(function () {
   //-----
 
   //Forms
-  var FormView = Parse.View.extend({
+/*  var FormView = Parse.View.extend({
     tagName: "li",
     template: _.template($('#formViewTemplate').html()),
 
@@ -186,55 +217,6 @@ $(document).ready(function () {
       }));
 
       return this;
-    }
-  });
-
-  /*Recently Added Forms
-  var RecentFormsView = Parse.View.extend({
-    //Cache the template function for a single item
-    formsTemplate: _.template($('#recentFormTemplate').html()),
-
-    initialize: function () {
-      var self = this;
-      _.bindAll(this, 'addOne', 'addAll', 'render');
-
-      this.$el.html(this.formsTemplate);
-
-      //Create our collection of forms
-      this.forms = new FormList();
-
-      //Only show photos uploaded by me
-      var userQuery = new Parse.Query(Parse.User);
-      userQuery.containedIn("objectId", ["fTy19F7TMi", "RdjzMgKaQV", "zRwFjLhqlV", "5cD60MuVEE", "ZNcwbQwEhG", "42akJqaASJ", "lEPQ0nsHIO", "FXNvDAk5JL"]);
-      this.forms.query = new Parse.Query(Form);
-      this.forms.query.include("user");
-      this.forms.query.matchesQuery("user", userQuery);
-
-      this.forms.query.limit(5);
-      this.forms.query.descending("createdAt");
-
-      this.forms.bind('add', this.addOne);
-      this.forms.bind('reset', this.addAll);
-      this.forms.bind('all', this.render);
-
-      //Fetch all the items for this user
-      this.forms.fetch();
-    },
-
-    render: function () {
-      this.$("#form-list").fadeIn();
-      this.delegateEvents();
-      return this;
-    },
-
-    addOne: function (form) {
-      var view = new FormView({model: form});
-      this.$("#form-list").append(view.render().el);
-    },
-
-    //Add all items in the collection at once
-    addAll: function (collection, filter) {
-      this.forms.each(this.addOne);
     }
   });*/
 
