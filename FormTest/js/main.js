@@ -60,7 +60,7 @@ $(document).ready(function () {
     var fileName = filePath.split('\\').pop();
     
     if (fileElement.files.length > 0) {
-      var fle = fileElement.files[0];
+      var file = fileElement.files[0];
       var newFile = new Parse.File(fileName, file);
       
       newFile.save({
