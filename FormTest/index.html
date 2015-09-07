@@ -49,17 +49,17 @@
               if (!user.existed()) {
                 alert("User logged into Facebook and created a new Parse session!");
                 console.log('New Parse Session created.');
-                
+
                 $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
                 //console.log('New User has logged in!' + Parse.User.current().get('username'));
               }
               else {
                 alert("User has logged into this Application!");
-                
+
                 $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
                 //console.log('Current User has logged in: ' + Parse.User.current().get('username'));
               }
-              
+
             },
 
             error: function(user, error) {
@@ -125,7 +125,7 @@
         <h1>Form Test</h1>
 
         <br><div id="currentUser"></div><br>
-       
+
         <div id="FormBox">
           <h3>Name</h3>
           <input type="text" id="nameInput" class="formInput" title="form[name]" autofocus>
@@ -146,47 +146,27 @@
           <button id="submitBtn" class="submitBtn" onclick="submitValues(); imageUpload();">Submit</button>
         </div>
         <br><br>
-        
+
         <!--This is where the retrieved objects from Parse should appear-->
         <div id="infoViewTest" style="display: block">
-        
+
           <ul id="list-forms">
-            
+
           </ul>
-          
+
         </div>
         <br><br><br>
-        
+
         <!--You should see this content, after clicking 1 of the links-->
         <div id="formLinkInfo" data-id="">
-<!--          <h4 id="formLinkUser"></h4>-->
+          <!--<h4 id="formLinkUser"></h4>-->
           <h2 id="formLinkName"></h2>
           <p id="formLinkAddress"></p>
           <p id="formLinkPhone"></p>
           <p id="formLinkEmail"></p>
         </div>
-        
-        
-<!--        Template for the Form View
-        <div id="FormBoxView">
-          <script type="text/template" id="formViewTemplate">
-        <div id="singleFormView">
-          <div id="profilePicView">
-            <a href="<%= photo_url %>"><img id="profilePic" src="<%= photo_image_url %>"/></a>
-          </div>
+        <br><br>
 
-          <div id="inputInfoView">
-            <li id="nameView"><%= display_name %></li>
-            <hr>
-            <li id="addressView"><%= display_address %></li>
-            <li id="phoneView"><%= display_phone %></li>
-            <li id="emailView"><%= display_email %></li>
-            <hr>
-            </div>
-            </div>
-        <br><br><br>
-          </script>
-        </div>-->
       </div>
 
     </div>

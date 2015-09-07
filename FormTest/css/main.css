@@ -106,7 +106,17 @@ li {
 }
 
 #infoViewTest {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   background-color: aliceblue;
+  margin-bottom: 15px;
+}
+
+a {
+  color: gray;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
 }
