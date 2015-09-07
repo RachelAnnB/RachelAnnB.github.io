@@ -133,7 +133,7 @@ $(document).ready(function () {
           
           output += "<li>";
           //output += "<h4>" +username+ "</h4>";
-          output += img;
+          output += "<div" +img+ "</div>";
           output += "<h2>" +name+ "</h2>";
           output += "<p>" +address+ "</p>";
           output += "<p>" +phone+ "</p>";
@@ -142,11 +142,6 @@ $(document).ready(function () {
         }
         
         $("#list-forms").html(output);
-        
-        name.value = "";
-        address.value = "";
-        phone.value = "";
-        email.value = "";
       },
 
       error: function (error) {
