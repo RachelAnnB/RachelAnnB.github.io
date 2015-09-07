@@ -50,12 +50,14 @@
                 alert("User logged into Facebook and created a new Parse session!");
                 console.log('New Parse Session created.');
                 
-                console.log('New User has logged in!' + Parse.User.current().get('username'));
+                $("#currentUser").html("Current User: " + Parse.User.current().get('username'));
+                /console.log('New User has logged in!' + Parse.User.current().get('username'));
               }
               else {
                 alert("User has logged into this Application!");
                 
-                console.log('Current User has logged in!' + Parse.User.current().get('username'));
+                $("#currentUser").html("Current User: " + Parse.User.current().get('username'));
+                //console.log('Current User has logged in: ' + Parse.User.current().get('username'));
               }
               
             },
@@ -122,6 +124,8 @@
 
         <h1>Form Test</h1>
 
+        <br><div id="currentUser"></div><br>
+       
         <div id="FormBox">
           <h3>Name</h3>
           <input type="text" id="nameInput" class="formInput" title="form[name]" autofocus>
