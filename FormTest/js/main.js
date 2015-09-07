@@ -11,7 +11,22 @@ $(document).ready(function () {
   var Form = Parse.Object.extend("Form");
   //var form = new Form();
   
-
+/*  //This should show the currently logged in user, needs fixed
+  function checkLogin () {
+    if (Parse.User.current) {
+      console.log('Logged in!' + Parse.User.current().get('name'));
+    }
+    
+    else if (Parse.User.current) {
+      console.log('the else if statement fired');
+    }
+    
+    else {
+      console.log('Not logged in!');
+    }
+  }
+  
+  checkLogin();*/
   
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
@@ -211,27 +226,10 @@ $(document).ready(function () {
   //-----
 
   var currentUser = Parse.User.current();
-  if (currentUser) {
-
-    console.log('You are logged in!' + Parse.User.current().get('name'));
-    
+  if (currentUser) {    
     Parse.User.logOut();
+    checkLogin();
   }
-  
-  
-    function checkLogin () {
-    if (currentUser) {
-      console.log('Logged in!' + Parse.User.current().get('name'));
-    }
-    
-    else {
-      console.log('Not logged in!');
-    }
-  }
-  
-  checkLogin();
-  
-  
   
   //-------
   //Routers
