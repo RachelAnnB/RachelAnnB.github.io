@@ -45,14 +45,14 @@ $(document).ready(function () {
     var number = $("#phoneInput").val();
     var emailInputField = $("#emailInput").val();
     var imageInputField = $("#imageInput").val();
-    var user = Parse.User.current();
+    //var user = Parse.User.current();
     
     var newForm = new Form();
     newForm.set("name", nameInputField);
     newForm.set("address", addressInputField);
     newForm.set("phone", number);
     newForm.set("email", emailInputField);
-    newForm.set("user", user);
+    //newForm.set("user", user);
     
     newForm.save({
       success: function () {
@@ -67,6 +67,9 @@ $(document).ready(function () {
     //This is where the info is being pulled & then shown in the html
     console.log('Your info is being retrieved.');
     var query = new Parse.Query(Form);
+    
+    //query.include("user");
+    
     query.find({
       success: function (results) {
         console.log('Your info was retrieved successfully!');
@@ -78,8 +81,11 @@ $(document).ready(function () {
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
+          //var user = results[i].get("user");
+          //var username = user.get("username");
           
           output += "<li>";
+          //output += "<h4>" +username+ "</h4>";
           output += "<h2>" +name+ "</h2>";
           output += "<p>" +address+ "</p>";
           output += "<p>" +phone+ "</p>";
@@ -89,14 +95,16 @@ $(document).ready(function () {
         
         $("#list-forms").html(output);
         
+        name.value = "";
+        address.value = "";
+        phone.value = "";
+        email.value = "";
       },
 
       error: function (error) {
         console.log('There was a problem with retrieving your info. Error: ' + error.message);
       }
       });
-    
-    
     
   };
 
@@ -110,6 +118,8 @@ $(document).ready(function () {
         console.log('New image object saved');
         var photo = profilePic.get("profileImg");
         $("#profileImg")[0].src = photo.url();
+        
+        imageInputField.value = "";
       },
 
       error: function (profilePic, error) {
@@ -128,7 +138,7 @@ $(document).ready(function () {
 
     parseFile.save().then
     (function () {
-      saveImage(parseFile);  
+      saveImage(parseFile);
     },
      function (error) {
       alert('error');
