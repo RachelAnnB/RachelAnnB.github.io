@@ -212,13 +212,16 @@ $(document).ready(function () {
 
   var currentUser = Parse.User.current();
   if (currentUser) {
+
+    console.log('You are logged in!' + Parse.User.current().get('name'));
+    
     Parse.User.logOut();
   }
   
   
     function checkLogin () {
     if (currentUser) {
-      console.log('Logged in!' + Parse.currentUser().get('name'));
+      console.log('Logged in!' + Parse.User.current().get('name'));
     }
     
     else {
