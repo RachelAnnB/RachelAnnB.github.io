@@ -133,7 +133,7 @@ $(document).ready(function () {
           
           output += "<li>";
           //output += "<h4>" +username+ "</h4>";
-          output += "<div" +img+ "</div>";
+          output += "<div>" +img+ "</div>";
           output += "<h2>" +name+ "</h2>";
           output += "<p>" +address+ "</p>";
           output += "<p>" +phone+ "</p>";
