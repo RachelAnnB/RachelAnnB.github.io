@@ -111,6 +111,7 @@ $(document).ready(function () {
         console.log('Your info was retrieved successfully!');
         
         var output = "";
+        var imageOutput = "";
         
         for (var i in results) {
           var name = results[i].get("name");
@@ -133,7 +134,7 @@ $(document).ready(function () {
           
           output += "<li>";
           //output += "<h4>" +username+ "</h4>";
-          output += "<div>" +img+ "</div>";
+          imageOutput += img;
           output += "<h2>" +name+ "</h2>";
           output += "<p>" +address+ "</p>";
           output += "<p>" +phone+ "</p>";
@@ -142,6 +143,7 @@ $(document).ready(function () {
         }
         
         $("#list-forms").html(output);
+        $("#test").html(imageOutput);
       },
 
       error: function (error) {
