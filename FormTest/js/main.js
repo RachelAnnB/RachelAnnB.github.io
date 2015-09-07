@@ -100,7 +100,6 @@ $(document).ready(function () {
       
     }
     
-    
     //This is where the info is being pulled & then shown in the html
     console.log('Your info is being retrieved.');
     var query = new Parse.Query(Form);
@@ -121,8 +120,20 @@ $(document).ready(function () {
           //var user = results[i].get("user");
           //var username = user.get("username");
           
+          var img = "";
+          if (results[i].get("file")) {
+            var file = results[i].get("file");
+            var url = file.url();
+            console.log('url: ' + url);
+            img = "<img src'" +url+ "'>";
+          }
+          else {
+            console.log('This is not working.');
+          }
+          
           output += "<li>";
           //output += "<h4>" +username+ "</h4>";
+          output += img;
           output += "<h2>" +name+ "</h2>";
           output += "<p>" +address+ "</p>";
           output += "<p>" +phone+ "</p>";
@@ -145,46 +156,6 @@ $(document).ready(function () {
     
   };
 
-/*  function saveImage(objParseFile) {
-    var profileImage = new Parse.Object("ProfileImage");
-    profileImage.set("name", nameInputField.value);
-    profileImage.set("profileImg", objParseFile);
-    profileImage.save(null, {
-      success: function (profilePic) {
-        //Execute any logic
-        console.log('New image object saved');
-        var photo = profilePic.get("profileImg");
-        $("#profileImg")[0].src = photo.url();
-        
-        imageInputField.value = "";
-      },
-
-      error: function (profilePic, error) {
-        //Execute any logic
-        //error is a Parse.Error with an error code and description
-        alert('Failed to save image, with error code: ' + error.description);
-      }
-    });
-  }
-
-  $('#imageInput').bind("change", function (e) {
-    var fileUploadControl = $('#imageInput')[0];
-    var file = fileUploadControl.files[0];
-    var name = file.name;
-    var parseFile = new Parse.File(name, file);
-
-    parseFile.save().then
-    (function () {
-      saveImage(parseFile);
-    },
-     function (error) {
-      alert('error');
-    }
-    );
-  });*/
-  
-  
-  
   //-----------
   //Collections
   //-----------
