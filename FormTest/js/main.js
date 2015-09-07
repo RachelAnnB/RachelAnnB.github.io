@@ -228,7 +228,6 @@ $(document).ready(function () {
   var currentUser = Parse.User.current();
   if (currentUser) {    
     Parse.User.logOut();
-    checkLogin();
   }
   
   //-------
