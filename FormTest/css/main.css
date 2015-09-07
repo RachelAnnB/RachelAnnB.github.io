@@ -120,3 +120,7 @@ a {
 a:hover {
   color: black;
 }
+
+a:visited {
+  color: gray;
+}
