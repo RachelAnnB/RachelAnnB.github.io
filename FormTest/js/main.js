@@ -54,15 +54,52 @@ $(document).ready(function () {
     newForm.set("email", emailInputField);
     //newForm.set("user", user);
     
-    newForm.save({
-      success: function () {
-        console.log('The info was successfully retrieved!');
-      },
+    //Here we are getting the file from the input form
+    var fileElement = $('#imageInput')[0];
+    var filePath = $('#imageInput').val();
+    var fileName = filePath.split('\\').pop();
+    
+    if (fileElement.files.length > 0) {
+      var fle = fileElement.files[0];
+      var newFile = new Parse.File(fileName, file);
       
-      error: function (error) {
-        console.log('Error: ' + error.message);
-      }
-    });
+      newFile.save({
+        success: function () {
+          console.log('File saved successfully');
+        },
+        
+        error: function (file, error) {
+          console.log('File Save Error :' + error.message);
+        }
+      }).then(function (theFile) {
+        newForm.set("file", theFile);
+        
+        newForm.save({
+          success: function () {
+            console.log('The form was saved with the file');
+          },
+
+          error: function (error) {
+            console.log('The form did not save with the file, Error: ' + error.message);
+          }
+        });
+        
+      });
+    }
+    else {
+      
+      newForm.save({
+        success: function () {
+          console.log('The info was successfully retrieved!');
+        },
+
+        error: function (error) {
+          console.log('Error: ' + error.message);
+        }
+      });
+      
+    }
+    
     
     //This is where the info is being pulled & then shown in the html
     console.log('Your info is being retrieved.');
@@ -108,7 +145,7 @@ $(document).ready(function () {
     
   };
 
-  function saveImage(objParseFile) {
+/*  function saveImage(objParseFile) {
     var profileImage = new Parse.Object("ProfileImage");
     profileImage.set("name", nameInputField.value);
     profileImage.set("profileImg", objParseFile);
@@ -144,7 +181,7 @@ $(document).ready(function () {
       alert('error');
     }
     );
-  });
+  });*/
   
   
   
