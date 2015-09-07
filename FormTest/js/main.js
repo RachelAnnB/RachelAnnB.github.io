@@ -45,12 +45,14 @@ $(document).ready(function () {
     var number = $("#phoneInput").val();
     var emailInputField = $("#emailInput").val();
     var imageInputField = $("#imageInput").val();
+    var user = Parse.User.current();
     
     var newForm = new Form();
     newForm.set("name", nameInputField);
     newForm.set("address", addressInputField);
     newForm.set("phone", number);
     newForm.set("email", emailInputField);
+    newForm.set("user", user);
     
     newForm.save({
       success: function () {
