@@ -50,14 +50,14 @@
                 alert("User logged into Facebook and created a new Parse session!");
                 console.log('New Parse Session created.');
 
+                //Displays the name of the current user
                 $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
-                //console.log('New User has logged in!' + Parse.User.current().get('username'));
               }
               else {
                 alert("User has logged into this Application!");
 
+                //Displays the name of the current user
                 $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
-                //console.log('Current User has logged in: ' + Parse.User.current().get('username'));
               }
 
             },
@@ -148,7 +148,7 @@
         <br><br>
 
         <!--This is where the retrieved objects from Parse should appear-->
-        <div id="infoViewTest" style="display: block">
+        <div id="infoView" style="display: block">
 
           <ul id="list-forms">
 
@@ -159,6 +159,8 @@
 
         <!--You should see this content, after clicking 1 of the links-->
         <div id="formLinkInfo" data-id="">
+          <input id="formLinkId" type="hidden" value="">
+          <img class="picView" id="formLinkImage" src="">
           <!--<h4 id="formLinkUser"></h4>-->
           <h2 id="formLinkName"></h2>
           <p id="formLinkAddress"></p>

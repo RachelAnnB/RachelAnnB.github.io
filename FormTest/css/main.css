@@ -75,22 +75,18 @@ h3 {
   background-color: lightgray;
 }
 
-#singleFormView {
-  width: 90%;
+#formLinkInfo {
+  width: 80%;
   margin: 0 auto;
-  margin-left: 5%;
-  display: inline-block;
-  border: 1px solid black;
 }
 
 .picView {
   width: 150px;
   height: 150px;
-  padding: 10px;
-  border-bottom: 1px solid gray;
+  float: left;
 }
 
-#profilePic {
+#formLinkImage {
   max-height: 100%;
   max-width: 100%;
 }
@@ -103,10 +99,11 @@ ul {
 li {
   border: 1px solid black;
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 
-#infoViewTest {
-  width: 60%;
+#infoView {
+  width: 50%;
   margin: 0 auto;
   background-color: aliceblue;
 }

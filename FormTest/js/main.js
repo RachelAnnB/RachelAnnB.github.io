@@ -10,24 +10,7 @@ $(document).ready(function () {
 
   var Form = Parse.Object.extend("Form");
   //var form = new Form();
-
-  /*  //This should show the currently logged in user, needs fixed
-  function checkLogin () {
-    if (Parse.User.current) {
-      console.log('Logged in!' + Parse.User.current().get('name'));
-    }
-
-    else if (Parse.User.current) {
-      console.log('the else if statement fired');
-    }
-
-    else {
-      console.log('Not logged in!');
-    }
-  }
-
-  checkLogin();*/
-
+  
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
   var phoneInputField = document.getElementById("phoneInput");
@@ -69,14 +52,14 @@ $(document).ready(function () {
         },
 
         error: function (file, error) {
-          console.log('File Save Error :' + error.message);
+          console.log('File Save Error: ' + error.message);
         }
       }).then(function (theFile) {
         newForm.set("file", theFile);
 
         newForm.save({
           success: function () {
-            console.log('The form was saved with the file');
+            console.log('The form was saved with the file.');
           },
 
           error: function (error) {
@@ -90,7 +73,7 @@ $(document).ready(function () {
 
       newForm.save({
         success: function () {
-          console.log('The info was successfully retrieved!');
+          console.log('The form was successfully retrieved!');
         },
 
         error: function (error) {
@@ -118,6 +101,12 @@ $(document).ready(function () {
         //var username = results[0].get("username");
         var id = results[0].id;
 
+        //Here we are showing the image in our linked visible form
+        var src = "";
+        if (results[0].get("file")) {
+          src = results[0].get("file").url();
+        }
+
         //Here we are telling the info which div to be shown in
         //$("#formLinkUser").html(user);
         $("#formLinkName").html(name);
@@ -127,11 +116,12 @@ $(document).ready(function () {
 
         //This assigns the objectId to the data-id in the html
         $("#formLinkInfo").attr("data-id", id);
+        $("#formLinkImage").attr("src", src);
       },
 
-                  error: function (error) {
-                    console.log('Error with linking the ojectId, with ' + error.message);
-                  }});
+      error: function (error) {
+        console.log('Error with linking the ojectId, with ' + error.message);
+      }});
     });
 
     //This is where the info is being pulled & then shown in the html
@@ -164,7 +154,7 @@ $(document).ready(function () {
             img = "<img src'" +url+ "'>";
           }
           else {
-            console.log('This is not working.');
+            console.log('The image output is not working.');
           }
 
           output += "<li>";
@@ -175,13 +165,20 @@ $(document).ready(function () {
         }
 
         $("#list-forms").html(output);
+        
       },
 
       error: function (error) {
-        console.log('There was a problem with retrieving your info. Error: ' + error.message);
+        console.log('There was a problem with retrieving your form. Error: ' + error.message);
       }
     });
 
+    nameInput.value = "";
+    addressInput.value = "";
+    phoneInput.value = "";
+    emailInput.value = "";
+    imageInput.value = "";
+    
   };
 
   //-----------
@@ -193,10 +190,6 @@ $(document).ready(function () {
   });
 
   //-----
-  //Views
-  //-----
-
-  //-----
   //Users
   //-----
 
@@ -204,10 +197,6 @@ $(document).ready(function () {
   if (currentUser) {    
     Parse.User.logOut();
   }
-
-  //-------
-  //Routers
-  //-------
 
   //Start Backbone History
   Backbone.history.start();
