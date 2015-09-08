@@ -78,11 +78,12 @@ h3 {
 #formLinkInfo {
   width: 80%;
   margin: 0 auto;
+  padding: 5px;
 }
 
 .picView {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   float: left;
 }
 
@@ -119,4 +120,8 @@ a:hover {
 
 a:visited {
   color: black;
+}
+
+hr {
+  width: 40%;
 }

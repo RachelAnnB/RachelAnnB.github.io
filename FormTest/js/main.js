@@ -9,7 +9,6 @@ $(document).ready(function () {
   //------
 
   var Form = Parse.Object.extend("Form");
-  //var form = new Form();
   
   var nameInputField = document.getElementById("nameInput");
   var addressInputField = document.getElementById("addressInput");
@@ -74,6 +73,8 @@ $(document).ready(function () {
       newForm.save({
         success: function () {
           console.log('The form was successfully retrieved!');
+          
+          //This is where the view should refresh, so the newly added form is shown
         },
 
         error: function (error) {
@@ -117,6 +118,9 @@ $(document).ready(function () {
         //This assigns the objectId to the data-id in the html
         $("#formLinkInfo").attr("data-id", id);
         $("#formLinkImage").attr("src", src);
+        
+        //return !window.open(this.href, "pop");
+        
       },
 
       error: function (error) {
@@ -130,6 +134,8 @@ $(document).ready(function () {
 
     //query.include("user");
 
+    query.descending("createdAt");
+    query.limit(5);
     query.find({
       success: function (results) {
         console.log('Your info was retrieved successfully!');
