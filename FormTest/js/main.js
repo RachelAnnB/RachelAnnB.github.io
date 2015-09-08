@@ -94,6 +94,7 @@ $(document).ready(function () {
       //query.include("user");
 
       query.find({success: function (results) {
+        
         var name = results[0].get("name");
         var address = results[0].get("address");
         var phone = results[0].get("phone");
@@ -120,7 +121,9 @@ $(document).ready(function () {
         $("#formLinkImage").attr("src", src);
         
         //return !window.open(this.href, "pop");
-        
+        //The formLinkInfo div is shown after clicking one of the links
+        div = document.getElementById("formLinkInfo");
+        div.style.display = "block";
       },
 
       error: function (error) {
