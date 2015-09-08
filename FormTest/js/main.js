@@ -179,12 +179,17 @@ $(document).ready(function () {
       }
     });
 
+    //Clear the input fields
     nameInput.value = "";
     addressInput.value = "";
     phoneInput.value = "";
     emailInput.value = "";
     imageInput.value = "";
     
+    //The infoView div is shown after clicking submit
+    div = document.getElementById("infoView");
+    div.style.display = "block";
+
   };
 
   //-----------
