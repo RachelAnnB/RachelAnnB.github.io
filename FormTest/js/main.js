@@ -121,6 +121,7 @@ $(document).ready(function () {
         $("#formLinkImage").attr("src", src);
         
         //return !window.open(this.href, "pop");
+        
         //The formLinkInfo div is shown after clicking one of the links
         div = document.getElementById("formLinkInfo");
         div.style.display = "block";
