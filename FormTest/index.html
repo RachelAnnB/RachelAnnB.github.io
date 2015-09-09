@@ -107,6 +107,10 @@
         js.src = "//connect.facebook.net/en_US/all/debug.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
+      
+/*      function refresh() {
+        window.location.reload();
+      }*/
     </script>
 
     <div class="container">
@@ -143,7 +147,7 @@
           <input type="file" id="imageInput" class="formInput" title="form[image]">
 
           <br><br><br>
-          <button id="submitBtn" class="submitBtn" onclick="submitValues();">Submit</button>
+          <button id="submitBtn" class="submitBtn" onclick="submitValues(); window.location.reload();">Submit</button>
         </div>
         <br><br>
 
@@ -160,7 +164,7 @@
         <!--You should see this content, after clicking 1 of the links-->
         <div id="formLinkInfo" data-id="" style="display: none">
           <input id="formLinkId" type="hidden" value="">
-          <img class="picView" id="formLinkImage" src="">
+          <img class="picView" id="formLinkImage" alt="profilePic" src="">
           <!--<h4 id="formLinkUser"></h4>-->
           <h2 id="formLinkName"></h2>
           <hr>
@@ -169,12 +173,7 @@
           <p id="formLinkEmail"></p>
         </div>
         <br><br>
-     
-     
-      <a href="" id="test" value=""></a>
-     
-     
-     
+
       </div>
 
     </div>

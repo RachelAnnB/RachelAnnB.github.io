@@ -74,6 +74,7 @@ $(document).ready(function () {
           console.log('The form was successfully retrieved!');
           
           //This is where the view should refresh, so the newly added form is shown
+          
         },
 
         error: function (error) {
@@ -207,7 +208,6 @@ $(document).ready(function () {
 
   var currentUser = Parse.User.current();
   if (currentUser) {
-    currentUser.set("name", nameInputField);
     Parse.User.logOut();
   }
 
