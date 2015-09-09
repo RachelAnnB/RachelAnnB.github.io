@@ -51,13 +51,13 @@
                 console.log('New Parse Session created.');
 
                 //Displays the name of the current user
-                $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
+                $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('name'));
               }
               else {
                 alert("User has logged into this Application!");
 
                 //Displays the name of the current user
-                $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('username'));
+                $("#currentUser").html("<b>Current User: </b>" + Parse.User.current().get('name'));
               }
 
             },

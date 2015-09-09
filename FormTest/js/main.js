@@ -162,7 +162,7 @@ $(document).ready(function () {
             img = "<img src'" +url+ "'>";
           }
           else {
-            console.log('The image output is not working.');
+            console.log('There was no image selected.');
           }
 
           output += "<li>";
