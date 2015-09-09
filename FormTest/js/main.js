@@ -27,7 +27,6 @@ $(document).ready(function () {
     var number = $("#phoneInput").val();
     var emailInputField = $("#emailInput").val();
     var imageInputField = $("#imageInput").val();
-    //var user = Parse.User.current();
 
     var newForm = new Form();
     newForm.set("name", nameInputField);
@@ -207,7 +206,8 @@ $(document).ready(function () {
   //-----
 
   var currentUser = Parse.User.current();
-  if (currentUser) {    
+  if (currentUser) {
+    currentUser.set("name", nameInputField);
     Parse.User.logOut();
   }
 
