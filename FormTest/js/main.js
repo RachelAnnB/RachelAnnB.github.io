@@ -134,7 +134,7 @@ $(document).ready(function () {
     console.log('Your info is being retrieved.');
     var query = new Parse.Query(Form);
 
-    query.include("user");
+    //query.include("user");
 
     query.descending("createdAt");
     query.limit(5);
@@ -149,8 +149,8 @@ $(document).ready(function () {
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
-          var user = results[i].get("user");
-          var username = user.get("username");
+          //var user = results[i].get("user");
+          //var username = user.get("username");
 
           var id = results[i].id;
 
@@ -166,7 +166,7 @@ $(document).ready(function () {
           }
 
           output += "<li>";
-          output += "<h4>" +username+ "</h4>";
+          //output += "<h4>" +username+ "</h4>";
           output += img;
           output += "<h2><a href='" +id+ "'>" +name+ "</a></h2>";
           output += "</li>";
