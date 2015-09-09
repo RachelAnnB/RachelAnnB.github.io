@@ -74,7 +74,7 @@ $(document).ready(function () {
           console.log('The form was successfully retrieved!');
           
           //This is where the view should refresh, so the newly added form is shown
-          
+          window.location.reload();
         },
 
         error: function (error) {
