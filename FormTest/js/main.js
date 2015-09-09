@@ -34,7 +34,7 @@ $(document).ready(function () {
     newForm.set("address", addressInputField);
     newForm.set("phone", number);
     newForm.set("email", emailInputField);
-    //newForm.set("user", user);
+    newForm.set("user", Parse.User.current());
 
     //Here we are getting the file from the input form
     var fileElement = $('#imageInput')[0];
@@ -91,7 +91,7 @@ $(document).ready(function () {
       var query = new Parse.Query(Form);
       query.equalTo("objectId", id);
 
-      //query.include("user");
+      query.include("user");
 
       query.find({success: function (results) {
         
@@ -99,8 +99,8 @@ $(document).ready(function () {
         var address = results[0].get("address");
         var phone = results[0].get("phone");
         var email = results[0].get("email");
-        //var user = results[0].get("user");
-        //var username = results[0].get("username");
+        var user = results[0].get("user");
+        var username = results[0].get("username");
         var id = results[0].id;
 
         //Here we are showing the image in our linked visible form
@@ -110,7 +110,7 @@ $(document).ready(function () {
         }
 
         //Here we are telling the info which div to be shown in
-        //$("#formLinkUser").html(user);
+        $("#formLinkUser").html(user);
         $("#formLinkName").html(name);
         $("#formLinkAddress").html(address);
         $("#formLinkPhone").html(phone);
@@ -119,8 +119,6 @@ $(document).ready(function () {
         //This assigns the objectId to the data-id in the html
         $("#formLinkInfo").attr("data-id", id);
         $("#formLinkImage").attr("src", src);
-        
-        //return !window.open(this.href, "pop");
         
         //The formLinkInfo div is shown after clicking one of the links
         div = document.getElementById("formLinkInfo");
@@ -136,7 +134,7 @@ $(document).ready(function () {
     console.log('Your info is being retrieved.');
     var query = new Parse.Query(Form);
 
-    //query.include("user");
+    query.include("user");
 
     query.descending("createdAt");
     query.limit(5);
@@ -151,8 +149,8 @@ $(document).ready(function () {
           var address = results[i].get("address");
           var phone = results[i].get("phone");
           var email = results[i].get("email");
-          //var user = results[i].get("user");
-          //var username = user.get("username");
+          var user = results[i].get("user");
+          var username = user.get("username");
 
           var id = results[i].id;
 
@@ -168,7 +166,7 @@ $(document).ready(function () {
           }
 
           output += "<li>";
-          //output += "<h4>" +username+ "</h4>";
+          output += "<h4>" +username+ "</h4>";
           output += img;
           output += "<h2><a href='" +id+ "'>" +name+ "</a></h2>";
           output += "</li>";
