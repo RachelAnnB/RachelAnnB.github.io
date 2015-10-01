@@ -48,15 +48,35 @@ p {
   text-align: center;
 }
 
+#CampaignBox {
+  padding: 10px;
+}
+
 #FormBox {
   padding: 10px;
+}
+
+#imgTest {
+  margin: 0 auto;
+  margin-left: 45%;
+}
+
+#test {
+  max-height: 150px;
+  max-width: 150px;
 }
 
 h3 {
   font-family: Helvetica;
   font-size: 18px;
-  width: 20%;
+  width: 25%;
   line-height: 24px;
+  margin-left: 30%;
+}
+
+.campaignInput {
+  width: 40%;
+  padding: 4px;
   margin-left: 30%;
 }
 
@@ -75,7 +95,7 @@ h3 {
   background-color: lightgray;
 }
 
-#formLinkInfo {
+#campaignInfo {
   width: 80%;
   margin: 0 auto;
   padding: 5px;
