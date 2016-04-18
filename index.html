@@ -1,730 +1,744 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
-    <head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachel Broering</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="assets/css/lightbox.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
 
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>My Portfolio</title>
-
-        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link href="css/freelancer.css" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-    </head>
-
-    <body id="page-top" class="index">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#page-top">Rachel Broering</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="#portfolio">Portfolio</a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="#about">About</a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link" href="http://www.rachelbroering.com/" id="navbarLogo"><img class="img-responsive" src="assets/img/logo.svg" alt="logo"></a>
+                <button class="navbar-toggle collapsed navbarToggle" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-       
-        <!-- Header -->
-        <header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <img class="img-responsive" src="img/me.png" alt="">
-                        <div class="intro-text">
-                            <span class="name">My Portfolio</span>
-                            <hr class="star-light">
-                            <span class="skills">Web Developer/Designer - Graphic Designer</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right navbarLinks">
+                    <li role="presentation"><a href="#about" class="navbarLink activeLink smooth-scroll">ABOUT </a></li>
+                    <li role="presentation"><a href="#portfolio" class="navbarLink activeLink smooth-scroll">PORTFOLIO </a></li>
+                    <li role="presentation"><a href="#services" class="navbarLink activeLink smooth-scroll">SERVICES </a></li>
+                    <li role="presentation"><a href="#resume" class="navbarLink activeLink smooth-scroll">RESUME </a></li>
+                    <li role="presentation"><a href="#contact" class="navbarLink activeLink smooth-scroll">CONTACT </a></li>
+                </ul>
             </div>
-        </header>
-
-        <!-- Portfolio Grid Section -->
-        <section id="portfolio">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="onwhite">Portfolio</h2>
-                        <hr class="star-primary">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/cjs_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/vancouver_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/rotr_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/landscape_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/logos_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/collage_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/book_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal8" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/icons_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal9" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/flyer_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal10" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/photography_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal11" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/elephant_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal12" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/hu_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal13" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/castle_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal14" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/island_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                    <div class="col-sm-4 portfolio-item">
-                        <a href="#portfolioModal15" class="portfolio-link" data-toggle="modal">
-                            <div class="caption">
-                                <div class="caption-content">
-                                    <i class="fa fa-search-plus fa-3x"></i>
-                                </div>
-                            </div>
-                            <img src="img/portfolio/train_icon.png" class="img-responsive" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="success" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2>About</h2>
-                        <hr class="star-light">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <p>Hello, and welcome to my online portfolio. My name is Rachel Broering and I'm currently a first-year student at the School of Advertising Art in Kettering, where I am studying to become a hybrid designer.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <p>I have experience with the Adobe Creative Suite, web development, digital media, photography, graphic design, digital illustration, 3D modeling and video editing thanks to all of my schooling. My main focus is web design/development and I love to further my knowledge on this ever evolving industry.</p>
-                    </div>
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="onwhite">Contact Me</h2>
-                        <hr class="star-primary">
-                    </div>
-                </div>
-                <div class="footer-col col-md-4">
-                </div>
-                <div class="footer-col col-md-4">
-                    <p class="center">Rachel Broering<br><a href="mailto:rachelannbroering@gmail.com">rachelannbroering@gmail.com</a><br><a href="tel:567-644-5422">#567-644-5422</a></p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center">
-            <div class="footer-above">
-                <div class="container">
-                    <div class="row">
-                        <div class="footer-col col-md-4">
-                        </div>
-                        <div class="footer-col col-md-4">
-                            <h3>Follow me on the Web</h3>
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="https://www.facebook.com/rachelannbroering" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.behance.net/rachelbroering" class="btn-social btn-outline"><i class="fa fa-fw fa-behance"></i></a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/in/rachelannbroering" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                                </li>
-                                 <li>
-                                    <a href="https://twitter.com/BroeringRachel" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-below">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            Copyright &copy; Rachel Broering 2015
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-        <div class="scroll-top page-scroll visible-xs visible-sm">
-            <a class="btn btn-primary" href="#page-top">
-                <i class="fa fa-chevron-up"></i>
-            </a>
         </div>
-
-        <!-- Portfolio Modals -->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
+    </nav>
+    
+    
+    
+    <div id="head" class="geometricBkgd">
+        <div class="container">
+            <div id="navbarOffset"></div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-xs-12">
+                <video class="img-responsive center-block offsetTopLg" controls>
+                    <source src="assets/videos/digital_resume.mp4" type="video/mp4">
+                </video>
                 </div>
-                <div class="container">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#about" class="smooth-scroll"><img class="img-responsive arrows center-block offsetLg" src="assets/img/down_arrow.svg" id="downArrow" alt="down_arrow"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="tealBkgd">
+        <div class="container">
+            <div class="row offsetLg">
+                <div class="col-md-4"><img class="img-responsive" src="assets/img/profile_pic.png" id="profileImg" alt="profile_pic"></div>
+                <div class="col-md-8">
+                    <h1 id="aboutHeader">HELLO, I'M RACHEL.</h1>
+                    <p class="aboutText">Through hard work, determination, and a little caffeine, anything is possible. This has become my philosophy ever since I started down the path of graphic design. From web design to 3D modeling, I work with many different mediums and
+                        bring 110% to the table each and every time. I also work great with others and believe time management and organization are important skills to have. If I’m not working on something design related, you can find me spending quality
+                        time with my cats or enjoying some tasty Mexican cuisine. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="portfolio">
+        <div class="row">
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project1_lg_icon.jpg" data-toggle="modal" data-target="#project1_modal" id="project1" alt="project1"></div>
+            
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project2_lg_icon.jpg" data-toggle="modal" data-target="#project2_modal" id="project2" alt="project2"></div>
+            
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project3_lg_icon.jpg" data-toggle="modal" data-target="#project3_modal" id="project3" alt="project3"></div>
+            
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project4_lg_icon.jpg" data-toggle="modal" data-target="#project4_modal" id="project4" alt="project4"></div>
+            
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project5_lg_icon.jpg" data-toggle="modal" data-target="#project5_modal" id="project5" alt="project5"></div>
+            
+            <div class="col-md-4 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project6_lg.jpg" data-toggle="modal" data-target="#project6_modal" id="project6" alt="project6"></div>
+            
+            <div class="col-md-6 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project7_lg_icon.jpg" data-toggle="modal" data-target="#project7_modal" id="project7" alt="project7"></div>
+            
+            <div class="col-md-6 portfolioNoSpacing portfolioPlaceholder"><img class="img-responsive project" src="assets/img/project8_lg_icon.jpg" data-toggle="modal" data-target="#project8_modal" id="project8" alt="project8"></div>
+        </div>
+    </div>
+    <div id="services" class="tealBkgd">
+        <div class="container">
+            <div class="row offsetLg">
+                <div class="col-md-12">
                     <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">CJ's Highmarks Website Redesign</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/cjs.png" class="img-responsive img-centered" alt="">
-                                <p>In my free time, I redesigned the website for a restaurant called CJ's Highmarks for learning experiences. I kept a consistent theme of repeating wood panels and pictures, and a small color palette of red, white, and black. I used mainly Photoshop and some Illustrator to create this design, and am in the process of coding it with the program Brackets.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <div class="col-md-12" id="servicesHeadingExtraSpacing">
+                            <h1 class="text-center">HERE'S WHAT I DO</h1></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 serviceIconsExtraSpacing"><img class="img-responsive serviceIcons" src="assets/img/web_service.svg" alt="web_service_icon">
+                            <div class="row">
+                                <div class="col-md-12 offsetTopSm">
+                                    <h3 class="text-center">Web &amp; Mobile Design/Dev</h3></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 serviceIconsExtraSpacing"><img class="img-responsive serviceIcons" src="assets/img/graphic_service.svg" alt="graphic_design_service_icon">
+                            <div class="row">
+                                <div class="col-md-12 offsetTopSm">
+                                    <h3 class="text-center">Graphic Design</h3></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 serviceIconsExtraSpacing"><img class="img-responsive serviceIcons" src="assets/img/motion_service.svg" alt="motion_design_service_icon">
+                            <div class="row">
+                                <div class="col-md-12 offsetTopSm">
+                                    <h3 class="text-center">Motion Design</h3></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 serviceIconsExtraSpacing"><img class="img-responsive serviceIcons" src="assets/img/3d_service.svg" alt="motion_design_service_icon">
+                            <div class="row">
+                                <div class="col-md-12 offsetTopSm">
+                                    <h3 class="text-center">3D Modeling</h3></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+    </div>
+    <div id="resume" class="geometricBkgd">
+        <div class="container">
+            <div class="row offsetLg">
+                <div class="col-md-12">
+                    <h2 class="text-center">I'D LOVE TO WORK WITH YOU ON YOUR NEXT PROJECT! DOWNLOAD MY RESUME <a href="assets/img/resume.pdf" id="resumeHere" target="_blank">HERE</a> AND LET'S TALK!</h2></div>
+            </div>
+        </div>
+    </div>
+    <div id="contact" class="tealBkgd">
+        <div class="container">
+            <div class="row offsetLg">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="text-center">WANT TO CHAT?</h1></div>
+                    </div>
+                    
+                    <form action="https://formspree.io/rachelannbroering@gmail.com" method="POST">
+                        <div class="row offsetTopSm">
+                            <div class="col-md-6">
+                                <input class="form-control input-lg contactTextInput" type="text" name="first_name" required="" placeholder="First Name" autocomplete="on">
+                            </div>
+                            <div class="col-md-6 contactExtraSpacing">
+                                <input class="form-control input-lg contactTextInput" type="text" name="last_name" required="" placeholder="Last Name" autocomplete="on">
+                            </div>
+                        </div>
+                        <div class="row offsetTopSm">
+                            <div class="col-md-6">
+                                <input class="form-control input-lg contactTextInput" type="text" name="company" required="" placeholder="Company" autocomplete="on">
+                            </div>
+                            <div class="col-md-6 contactExtraSpacing">
+                                <input class="form-control input-lg contactTextInput" type="email" name="_replyto" required="" placeholder="E-Mail" autocomplete="on">
+                            </div>
+                        </div>
+                        <div class="row offsetTopSm">
+                            <div class="col-md-12">
+                                <input class="form-control input-lg contactTextInput" type="text" name="subject" required="" placeholder="Subject" autocomplete="on">
+                            </div>
+                        </div>
+                        <div class="row offsetTopSm">
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="message" rows="5" cols="1" wrap="hard" spellcheck="true" required="" placeholder="Message" id="textArea"></textarea>
+                            </div>
+                        </div>
+                        <div class="row offsetTopSm">
+                            <div class="col-md-12">
+                               <input class="btn btn-default btn-lg center-block" type="submit" id="sendButton" value="SEND!">
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="geometricBkgd">
+        <div class="container">
+            <div class="row offsetLg">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="#head" class="smooth-scroll"><img class="img-responsive arrows center-block" src="assets/img/up_arrow.svg" id="upArrow" alt="up_arrow"></a>
                         </div>
                     </div>
+                    <div class="row offsetTopSm">
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <a href="mailto:rachelannbroering@gmail.com" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/email_icon.svg" alt="email" id="emailIcon"></a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4">
+                            <a href="tel:937-985-0229" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/phone_icon.svg" alt="phone" id="phoneIcon"></a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4" id="socialSpacingXsmView">
+                            <a href="https://www.linkedin.com/in/rachelannbroering" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/linkedin_icon.svg" alt="linkedin" id="linkedinIcon"></a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4 socialSpacingSmView">
+                            <a href="https://www.behance.net/rachelbroering" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/behance_icon.svg" alt="behance" id="behanceIcon"></a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4 socialSpacingSmView">
+                            <a href="https://github.com/RachelAnnB" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/github_icon.svg" alt="github" id="gitIcon"></a>
+                        </div>
+                        <div class="col-md-2 col-sm-4 col-xs-4 socialSpacingSmView">
+                            <a href="https://twitter.com/BroeringRachel" target="_blank"><img class="img-responsive center-block socialMedia" src="assets/img/twitter_icon.svg" alt="twitter" id="twitterIcon"></a>
+                        </div>
+                    </div>
+                    <div class="row offsetTopSm">
+                        <div class="col-md-12">
+                            <h1 class="text-center" id="footerText">Rachel Broering 2016 // All Rights Reserved</h1></div>
+                    </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Destination Website</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/vancouver.png" class="img-responsive img-centered" alt="">
-                                <p>This was a project for my Web Design II class. We had to pick a destination, and then design and code a website, with an about, events, lodging, and dining sections. I chose Vancouver, Canada and tried to stick with a simple color palette of mostly blue, white, and some black. The areas with black rather than white highlights, show what would happen if you would hover over that section. For this project, I mainly worked with Photoshop, Illustrator, and Brackets.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="project1_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader1">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Digital Resume</h1>
+                        <p>Along with my business cards, and resume, I wanted another element for my own personal brand. After browsing for some inspiration, I came across the idea for an interactive or digital resume. I loved the idea, and decided to apply it to my own brand. The colors, fonts, and overall theme match that of my regular resume, but the moving aspect makes it that much more memorable of a piece. The illustrations were all created in Adobe Illustrator, and the actual animation was created using Adobe After Effects.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row paddingSm modalWireframes">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Story Board</h2></div>
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_1.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_1.jpg" alt="resume_strybrd_1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_2.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_2.jpg" alt="resume_strybrd_2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_3.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_3.jpg" alt="resume_strybrd_3"></a></div>
+                        </div>
+                        <div class="row modalWireframes paddingBottomSm">
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_4.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_4.jpg" alt="resume_strybrd_4"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_5.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_5.jpg" alt="resume_strybrd_5"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/resume_strybrd_6.jpg" data-lightbox="digital_resume"><img class="img-responsive center-block" src="assets/img/resume_strybrd_6.jpg" alt="resume_strybrd_6"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Animation </h2></div>
+                            <div class="col-md-12">
+                            <video class="img-responsive center-block" controls>
+                            <source src="assets/videos/digital_resume.mp4" type="video/mp4">
+                            </video>
                             </div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/resume_font1.png" data-lightbox="digital_resume"><img class="img-responsive" src="assets/img/resume_font1.png" alt="resume_font"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/resume_colors.png" data-lightbox="digital_resume"><img class="img-responsive navbarToggle" src="assets/img/resume_colors.png" alt="resume_colors"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/resume_font2.png" data-lightbox="digital_resume"><img class="img-responsive" src="assets/img/resume_font2.png" alt="resume_font"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/resume_assets.png" data-lightbox="digital_resume"><img class="img-responsive navbarToggle" src="assets/img/resume_assets.png" alt="resume_assets"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project3_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project3_sm_icon.jpg" alt="project3_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project6_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project6_sm.jpg" alt="project6_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project8_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project8_sm_icon.jpg" alt="project8_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project2_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader2">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">AutoSpot App Design</h1>
+                        <p>The idea for AutoSpot was inspired by a device called Tile. Tile is a tiny Bluetooth tracker with an easy-to-use app that helps you find your belongings like a phone, keys, or maybe even a pet. AutoSpot closely resembles Tile, but for your vehicle instead. Users could register their car or truck, and in the case of losing your vehicle in a large parking garage, or it being stolen, AutoSpot could help you find your vehicle. Once your vehicle is registered, just select to track your car or truck and it will show you where it is on a map. The illustrations and banners were created in Adobe Illlustrator, while the mockups and icon were created in Adobe Photoshop. To create the wireframes, I used Balsamic Mockups.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row modalWireframes paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Wireframes</h2></div>
+                            <div class="col-md-3 col-md-offset-1"><a href="assets/img/autospot_wireframe_1.png" data-lightbox="autospot"><img class="img-responsive center-block wireframes" src="assets/img/autospot_wireframe_1.png" alt="app_wireframe1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/autospot_wireframe_2.png" data-lightbox="autospot"><img class="img-responsive center-block wireframes" src="assets/img/autospot_wireframe_2.png" alt="app_wireframe2"></a></div>
+                            
+                            <div class="col-md-3"><a href="assets/img/autospot_wireframe_3.png" data-lightbox="autospot"><img class="img-responsive center-block wireframes" src="assets/img/autospot_wireframe_3.png" alt="app_wireframe3"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">App Design</h2></div>
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/phone_1.png" data-lightbox="autospot"><img class="img-responsive phoneScreens center-block" src="assets/img/phone_1.png" alt="phone1"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/phone_2.png" data-lightbox="autospot"><img class="img-responsive phoneScreens center-block" src="assets/img/phone_2.png" alt="phone2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/phone_3.png" data-lightbox="autospot"><img class="img-responsive phoneScreens center-block" src="assets/img/phone_3.png" alt="phone3"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm">
+                            <div class="col-md-5"><a href="assets/img/banner_1.jpg" data-lightbox="autospot"><img class="img-responsive center-block" src="assets/img/banner_1.jpg" alt="app_banner1"></a></div>
+                            
+                            <div class="col-md-5"><a href="assets/img/banner_2.jpg" data-lightbox="autospot"><img class="img-responsive center-block" src="assets/img/banner_2.jpg" alt="app_banner2"></a></div>
+                            
+                            <div class="col-md-2"><a href="assets/img/app_icon.png" data-lightbox="autospot"><img class="img-responsive navbarToggle center-block" src="assets/img/app_icon.png" alt="app_icon"></a></div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/app_font1.png" data-lightbox="autospot"><img class="img-responsive" src="assets/img/app_font1.png" alt="app_font1"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/autospot_colors.png" data-lightbox="autospot"><img class="img-responsive navbarToggle" src="assets/img/autospot_colors.png" alt="app_colors"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/app_font2.png" data-lightbox="autospot"><img class="img-responsive" src="assets/img/app_font2.png" alt="app_font2"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/autospot_assets.png" data-lightbox="autospot"><img class="img-responsive navbarToggle" src="assets/img/autospot_assets.png" alt="app_assets"></a></div>
+                        </div>
+                        <div class="row paddingSm" id="modalMockup2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Mockup </h2></div>
+                            <div class="col-md-12"><a href="assets/img/app_mockup.png" data-lightbox="autospot"><img class="img-responsive center-block" src="assets/img/app_mockup.png" alt="app_mockup"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Event Website Redesign</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/rotr.png" class="img-responsive img-centered" alt="">
-                                <p>This was a project for my Spring Term Web Design class. For this project we had to choose an event from anywhere in the world, and either create a website for it, or redesign their current site. I chose a rock concert in Columbus, Ohio called Rock on the Range, and redesigned their existing website. I again used a small color palette of red, black and white, and tried to keep the wallpapers consistent. I also went with a grunge feel to match the nature of the concert. I used Illustrator and Photoshop to complete this project.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project4_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project4_sm_icon.jpg" alt="project4_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project5_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project5_sm_icon.jpg" alt="project5_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project7_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project7_sm_icon.jpg" alt="project7_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project3_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader3">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                        <h1 class="text-left modal-title">Sasha Farms Responsive Design</h1>
+                        <p>In Manchester, Michigan there is a sanctuary called Sasha Farms. It is the largest sanctuary in the midwest and currently houses over 200 animals of all shapes and sizes. It became an official non-profit organization in 2001, and provides food, water, veterinary care, and shelter for all of its tenants. Being the animal lover that I am, I love the idea of this organization and was really excited to do this project. Because of what the sanctuary stands for, I kept the theme of this project very fun and light-hearted. All the illustrations were created in Adobe Illustrator, with the final web designs being made in Adobe Photoshop. To create the wireframes, I used Balsamic Mockups.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row modalWireframes paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Wireframes</h2></div>
+                            <div class="col-md-3 col-md-offset-1"><a href="assets/img/sasha_wireframe_1.png" data-lightbox="sasha_farms"><img class="img-responsive center-block wireframes" src="assets/img/sasha_wireframe_1.png" alt="sasha_wireframe1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/sasha_wireframe_2.png" data-lightbox="sasha_farms"><img class="img-responsive center-block wireframes" src="assets/img/sasha_wireframe_2.png" alt="sasha_wireframe2"></a></div>
+                            
+                            <div class="col-md-3"><a href="assets/img/sasha_wireframe_3.png" data-lightbox="sasha_farms"><img class="img-responsive center-block wireframes" src="assets/img/sasha_wireframe_3.png" alt="sasha_wireframe3"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Responsive Web Design</h2></div>
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/notebook_size.jpg" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/notebook_size.jpg" alt="sasha_notebook_size"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/tablet_size.jpg" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/tablet_size.jpg" alt="sasha_tablet_size"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/mobile_size.jpg" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/mobile_size.jpg" id="mobileSize" alt="sasha_mobile_size"></a></div>
+                        </div>
+                        <div class="row paddingTopSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-4"><a href="assets/img/sasha_font1.png" data-lightbox="sasha_farms"><img class="img-responsive" src="assets/img/sasha_font1.png" alt="sasha_font1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/sasha_font2.png" data-lightbox="sasha_farms"><img class="img-responsive" src="assets/img/sasha_font2.png" alt="sasha_font2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/sasha_colors.png" data-lightbox="sasha_farms"><img class="img-responsive navbarToggle" src="assets/img/sasha_colors.png" alt="sasha_colors"></a></div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-4"><a href="assets/img/rooster.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/rooster.png" alt="sasha_asset1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/pig.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/pig.png" alt="sasha_asset2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/sheep.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/sheep.png" alt="sasha_asset3"></a></div>
+                        </div>
+                        <div class="row modalAssets2 paddingBottomSm">
+                            <div class="col-md-4"><a href="assets/img/barn.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/barn.png" alt="sasha_asset4"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/windmill.png" data-lightbox="sasha_farms"><img class="img-responsive wireframes center-block" src="assets/img/windmill.png" alt="sasha_asset5"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/tree.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/tree.png" alt="sasha_asset6"></a></div>
+                        </div>
+                        <div class="row paddingSm" id="modalMockup3">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Mockup </h2></div>
+                            <div class="col-md-12"><a href="assets/img/sasha_mockup.png" data-lightbox="sasha_farms"><img class="img-responsive center-block" src="assets/img/sasha_mockup.png" alt="sasha_mockup"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Vector Illustration</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/landscape.png" class="img-responsive img-centered" alt="">
-                                <p>This was the first big project for my Intro to Applications class. We had to find an image of a landscape, and then completely trace and vectorize it using Illustrator, so that was the only program I used to complete this.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project5_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project5_sm_icon.jpg" alt="project5_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project2_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project2_sm_icon.jpg" alt="project2_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project8_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project8_sm_icon.jpg" alt="project8_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project4_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader4">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Delta Airlines Commercial</h1>
+                        <p>For over 90 years, Delta Airlines has been taking travelers to more than 325 destinations, in over 60 countries, on 6 continents. For this project, I focused on 3 very memorable locations they travel to, London, England, Moscow, Russia, and Sydney, Australia. To add more depth to the animation, I included textures and vignettes in the final project. All the illustrations were created in Adobe Illustrator, while the animating was done in Adobe After Effects.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row paddingSm modalWireframes">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Story Board</h2></div>
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_1.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_1.jpg" alt="delta_strybrd_1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_2.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_2.jpg" alt="delta_strybrd_2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_3.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_3.jpg" alt="delta_strybrd_3"></a></div>
+                        </div>
+                        <div class="row modalWireframes paddingBottomSm">
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_4.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_4.jpg" alt="delta_strybrd_4"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_5.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_5.jpg" alt="delta_strybrd_5"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_stybrd_6.jpg" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_stybrd_6.jpg" alt="delta_strybrd_6"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Animation </h2></div>
+                            
+                            <div class="col-md-12">
+                            <video class="img-responsive center-block" controls>
+                            <source src="assets/videos/delta_airlines.mp4" type="video/mp4">
+                            </video>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/delta_font.png" data-lightbox="delta_airlines"><img class="img-responsive" src="assets/img/delta_font.png" alt="delta_font"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/delta_colors.png" data-lightbox="delta_airlines"><img class="img-responsive navbarToggle" src="assets/img/delta_colors.png" alt="delta_colors"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/delta_logo.png" data-lightbox="delta_airlines"><img class="img-responsive offsetTopLg center-block" src="assets/img/delta_logo.png" alt="delta_logo"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_plane.png" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_plane.png" alt="delta_asset1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_earth.png" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_earth.png" alt="delta_asset2"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/delta_london.png" data-lightbox="delta_airlines"><img class="img-responsive navbarToggle center-block" src="assets/img/delta_london.png" alt="delta_asset3"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_moscow.png" data-lightbox="delta_airlines"><img class="img-responsive center-block" src="assets/img/delta_moscow.png" alt="delta_asset4"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/delta_sydney.png" data-lightbox="delta_airlines"><img class="img-responsive offsetTopLg center-block" src="assets/img/delta_sydney.png" alt="delta_asset5"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Logo Design</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/logos.png" class="img-responsive img-centered" alt="">
-
-                                <p>This was a logo design project for my Graphic Design class. After choosing a company, mine being Star Greenhouses Inc., we had to create three distinctly different looking logos. I tried to really vary the designs between each logo, and use mostly different colors as well. This project was also done solely in Illustrator.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project1_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project1_sm_icon.jpg" alt="project1_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project6_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project6_sm.jpg" alt="project6_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project7_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project7_sm_icon.jpg" alt="project7_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project5_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader5">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Vancouver Web Design</h1>
+                        <p>If there was one place I would love to visit it would be Vancouver, Canada. The city seems very popular and lies in a perfect location that overlooks lakes and mountains alike. Because of its location, I went with a very outdoors-y feeling and included photography of the surrounding geography. The small illustrations were created in Adobe Illustrator, and the final design was put together in Adobe Photoshop. To create the wireframes, I used Balsamic Mockups.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row modalWireframes paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Wireframes</h2></div>
+                            <div class="col-md-12"><a href="assets/img/vancouver_wireframe.png" data-lightbox="vancouver"><img class="img-responsive center-block singleWireframe" src="assets/img/vancouver_wireframe.png" alt="vancouver_wireframe"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Web Design</h2></div>
+                            <div class="col-md-12"><a href="assets/img/vancouver_design.jpg" data-lightbox="vancouver"><img class="img-responsive center-block singleDesign" src="assets/img/vancouver_design.jpg" alt="vancouver_web_design"></a></div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-4"><a href="assets/img/vancouver_font1.png" data-lightbox="vancouver"><img class="img-responsive" src="assets/img/vancouver_font1.png" alt="vancouver_font1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/vancouver_font2.png" data-lightbox="vancouver"><img class="img-responsive" src="assets/img/vancouver_font2.png" alt="vancouver_font2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/vancouver_colors.png" data-lightbox="vancouver"><img class="img-responsive navbarToggle" src="assets/img/vancouver_colors.png" alt="vancouver_colors"></a></div>
+                        </div>
+                        <div class="row modalAssets2 paddingBottomSm">
+                            <div class="col-md-6"><a href="assets/img/vacouver_logo.png" data-lightbox="vancouver"><img class="img-responsive center-block" src="assets/img/vacouver_logo.png" alt="vancouver_logo"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/vancouver_arrow.png" data-lightbox="vancouver"><img class="img-responsive center-block" src="assets/img/vancouver_arrow.png" id="vancouverArrow" alt="vancouver_arrow"></a></div>
+                        </div>
+                        <div class="row paddingSm" id="modalMockup5">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Mockup </h2></div>
+                            <div class="col-md-12"><a href="assets/img/vancouver_mockup.png" data-lightbox="vancouver"><img class="img-responsive center-block" src="assets/img/vancouver_mockup.png" alt="vancouver_mockup"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Photoshop Collage</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/collage.png" class="img-responsive img-centered" alt="">
-                                <p>This project was also done for my Intro to Applications class. We had to randomly select three things from a basket, a place, animal, and color, and then created a collage in Photoshop. My choices were Dallas, Texas, a shark, and the color coral. I started off with the city skyline and then had it transition into a more desert looking scene to match the dry state. Texas is also largely associated with animal skulls, so I replaced the common bull skull with my chosen animal. I then used actual coral to bring in my color and spread it throughout the scene. I also added a few extra Texas elements like the road sign and flag symbol, and a few textures to top it all off. This final project was done using Photoshop and Illustrator.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project3_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project3_sm_icon.jpg" alt="project3_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project2_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project2_sm_icon.jpg" alt="project2_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project1_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project1_sm_icon.jpg" alt="project1_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project6_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader6">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Hollywood Undead Packaging</h1>
+                        <p>For many years, Hollywood Undead has been a favorite band of mine, so when given the chance to create a limited edition package for something of my choice, I knew exactly what I wanted to do. I chose to focus on four main elements for this project; the CDs, the CD sleeves, a booklet, and the box. Because there are six members, I chose to put them on the CDs along with the names of each CD. The sleeves feature the CD name as well as a full tracklist. The booklet would include a small bio of the band as well as lyrics for all the songs. The repeating caution tape theme relates back to the style of their music which is rap rock. The CDs, and sleeves were all created using Adobe Photoshop, while the booklet was created in Adobe InDesign.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row modalWireframes paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Sketches </h2></div>
+                            <div class="col-md-12"><a href="assets/img/hu_wireframe_placeholder.jpg" data-lightbox="hu_packaging"><img class="img-responsive center-block" src="assets/img/hu_wireframe_placeholder.jpg" alt="hu_placeholder"></a></div>
+                        </div>
+                        <div class="row paddingTopSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Limited Edition Packaging</h2></div>
+                        </div>
+                        <div class="row paddingBottomSm">
+                            <div class="col-md-12 col-md-offset-0"><a href="assets/img/hu_img1.jpg" data-lightbox="hu_packaging"><img class="img-responsive center-block" src="assets/img/hu_img1.jpg" alt="hu_placeholder"></a></div>
+                        </div>
+                        
+                        <div class="row paddingBottomSm">
+                            <div class="col-md-12"><a href="assets/img/hu_img2.jpg" data-lightbox="hu_packaging"><img class="img-responsive center-block" src="assets/img/hu_img2.jpg" alt="hu_placeholder"></a></div>
+                        </div>
+                                                <div class="row paddingBottomSm">
+                            <div class="col-md-12"><a href="assets/img/hu_img3.jpg" data-lightbox="hu_packaging"><img class="img-responsive center-block" src="assets/img/hu_img3.jpg" alt="hu_placeholder"></a></div>
+                        </div>
+
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-4"><a href="assets/img/hu_font1.png" data-lightbox="hu_packaging"><img class="img-responsive" src="assets/img/hu_font1.png" alt="vancouver_font1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/hu_font2.png" data-lightbox="hu_packaging"><img class="img-responsive" src="assets/img/hu_font2.png" alt="vancouver_font2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/hu_colors.png" data-lightbox="hu_packaging"><img class="img-responsive navbarToggle" src="assets/img/hu_colors.png" alt="sasha_colors"></a></div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Book Cover Redesign</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/book.png" class="img-responsive img-centered" alt="">
-
-                                <p>This project for my Graphic Design class, had us redesign a book cover. I ended up choosing the book Anthem by Ayn Rand, as I had read it earlier that year. The book focuses on a futuristic dystopian society where individuality no longer exists. Due to the dark theme of the book, I wanted the cover to replicate that theme. Much of the book takes place inside an underground tunnel, so I chose that setting for the front cover. The rediscovery of light is also a big occurrence in the book, so I included lightbulbs on the back cover. This final project was completed using Photoshop, Illustrator, and InDesign.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Alternative Energy Icons</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/icons.png" class="img-responsive img-centered" alt="">
-                                <p>This project is the oldest one to date, and was done while I was still at my career tech center in high school. We were required to partake in Business Professionals of America, so me and a group of friends entered the Web Site Design Team competition, where we had to create a website based around alternative energy solutions. My main job was the creation of all the vector image icons that are shown here, and I also assisted with some of the coding. I used Illustrator for the iconography, and Dreamweaver for the coding.
-                                    <br>
-                                    <br>
-                                    We came in 2nd place at the State competition with our website.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Non-Profit Flyer</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/flyer.png" class="img-responsive img-centered" alt="">
-
-                                <p>This next project was my final big project for my Intro to Applications class. We had to pick a non-profit organization, and a real or made-up event for it, and then make a flyer for that event. I support animal rights, so I chose to make a flyer for Farm Sanctuary's Walk for Farm Animals event. I chose a lighter theme for this flyer that would potentially appeal for all ages. For this project I was using Photoshop and InDesign.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project4_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project4_sm_icon.jpg" alt="project4_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project8_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project8_sm_icon.jpg" alt="project8_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project2_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project2_sm_icon.jpg" alt="project2_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project7_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader7">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Rock on the Range Design</h1>
+                        <p>In Columbus, Ohio of each year, there is a large rock concert hosted at Columbus Crew Stadium called Rock on the Range. I've personally attended the concert for several years, and love the atmosphere it creates. When I was told to create a web design project for any event, I knew Rock on the Range would be perfect. The concert features over 50 bands each year and is spread across an entire weekend. Because it is rock music, I went with a dark grunge-like theme with lots of dark colors and textures. The final design was created in Adobe Photoshop, and the wireframes, were created using Balsamic Mockups.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row modalWireframes paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Wireframes</h2></div>
+                            <div class="col-md-12"><a href="assets/img/rotr_wireframe.png" data-lightbox="rotr"><img src="assets/img/rotr_wireframe.png" class="center-block singleWireframe" alt="rotr_wireframe"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Web Design</h2></div>
+                            <div class="col-md-12"><a href="assets/img/rotr_design.jpg" data-lightbox="rotr"><img class="img-responsive center-block singleDesign" src="assets/img/rotr_design.jpg" alt="rotr_web_design"></a></div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-4"><a href="assets/img/rotr_font1.png" data-lightbox="rotr"><img class="img-responsive" src="assets/img/rotr_font2.png" alt="rotr_font1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/rotr_font2.png" data-lightbox="rotr"><img class="img-responsive" src="assets/img/rotr_font1.png" alt="rotr_font2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/rotr_colors.png" data-lightbox="rotr"><img class="img-responsive navbarToggle" src="assets/img/rotr_colors.png" alt="rotr_colors"></a></div>
+                        </div>
+                        <div class="row paddingSm" id="modalMockup7">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Mockup </h2></div>
+                            <div class="col-md-12"><a href="assets/img/rotr_mockup.png" data-lightbox="rotr"><img class="img-responsive center-block" src="assets/img/rotr_mockup.png" alt="rotr_mockup"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Black & White Photography</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/photography.png" class="img-responsive img-centered" alt="">
-
-                                <p>The next pieces were not used for a school project. I visited Hocking Hills with some friends this past fall, and while there shot some pictures. I made some slight changes, and then made them all black and white, because I love black and white photography. These were the final pictures, and the only program I used was Photoshop.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project1_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project1_sm_icon.jpg" alt="project1_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project3_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project3_sm_icon.jpg" alt="project3_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project5_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project5_sm_icon.jpg" alt="project5_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                <div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
+        <div id="project8_modal" class="modal fade" style="overflow-y: scroll;" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader8">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h1 class="text-left modal-title">Bee the Swarm Promo</h1>
+                        <p>Bee the Swarm is a small start-up company based in Albuquerque, New Mexico that I work for. Our goal is to create a social network that raises money by playing video games. The more you play, the more you help out an organization in need. The animation helps illustrate the companies plan and also mentions the release of their first mobile game called ZomBees. All of the illustrations were created in Adobe Illustrator, while the animating was done using Adobe After Effects.</p>
+                    </div>
+                    <div class="modal-body modalSpacing">
+                        <div class="row paddingSm modalWireframes">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Story Board</h2></div>
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_1.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_1.jpg" alt="bts_stybrd_1"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_2.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_2.jpg" alt="bts_stybrd_2"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_3.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_3.jpg" alt="bts_stybrd_3"></a></div>
+                        </div>
+                        <div class="row modalWireframes paddingBottomSm">
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_4.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_4.jpg" alt="bts_stybrd_4"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_5.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_5.jpg" alt="bts_stybrd_5"></a></div>
+                            
+                            <div class="col-md-4"><a href="assets/img/bts_stybrd_6.jpg" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_stybrd_6.jpg" alt="bts_stybrd_6"></a></div>
+                        </div>
+                        <div class="row paddingSm">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleGray paddingBottomSm">Animation </h2></div>
+                            <div class="col-md-12">
+                            <video class="img-responsive center-block" controls>
+                            <source src="assets/videos/bts_promo.mp4" type="video/mp4">
+                            </video>
+                            </div>
+                        </div>
+                        <div class="row paddingSm modalAssets2">
+                            <div class="col-md-12">
+                                <h2 class="text-right modal-title modalTitleWhite paddingBottomSm">Design Assets</h2></div>
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/bts_font2.png" data-lightbox="bts_promo"><img class="img-responsive" src="assets/img/bts_font2.png" alt="bts_font1"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/bts_colors.png" data-lightbox="bts_promo"><img class="img-responsive navbarToggle" src="assets/img/bts_colors.png" alt="bts_colors"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-6 col-md-offset-0"><a href="assets/img/bts_font1.png" data-lightbox="bts_promo"><img class="img-responsive" src="assets/img/bts_font1.png" alt="bts_font2"></a></div>
+                            
+                            <div class="col-md-6"><a href="assets/img/bts_logo.png" data-lightbox="bts_promo"><img class="img-responsive navbarToggle center-block" src="assets/img/bts_logo.png" alt="bts_logo"></a></div>
+                        </div>
+                        <div class="row paddingBottomSm modalAssets2">
+                            <div class="col-md-4"><a href="assets/img/bts_zombee.png" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_zombee.png" alt="bts_asset1"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/bts_bee.png" data-lightbox="bts_promo"><img class="img-responsive navbarToggle center-block" src="assets/img/bts_bee.png" alt="bts_asset2"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="assets/img/bts_earth.png" data-lightbox="bts_promo"><img class="img-responsive center-block" src="assets/img/bts_earth.png" alt="bts_asset3"></a></div>
+                            <div class="col-md-12">
+                                <button class="btn btn-default center-block navbarToggle closeButton" type="button" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Fantasy, Flora, Fauna Illustration</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/elephant.png" class="img-responsive img-centered" alt="">
-
-                                <p>This project was the first one for my Illustration class. The project was called Fantasy, Flora, Fauna and we had to create a concept involving those three things. I think elephants are really peaceful and cool animals, so I wanted to include one for my piece. The fantasy part was introduced with the civilization added to the back of the elephant, and I have small hints of flora with the designs on the elephant. Everything was hand drawn and then outlined in ink.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
+                    <div class="modal-footer">
+                        <h1 class="text-center">More Work</h1>
+                        <div class="row offsetSm">
+                            <div class="col-md-4 col-md-offset-0"><a href="#project4_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project4_sm_icon.jpg" alt="project4_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0 col-md-push-0 col-md-pull-0"><a href="#project6_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project6_sm.jpg" alt="project6_sm_icon"></a></div>
+                            
+                            <div class="col-md-4 col-md-offset-0"><a href="#project7_modal" data-toggle="modal" data-dismiss="modal"><img class="img-responsive center-block" src="assets/img/project7_sm_icon.jpg" alt="project7_sm_icon"></a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                <div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Limited Edition Package Design</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/hu.png" class="img-responsive img-centered" alt="">
+    </div>    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/smooth-scroll.js"></script>
+    
+    <script>$(function() {
+    $(".smooth-scroll").click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top -80
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});</script>
 
-                                <p>My last piece was for my Spring Term Limited Edition Packaging class. We had to choose a product, item, or general theme, and create a limited edition package for it. I chose to do mine based on the band Hollywood Undead and their 6 main Cd's. We had to include at least three different elements with the package, so I had the CDs with sleeves, a booklet, and the box it all came in. I chose a dark grunge feel for my overall design to match the feel of the band. For this project, I used Photoshop, Illustrator, and Indesign.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        <div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Low Poly Castle (Remote Getaway)</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/castle.png" class="img-responsive img-centered" alt="">
-
-                                <p>This piece is another free time project, that I created using the program Cinema 4D. I started off with modeling the square land platform, then adding the mountains in the background, then modeled the actual castle as well as small additions like the trees. After all the modeling was complete, I added textures to all the surfaces. After a final render, I took the file into Photoshop and tweaked the colors, and added a colored background plus text. Cinema 4D and Photoshop, were the only 2 programs I used for this project.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        <div class="portfolio-modal modal fade" id="portfolioModal14" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Low Poly Gorillaz Island (Windmill Island)</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/island.png" class="img-responsive img-centered" alt="">
-
-                                <p>This low poly project was based off of the floating island, inside a music video of a band called Gorillaz. It was another free time project, after a friend gave me the idea for the project. I did all the modeling first, and then added textures to all of the low poly structures. After the file was complete, I corrected colors and added a background and text in Photoshop. I only used two programs for this project again, and they were Cinema 4D and Photoshop.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                        <div class="portfolio-modal modal fade" id="portfolioModal15" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
-                <div class="close-modal" data-dismiss="modal">
-                    <div class="lr">
-                        <div class="rl">
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <div class="modal-body">
-                                <h2 class="onwhite">Low Poly Train (Choo Choo)</h2>
-                                <hr class="star-primary">
-                                <img src="img/portfolio/train.png" class="img-responsive img-centered" alt="">
-
-                                <p>This last project was another free time Cinema 4D piece, and I followed the same method I used in previous low poly projects. After all the modeling was finished, and the textures were applied, the file was taken into Photoshop for further edits. Those being, color correction, the addition of a background, and some text. Photoshop and Cinema 4D were again, the only 2 programs used for this project.</p>
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-
-        <!-- Plugin JavaScript -->
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="js/classie.js"></script>
-        <script src="js/cbpAnimatedHeader.js"></script>
-
-        <!-- Contact Form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
-
-        <!-- Custom Theme JavaScript -->
-        <script src="js/freelancer.js"></script>
-
-    </body>
+</body>
 
 </html>

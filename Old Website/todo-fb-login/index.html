@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Parse Todo Application</title>
+
+    <!--Links to CSS Stylesheets-->
+    <link rel="stylesheet" href="css/main.css" media="all" type="text/css">
+
+    <!--Links to Javascript files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.2/backbone.marionette.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+  </head>
+  <body>
+
+    <div class="title">
+      <h1>Parse Todo Application</h1>
+    </div>
+
+    <div class="container">
+      <div class="todoapp">
+
+        <div class="content">
+        </div>
+      </div>
+
+      <!--Facebook Login Info-->
+      <div id="fb-root"></div>
+      <script type="text/javascript">
+
+        Parse.initialize("jRUEinSI1QYVOLrPPCkUpAiKAe8wQ6PvrveXhr2l", "97mBYxGauI7CApIOv94ZipLmTkhm73qYkmbZrPge");
+
+        window.fbAsyncInit = function() {
+          //Initiate the Facebook Javascript SDK
+          Parse.FacebookUtils.init({
+            appId : '1664061573828425',
+            status : false, //Checks Facebook login status
+            cookie : true, //Enable cookies to allow Parse to access the session
+            xfbml : true, //Looks for social plugins on the page
+            logging : true,
+            version : 'v2.4'
+          });
+          
+        };
+
+        //Load the SDK asynchronously
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/es_US/all.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+
+        function fLogin() {
+          Parse.FacebookUtils.logIn(null, {
+            success: function(user) {
+              if (!user.existed()) {
+                alert("User signed up and logged in through Facebook!");
+              }
+              else {
+                alert("User logged in through Facebook!");
+              }
+
+              window.open("http://www.rachelbroering.com/todo-fb-login/todo.html", "_self");
+              console.log('We are moving to the todo.html page');
+            },
+
+            error: function(user, error) {
+              alert("User cancelled the Facebook login or did not fully authorize.");
+            }
+
+          });
+        }
+        
+
+      </script>
+
+      <!--Facebook Login-->
+      <div id="fbLoginView" class="fbLoginView">
+        <div>
+          <h2>Login to Facebook</h2>
+        </div>
+
+        <div id="fbLoginBox">
+          <button class="fbLogin" id="loginBtn" onclick="fLogin();"><img src="/images/loginBtn.png"></button>
+          <br>       
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--Links to the Javascript files stored locally-->
+    <script src="js/lib/jquery-2.1.4.min.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="js/todos.js"></script>
+
+  </body>
+</html>

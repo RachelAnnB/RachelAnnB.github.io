@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  
+  <title></title>
+  
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <style type="text/css">
+  
+    body {
+      font-family: "Helvetica", sans-serif;
+      font-weight: normal;
+    }
+    h2 {
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    a {
+      text-decoration: none;
+    }
+    .hidden {
+      display: none;
+    }
+    #main {
+      text-align: center;
+    }
+    
+  </style>
+  
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body style="background: url(images/bgnoise_lg.png) repeat left top;">
+  
+  <!--FACEBOOK LOGIN SECTION-->
+  <script>
+    
+    //Initializing Parse
+    Parse.initialize("f5Ll5wlGw2ZYYke4yQu2ErBoYtbUhZsB2hV9YzWN", "gVGtznbf2Xfo1yYnCTFy092YswTrofE9dBlrLgU4");
+
+    //This is called with the results from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+      console.log('statusChangeCallback');
+      console.log(response);
+      /*
+      The response object is returned with a status field that lets the app know the current login status of the person
+      Full docs on the response object cab be found in the documentation for FB.getLoginStatus()
+      */
+      if (response.status === 'connected') {
+        //Logged into your app and Facebook
+        testAPI();
+      }
+      else if (response.status === 'not_authorized') {
+        //The person is logged into Facebook, but not your app
+        document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+      }
+      else {
+        //The person is not logged into Facebook, so we're not sure if they are logged into the app or not
+        document.getElementById('status').innerHTML = 'Please log ' + 'into Facebook.';
+      }
+    }
+    
+    //This function s called when someone finishes with the Login Button.
+    //See the onlogin handler attached to it in the sample code below
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    window.fbAsyncInit = function() {
+      Parse.FacebookUtils.init({    //This line replaces FB.init({
+        appId      : '887960807907844',   //Facebook app id
+        status     : true,      //check Facebook Login Status
+        cookie     : true,      //enable cookies to allow Parse to access the session
+        xfbml      : true,      //parse social plugins on this pace
+        version    : 'v2.4'     //use version 2.4
+      });
+      
+      /*
+      Now that we've initialized the JavaScript SDK, we call FB.getLoginStatus(). This function gets the state of the person visiting this page and can return one of three states to the callback you provide.They are:
+      
+      1. Logged into your app ('connected')
+      2. Logged into Facebook, but not your app ('not_authorized')
+      3. Not logged into Facebook and can't ell if they are logged into your app or not
+      
+      These three cases are handled in the callback function
+      */
+      
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+      
+      /*
+      When the following code is run:
+      1. The user is shown the Facebook login dialog.
+      2. The user authenticates via Facebook, and your app reciees a callback.
+      3. Our SDK recieves the Facebook data and saves it to a Parse.User. If it's a new user based on the Facebook ID,          then that user is created.
+      4. Your success callback is called with the user.
+      */
+      Parse.FacbookUtils.logIn(null, {
+        success: function(user) {
+          if (!user.existed()) {
+            alert("User signed up and loggin through Facebook!");
+          }
+          else {
+            alert("User logged in through Facebook!");
+          }
+        },
+        
+        error: function(user, error) {
+          alert("User cancelled the Facebook login or did not fully authorize.");
+        }
+      });
+      
+    };
+
+    //Load the SDK asynchronously
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk/debug.js";    //debug.js improves performance
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+    
+    /*
+    Here we run a very simple test of the Graph API after login is successful. See statusChangeCallback() for when this call is made
+    */
+    
+    function testAPI() {
+      console.log('Welcome! Fetching your information...');
+      FB.api('/me', function(response) {
+        console.log('Successful login for: ' + response.name);
+        document.getElementById('status').innerHTML =
+          'Thanks for loggin in, ' + response.name + '!';
+      });
+    }
+  </script>
+  
+  
+  <div class="title">
+    <h1>Noter</h1>
+  </div>
+  
+  <div id="content" style="background: url(images/bgnoise_lg.png) repeat left top;">
+    <nav id="navigation">
+      <ul>
+        <li> <a href="index.html"> Home </a></li>
+        <li> <a href="register.html"> Login </a></li>
+        <li> <a href="register.html"> Registration </a></li>
+        <li> <a href="blog.html"> Blog </a></li>
+        <li> <a href="contact.html"> Contact </a></li>
+        <li> <a href="about.html"> About </a></li>
+      </ul>
+    </nav>
+    
+    <div id="container">
+      <font size="4"><center>
+      Welcome to Noter. Here in this website, you will be able to store your unlimited memos which you are not able to keep in your brain for too long.<br/><br/>
+      
+      <!--
+      <font size="4"> <strong>Screenshot</strong></font><br/><br/><img src="images/screenshot.png" width ="400" height="400"/> <br/><br/><br/><br/>
+      -->
+      
+      Noter is a unique Website where every one can sign up in a simple way and can record his/her memos, so if they forgot something, Noter will make sure to remember for you. Don't wait and get signed up now.
+      </center></font><br/><br/>
+    </div>
+    
+    <center><button><a href="register.html" calss="classname">Sign Up</a></button></center><br>
+    
+  </div>
+  
+  <!--
+  Below we include the Login Button social plugin. This button uses the Javascript SDK to present a graphical Login button that triggers the FB.login() function when clicked.
+  -->
+  
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
+
+  <div id="status"></div>
+  
+  <!--Facebook Like Button-->
+   <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div>
+  
+  <div id="credits">
+    Copyright &copy Noter
+  </div>
+  
+</body>
+</html>
